@@ -1,0 +1,4 @@
+model:
+  name: plugins/models/cnn.py
+  n_classes: 10
+  in_features: 1

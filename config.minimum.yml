@@ -1,0 +1,133 @@
+fc_deep:
+  local_dataset:
+    # required input file names under each split directory
+    # supported by built-in ImageLoader: .npz or .npy
+    # supported by plugins/dataloaders/RnaLoader.py: .csv or .tsv
+    train: "train.npz"
+    test: "test.npz"
+    # options: null | "<filename>" (e.g. "mnist.npz")
+    central_test: null
+    # loader-specific kwargs:
+    # - for ImageLoader: usually {}
+    # - for RnaLoader.py: {sep: ",", label: "Group"}
+    detail: {}
+
+  logic:
+    # options: "directory" (cross-validation style folders) | "file" (single split)
+    mode: "directory"
+    # when mode=directory: subfolder name under /mnt/input to scan (e.g. "data")
+    # when mode=file: this value is ignored by runtime defaults
+    dir: "data"
+
+  result:
+    # output file names written under each split output directory
+    pred: "y_pred.csv"
+    target: "y_test.csv"
+    # optional key:
+    # model: "model.pt"
+
+  fed_hyper_params:
+    # number of communication rounds
+    max_iter: 10
+    # task-dependent; also used by some model definitions
+    n_classes: 10
+    # options:
+    # - built-in: "FedAvg" (utils/pytorch/optimizer.py)
+    # - custom plugin file in generic input: "<name>.py" exposing CustomAggregator
+    #   example: "FedAvg.py" (plugins/aggregators/FedAvg.py)
+    federated_model: "FedAvg"
+    # options from utils/pytorch/utils.py -> GlobalUpdates enum:
+    # WEIGHTS
+    # GRADIENTS
+    # WEIGHTS_CONFIG
+    # GRADIENTS_CONFIG
+    # WEIGHTS_CROSS_VALIDATION
+    # GRADIENTS_CROSS_VALIDATION
+    # WEIGHTS_CONFIG_CROSS_VALIDATION
+    # GRADIENTS_CONFIG_CROSS_VALIDATION
+    # WEIGHTS_STOPPING
+    # GRADIENTS_STOPPING
+    # WEIGHTS_CONFIG_STOPPING
+    # GRADIENTS_CONFIG_STOPPING
+    # WEIGHTS_STOPPING_CROSS_VALIDATION
+    # GRADIENTS_STOPPING_CROSS_VALIDATION
+    # WEIGHTS_CONFIG_STOPPING_CROSS_VALIDATION
+    # GRADIENTS_CONFIG_STOPPING_CROSS_VALIDATION
+    global_updates: WEIGHTS_STOPPING
+    # forwarded to aggregator constructor
+    param: {}
+
+  # options: true | false
+  use_smpc: false
+
+  trainer:
+    # options:
+    # - built-in: "BasicTrainer" (utils/pytorch/DeepModel.py)
+    # - custom trainer file in generic input: "<name>.py" exposing CustomTrainer
+    #   example: "FedMMb.py" (plugins/trainers/FedMMb.py)
+    name: "BasicTrainer"
+    # forwarded to trainer constructor
+    param: {}
+    # options from utils/pytorch/utils.py -> LocalUpdates enum:
+    # WEIGHTS
+    # GRADIENTS
+    # WEIGHTS_N_SAMPLES
+    # GRADIENTS_N_SAMPLES
+    # WEIGHTS_CROSS_VALIDATION
+    # GRADIENTS_CROSS_VALIDATION
+    # WEIGHTS_N_SAMPLES_CROSS_VALIDATION
+    # GRADIENTS_N_SAMPLES_CROSS_VALIDATION
+    # ALL
+    local_updates: WEIGHTS_N_SAMPLES
+    # options:
+    # - built-in: "ImageLoader" (utils/pytorch/DataLoader.py)
+    # - custom dataloader file in generic input: "<name>.py" exposing CustomDataLoader
+    #   examples: "ImageLoader.py", "RnaLoader.py"
+    data_loader: "ImageLoader.py"
+    optimizer:
+      # options:
+      # - any torch.optim class name (e.g. SGD, Adam, AdamW, RMSprop)
+      # - custom optimizer file in generic input exposing CustomOptimizer
+      name: "SGD"
+      param:
+        lr: 0.1
+    loss:
+      # options:
+      # - any torch.nn loss class name (e.g. CrossEntropyLoss, MSELoss, BCEWithLogitsLoss, NLLLoss)
+      # - custom loss file in generic input exposing CustomLoss (e.g. "focal_loss.py")
+      name: "CrossEntropyLoss"
+      param: {}
+    metrics:
+      # metrics options:
+      # - name: any importable metric class from the selected package (torchmetrics or custom)
+      # - package: python module path (e.g. torchmetrics.classification, torchmetrics.regression)
+      # examples:
+      # - {name: "Accuracy", package: "torchmetrics.classification"}
+      # - {name: "F1Score", package: "torchmetrics.classification"}
+      # - {name: "AUROC", package: "torchmetrics.classification"}
+      - name: "Accuracy"
+        package: "torchmetrics.classification"
+        param:
+          task: "multiclass"
+          num_classes: 10
+
+  train_config:
+    # common knobs consumed by BasicTrainer
+    verbose: false
+    batch_size: 32
+    test_batch_size: 32
+    epochs: 1
+    # optional training knobs used by some trainers/plugins
+    lr: 0.1
+    batch_count: 1
+    # options: cpu | gpu
+    device: cpu
+
+  model:
+    # options:
+    # - built-in class name from models/pytorch/models.py (currently "CNN")
+    # - custom model file in generic input exposing Model class (e.g. "cnn.py", "mlp.py")
+    # - full layer-list architecture instead of "name" (see README examples)
+    name: "cnn.py"
+    n_classes: 10
+    in_features: 1

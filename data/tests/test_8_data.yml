@@ -1,0 +1,10 @@
+id: 8
+image: featurecloud.ai/fc_deep_networks6
+createdat: 2026-06-09T16:25:29.402435441Z
+relayaddress: localhost
+queryinterval: 2
+dirs:
+- sample_data/c1
+- sample_data/c2
+gendir: tools/config
+resultdir: /data/tests

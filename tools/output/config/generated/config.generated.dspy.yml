@@ -1,0 +1,56 @@
+fc_deep:
+  local_dataset:
+    train: train.npz
+    test: test.npz
+    central_test: mnist.npz
+    detail:
+      sep: ','
+      label: Group
+    init_model: model.pt
+  simulation:
+    clients_dir: c1,c2,c3
+  logic:
+    mode: directory
+    dir: data
+  result:
+    pred: y_pred.csv
+    target: y_test.csv
+    model: model.pt
+  fed_hyper_params:
+    max_iter: 20
+    n_classes: 10
+    federated_model: FedAvg
+    global_updates: WEIGHTS_STOPPING
+    param: {}
+  use_smpc: false
+  trainer:
+    name: FedMMb.py
+    param: {}
+    local_updates: WEIGHTS_N_SAMPLES
+    data_loader: ImageLoader.py
+    optimizer:
+      name: SGD
+      param:
+        lr: 0.1
+        momentum: 0.9
+    loss:
+      name: focal_loss.py
+      param: {}
+    metrics:
+    - name: Accuracy
+      package: torchmetrics.classification
+      param:
+        task: multiclass
+        num_classes: 10
+  train_config:
+    verbose: true
+    batch_size: 32
+    test_batch_size: 32
+    epochs: 2
+    lr: 0.1
+    batch_count: 1
+    device: cpu
+  model:
+    name: mlp.py
+    n_classes: 10
+    in_features: 1

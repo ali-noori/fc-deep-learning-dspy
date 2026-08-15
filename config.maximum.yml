@@ -1,0 +1,116 @@
+fc_deep:
+  local_dataset:
+    # supported by built-in ImageLoader: .npz or .npy
+    # supported by RnaLoader.py: .csv or .tsv
+    train: "train.npz"
+    test: "test.npz"
+    # options: null | "<filename>"
+    central_test: "mnist.npz"
+    # loader-specific kwargs; examples:
+    # - ImageLoader: {}
+    # - RnaLoader.py: {sep: ",", label: "Group"}
+    detail:
+      sep: ","
+      label: "Group"
+    # options: null | "<model file name>" (loaded before federated rounds)
+    init_model: "model.pt"
+
+  # optional simulation mode block
+  simulation:
+    # comma-separated participant folder names
+    clients_dir: "c1,c2,c3"
+
+  logic:
+    # options: "directory" | "file"
+    mode: "directory"
+    # directory containing split folders when mode=directory
+    dir: "data"
+
+  result:
+    # required prediction outputs
+    pred: "y_pred.csv"
+    target: "y_test.csv"
+    # optional: persist final model per split
+    model: "model.pt"
+
+  fed_hyper_params:
+    # number of global communication rounds
+    max_iter: 20
+    # target class count for many classification models
+    n_classes: 10
+    # options:
+    # - "FedAvg" (built-in)
+    # - "<custom aggregator>.py" exposing CustomAggregator
+    federated_model: "FedAvg"
+    # options (GlobalUpdates enum):
+    # WEIGHTS, GRADIENTS, WEIGHTS_CONFIG, GRADIENTS_CONFIG,
+    # WEIGHTS_CROSS_VALIDATION, GRADIENTS_CROSS_VALIDATION,
+    # WEIGHTS_CONFIG_CROSS_VALIDATION, GRADIENTS_CONFIG_CROSS_VALIDATION,
+    # WEIGHTS_STOPPING, GRADIENTS_STOPPING, WEIGHTS_CONFIG_STOPPING, GRADIENTS_CONFIG_STOPPING,
+    # WEIGHTS_STOPPING_CROSS_VALIDATION, GRADIENTS_STOPPING_CROSS_VALIDATION,
+    # WEIGHTS_CONFIG_STOPPING_CROSS_VALIDATION, GRADIENTS_CONFIG_STOPPING_CROSS_VALIDATION
+    global_updates: WEIGHTS_STOPPING
+    # forwarded to aggregator constructor as kwargs
+    param: {}
+
+  # options: true | false
+  use_smpc: false
+
+  trainer:
+    # options:
+    # - "BasicTrainer" (built-in)
+    # - "<custom trainer>.py" exposing CustomTrainer (example: "FedMMb.py")
+    name: "BasicTrainer"
+    # forwarded to trainer constructor
+    param: {}
+    # options (LocalUpdates enum):
+    # WEIGHTS, GRADIENTS, WEIGHTS_N_SAMPLES, GRADIENTS_N_SAMPLES,
+    # WEIGHTS_CROSS_VALIDATION, GRADIENTS_CROSS_VALIDATION,
+    # WEIGHTS_N_SAMPLES_CROSS_VALIDATION, GRADIENTS_N_SAMPLES_CROSS_VALIDATION, ALL
+    local_updates: WEIGHTS_N_SAMPLES
+    # options:
+    # - "ImageLoader" (built-in)
+    # - custom dataloader .py exposing CustomDataLoader
+    #   examples: "ImageLoader.py", "RnaLoader.py"
+    data_loader: "ImageLoader.py"
+    optimizer:
+      # any torch.optim optimizer class or custom optimizer .py
+      # examples: SGD, Adam, AdamW, RMSprop
+      name: "SGD"
+      param:
+        lr: 0.1
+        momentum: 0.9
+    loss:
+      # any torch.nn loss class or custom loss .py
+      # examples: CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss, focal_loss.py
+      name: "CrossEntropyLoss"
+      param: {}
+    metrics:
+      # name/package can point to torchmetrics or custom metric modules
+      # examples: Accuracy, F1Score, Precision, Recall, AUROC
+      - name: "Accuracy"
+        package: "torchmetrics.classification"
+        param:
+          task: "multiclass"
+          num_classes: 10
+
+  train_config:
+    # common trainer parameters
+    verbose: true
+    batch_size: 32
+    test_batch_size: 32
+    epochs: 2
+    # optional knobs used by plugins/special trainers
+    lr: 0.1
+    batch_count: 1
+    # options: cpu | gpu
+    device: cpu
+
+  model:
+    # options:
+    # - built-in model class from models/pytorch/models.py (currently "CNN")
+    # - custom model file (e.g. "cnn.py", "mlp.py") exposing Model
+    # - explicit layer-list architecture (see README)
+    name: "cnn.py"
+    n_classes: 10
+    in_features: 1

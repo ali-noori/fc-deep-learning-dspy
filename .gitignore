@@ -1,0 +1,33 @@
+# Secrets
+tools/local_secrets.py
+tools/keys_secrets.py
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Virtualenvs
+venv/
+fc-deep-learning-env/
+fc-deep-learning-env-new/
+
+# Runtime / local
+mnt/
+data/logs/
+*.log
+*.pt
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Old local test scripts (already listed)
+eval.py
+test_federated.py
+test

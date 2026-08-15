@@ -1,0 +1,122 @@
+fc_deep:
+  local_dataset:
+    train: "train.npz"
+    test: "test.npz"
+#    train: "train.npz"
+#    test: "test.npz"
+#    central_test: "mnist.npz"
+    central_test: null
+#    detail: {} ## no detail should be an empty dict.
+    detail:
+      sep: ','
+      label: "Group"
+    init_model: "model.pt"
+
+  centralized: True
+
+  simulation:
+    clients_dir: c1,c2,c3 # Comma separated list of clients' directories
+
+  logic:
+#    mode: "file"
+#    dir: "."
+    mode: "directory"
+    dir: "data"
+
+
+  result:
+    pred: "y_pred.csv"
+    target: "y_test.csv"
+    model: "model.pt"
+
+
+  fed_hyper_params:
+    max_iter: 1
+    n_classes: 10
+    federated_model: 'FedAvg.py'
+    global_updates: WEIGHTS_STOPPING
+    param: { }
+
+
+
+
+  use_smpc: True
+
+  trainer:
+    name: 'FedMMB.py'
+    param: {}
+    # OLD: local_update: WEIGHTS_N_SAMPLES
+    # NEW: `utils/pytorch/states.py` `load_schemas` uses key `local_updates` (plural).
+    local_updates: WEIGHTS_N_SAMPLES
+    data_loader: ImageLoader # True: using torchvision Dataloader, False using custom Dataloader
+    optimizer:
+      name: 'SGD'
+      param:
+        lr: 0.1
+    loss:
+      name: 'focal_loss.py'
+      #      param: null
+      param:
+        alpha:
+          - 0.2
+          - 0.3
+          - 0.3
+          - 0.2
+        gamma: 1.1
+    metrics:
+      - name: 'Accuracy'
+        package: 'torchmetrics.classification'
+        param:
+          task: 'multiclass'
+          num_classes: 4
+
+  train_config:
+    verbose: False
+    batch_size: 32
+    test_batch_size: 32
+    epochs: 1
+    lr: 0.1
+    batch_count: 1
+    device: gpu # options{gpu, cpu}
+
+
+  #      - name: 'RMSE'
+#        params: null
+
+
+  model: # 'cnn' or 'cnn.py' or layers_dict
+    name: 'cnn.py'
+    n_classes: 10
+    in_features: 1
+#    name: 'cnn'
+#    n_classes: 10
+#    - type: 'Conv2d'
+#      param:
+#        in_channels: None
+#        out_channels: 32
+#        kernel_size: 3
+#        stride: 1
+#        padding: 1
+#        bias: True
+#    - type: 'MaxPool2d'
+#      param:
+#        kernel_size: 2
+#        stride: 2
+#    - type: 'ReLU'
+#    - type: 'Conv2d'
+#      param:
+#        in_channels: 32
+#        out_channels: 64
+#    - type: 'MaxPool2d'
+#    - type: 'ReLU'
+#    - type: 'Flatten'
+#    - type: 'Linear'
+#      param:
+#        in_features: None
+#        out_features: 128
+#        bias: True
+#    - type: 'ReLU'
+#    - type: 'Linear'
+#      param:
+#        in_features: 128
+#        out_features: 10

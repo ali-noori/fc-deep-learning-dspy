@@ -1,0 +1,64 @@
+# Federated mode — required fields only (no parameter values).
+# Reference: data/sample_data/mnist/generic/config.yml
+# Do not set `simulation` or `centralized` under fc_deep.
+
+fc_deep:
+
+
+
+  local_dataset:
+    train:
+    test:
+    central_test:
+    detail:
+
+  logic:
+    mode:
+    dir:
+
+  result:
+    pred:
+    target:
+    model:
+
+  fed_hyper_params:
+    max_iter:
+    n_classes:
+    federated_model:
+    global_updates:
+    param:
+
+  use_smpc:
+
+  trainer:
+    name:
+    param:
+    local_updates:
+    data_loader:
+    optimizer:
+      name:
+      param:
+        lr:
+    loss:
+      name:
+      param:
+    metrics:
+      - name:
+        package:
+        param:
+          task:
+          num_classes:
+
+  train_config:
+    verbose:
+    batch_size:
+    test_batch_size:
+    epochs:
+    lr:
+    batch_count:
+    device:
+
+  model:
+    name:
+    n_classes:
+    in_features:

@@ -1,0 +1,63 @@
+# Centralized mode: single coordinator trains on all local folds in one process.
+# Do not set `simulation` here (simulation would take precedence over centralized).
+# Expect data splits under the input root: data/0/, data/1/, ... with train.npz and test.npz.
+
+fc_deep:
+  centralized: true
+
+  local_dataset:
+    train: "train.npz"
+    test: "test.npz"
+    central_test: null
+    detail: {}
+
+  logic:
+    mode: "directory"
+    dir: "data"
+
+  result:
+    pred: "y_pred.csv"
+    target: "y_test.csv"
+    model: "model.pt"
+
+  fed_hyper_params:
+    max_iter: 10
+    n_classes: 10
+    federated_model: "FedAvg"
+    global_updates: WEIGHTS_STOPPING
+    param: {}
+
+  use_smpc: false
+
+  trainer:
+    name: "BasicTrainer"
+    param: {}
+    local_updates: WEIGHTS_N_SAMPLES
+    data_loader: "ImageLoader.py"
+    optimizer:
+      name: "SGD"
+      param:
+        lr: 0.1
+    loss:
+      name: "CrossEntropyLoss"
+      param: {}
+    metrics:
+      - name: "Accuracy"
+        package: "torchmetrics.classification"
+        param:
+          task: "multiclass"
+          num_classes: 10
+
+  train_config:
+    verbose: false
+    batch_size: 32
+    test_batch_size: 32
+    epochs: 1
+    lr: 0.1
+    batch_count: 1
+    device: cpu
+
+  model:
+    name: "cnn.py"
+    n_classes: 10
+    in_features: 1

@@ -1,0 +1,12 @@
+execution_mode: federated
+data_dirs:
+- sample_data/c1
+- sample_data/c2
+local_dataset:
+  train: train.npz
+  test: test.npz
+  central_test: null
+  detail: {}
+logic:
+  mode: directory
+  dir: data
