@@ -1,0 +1,180 @@
+fc_deep:
+
+  # Optional. ConfigState.read_config() stores it when present; enables extra debug logging.
+  debug: false
+
+  # ---------------------------------------------------------------------------
+  # simulation — REQUIRED mode block (presence selects Simulation over federated/centralized)
+  # ---------------------------------------------------------------------------
+  simulation:
+
+    # Required (simulation). Comma-separated client folder names under the input root
+    # (e.g. "c1,c2"). Defines n_clients and where train/test trees are injected.
+    clients_dir: "c1,c2"
+
+  # ---------------------------------------------------------------------------
+  # local_dataset — input basenames + dataloader kwargs (repeated under each simulated client)
+  # ---------------------------------------------------------------------------
+  local_dataset:
+
+    # Required. Basename of the per-split training file; Simulation injects it under each clients_dir entry.
+    train: "train.npz"
+
+    # Usually required. Per-split test basename; get_dataloader errors if both test and central_test are missing.
+    test: "test.npz"
+
+    # Optional (simulation). Non-null → load central test from first client dir and write central_* outputs there.
+    central_test: null
+
+    # Required as a dict (may be {}). Passed as **kwargs to the dataloader constructor in get_dataloader().
+    # Do not put a filename string here: finalize_config walks every local_dataset key as a path.
+    detail:
+      # Conditional (RnaLoader / RnaLoader.py). Separator for CSV/TSV; KeyError if missing for that loader.
+      sep: ","
+      # Conditional (RnaLoader / RnaLoader.py). Label column name; KeyError if missing for that loader.
+      label: "Group"
+      # ImageLoader ignores extra detail keys; other custom loaders may define further kwargs.
+
+    # Structurally allowed under local_dataset (finalize_config builds paths), but Simulation.initial_operations
+    # does NOT call load_model — warm-start applies only on the federated coordinator path.
+    init_model: null
+
+  # ---------------------------------------------------------------------------
+  # logic — how ConfigState discovers CV splits (then rewritten under each client folder)
+  # ---------------------------------------------------------------------------
+  logic:
+
+    # Required (or defaults to "file"). "directory" = each subfolder under dir is a fold; "file" = single split.
+    mode: "directory"
+
+    # Required with logic section. Folder name scanned when mode=directory (must exist under each client dir).
+    dir: "data"
+
+  # ---------------------------------------------------------------------------
+  # result — output basenames; Simulation rewrites paths under each clients_dir for local CSVs
+  # ---------------------------------------------------------------------------
+  result:
+
+    # Required. Local prediction CSV basename; written per simulated client via write_local_test_results.
+    pred: "y_pred.csv"
+
+    # Required. Ground-truth CSV basename paired with pred (per client / fold).
+    target: "y_test.csv"
+
+    # Optional. If set, write_dnn_models saves fold weights (Simulation uses output_files['model']).
+    model: "model.pt"
+
+  # ---------------------------------------------------------------------------
+  # fed_hyper_params — simulated communication rounds + in-process aggregator
+  # ---------------------------------------------------------------------------
+  fed_hyper_params:
+
+    # Required (simulation). Number of simulated communication rounds (for c_round in range(max_iter)).
+    # Same round semantics as federated — NOT the centralized “epochs override” meaning.
+    max_iter: 10
+
+    # Allowed. Passed into the aggregator kwargs; built-in FedAvg does not read it (custom aggregators / convention).
+    n_classes: 10
+
+    # Required. Aggregator module: built-in name (e.g. FedAvg) or "<file>.py" with CustomAggregator
+    # (Simulation is coordinator-role and builds the aggregator in build_client_model).
+    federated_model: "FedAvg"
+
+    # Required. GlobalUpdates enum name; shapes packages that Simulation.preprocess_global_updates / aggregate use.
+    global_updates: "WEIGHTS_STOPPING"
+
+    # Allowed (may be {}). Extra kwargs merged into the aggregator constructor with the rest of fed_hyper_params.
+    param: {}
+
+  # Present in templates / shared schema. Simulation does not copy config use_smpc into store
+  # (lazy_init leaves smpc_used=False) and the in-process loop never calls FC SMPC send/gather.
+  use_smpc: false
+
+  # ---------------------------------------------------------------------------
+  # trainer — local training stack (same resolution as federated; run in-process per client)
+  # ---------------------------------------------------------------------------
+  trainer:
+
+    # Required. Trainer class: built-in BasicTrainer or "<file>.py" exposing CustomTrainer (e.g. FedMMb.py).
+    name: "BasicTrainer"
+
+    # Allowed (may be {}). Extra kwargs passed into the trainer constructor (**trainer.param).
+    param: {}
+
+    # Required. LocalUpdates enum name; decides which fields local_computation packs for aggregate().
+    local_updates: "WEIGHTS_N_SAMPLES"
+
+    # Required. Dataloader: built-in ImageLoader or "<file>.py" exposing CustomDataLoader.
+    data_loader: "ImageLoader"
+
+    optimizer:
+      # Required. torch.optim class name or custom "<file>.py" with CustomOptimizer.
+      name: "SGD"
+      # Allowed. Kwargs for the optimizer constructor (plus params=model.parameters() injected in code).
+      param:
+        # Common / documented. Learning rate for SGD/Adam/etc.
+        lr: 0.1
+        # Optional example for SGD; any other torch.optim kwargs for the chosen class are also allowed here.
+        momentum: 0.9
+
+    loss:
+      # Required. torch.nn loss class name or custom "<file>.py" with CustomLoss (e.g. focal_loss.py).
+      name: "CrossEntropyLoss"
+      # Allowed (may be {}). Kwargs for the loss constructor (e.g. focal_loss.py: gamma, weight).
+      param: {}
+
+    # Required (non-empty list in practice). Each entry is resolved via get_metrics(name, package).
+    metrics:
+      - # Required per metric. Metric class name (torchmetrics or CustomMetric in a .py module).
+        name: "Accuracy"
+        # Required per metric. Importable package/module path providing that class.
+        package: "torchmetrics.classification"
+        # Allowed (may be {}). Kwargs for the metric constructor (task/num_classes common for classification).
+        param:
+          # Conditional (many torchmetrics classification metrics). Task type string.
+          task: "multiclass"
+          # Conditional (multiclass metrics). Class count; should align with model / labels.
+          num_classes: 10
+
+  # ---------------------------------------------------------------------------
+  # train_config — copied onto the trainer via setattr; also passed into aggregator kwargs
+  # ---------------------------------------------------------------------------
+  train_config:
+
+    # Allowed. Controls whether BasicTrainer logs train/val metric lines each epoch.
+    verbose: false
+
+    # Required in practice. Training DataLoader batch size (client_model.model.batch_size).
+    batch_size: 32
+
+    # Required in practice. Test / central-test DataLoader batch size (test_batch_size).
+    test_batch_size: 32
+
+    # Allowed. Local epochs per simulated round for BasicTrainer; ignored by FedMMb (uses batch_count).
+    epochs: 1
+
+    # Allowed. Stored on the trainer; optimizer lr still comes from trainer.optimizer.param unless a custom trainer reads this.
+    lr: 0.1
+
+    # Allowed. Local batch limit for FedMMb.py; unused by BasicTrainer.fit().
+    batch_count: 1
+
+    # Required in practice. "cpu" or "gpu"; normalized with CUDA availability in set_device().
+    device: "cpu"
+
+    # Note: additional keys under train_config are also accepted: Trainer.__init__ setattr’s every item.
+    # Only the keys above are known consumers in built-in BasicTrainer / FedMMb / samples.
+
+  # ---------------------------------------------------------------------------
+  # model — Shape A (named / plugin). Alternative Shape B (layer list) is commented below.
+  # ---------------------------------------------------------------------------
+  model:
+
+    # Shape A: present → design_architecture loads built-in models.pytorch.models name or Model from .py.
+    name: "cnn.py"
+
+    # Typical for CNN / cnn.py / mlp.py. Output class count for the model constructor.
+    n_classes: 10
+
+    # Typical for CNN / cnn.py / mlp.py. Channels (CNN) or flat feature size (MLP); other Model classes may need other kwargs.
+    in_features: 1

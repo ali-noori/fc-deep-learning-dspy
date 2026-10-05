@@ -9,11 +9,30 @@ from .config import load_settings
 from .pipeline import DatasetPipeline
 
 
+def _parse_bool(raw: str) -> bool:
+    cleaned = raw.strip().lower()
+    if cleaned in ("true", "1", "yes"):
+        return True
+    if cleaned in ("false", "0", "no"):
+        return False
+    raise argparse.ArgumentTypeError(f"Expected True or False, got {raw!r}.")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Dataset config agent.")
     parser.add_argument(
         "--execution-mode",
         help="Caller mode: federated, simulation, or centralized.",
+    )
+    parser.add_argument(
+        "--recompile",
+        type=_parse_bool,
+        default=None,
+        metavar="{True,False}",
+        help=(
+            "--recompile=True: compile from scratch and overwrite the saved compiled "
+            "agent for this mode. --recompile=False: load the saved compiled agent."
+        ),
     )
     args = parser.parse_args()
     execution_mode = (args.execution_mode or "").strip().lower()
@@ -28,7 +47,7 @@ def main() -> int:
     
     
     settings = load_settings()
-    pipeline = DatasetPipeline(settings=settings)
+    pipeline = DatasetPipeline(settings=settings, recompile=args.recompile)
 
     if execution_mode == "federated":
         print(f"Agent: {pipeline.DATASET_QUESTION_FEDERATED}")

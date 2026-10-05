@@ -158,7 +158,7 @@ Incorrect picture to avoid:
 
 ## 10. Outside this document
 
-- **`ali_test.py`** scans `data/tests` for result zips; if multiple tests exist, filter by `results_test_<id>_...` when comparing runs.
+- **`tools/report/report_accuracy.py`** scans `data/tests` for result zips; if multiple tests exist, filter by `results_test_<id>_...` when comparing runs. Result folder layouts: `tools/report/report_explanation.md`.
 - **`Run_App.md`** lists minimal CLI steps to rebuild and run tests.
 
 This file is descriptive only; it does not change runtime behavior.

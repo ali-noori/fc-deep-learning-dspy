@@ -25,10 +25,12 @@ class DatasetPipeline:
         settings: Settings,
         ollama_model: str | None = None,
         ollama_base_url: str | None = None,
+        recompile: bool | None = None,
     ) -> None:
         self._settings = settings
         self._ollama_model_override = ollama_model
         self._ollama_base_url_override = ollama_base_url
+        self._recompile = recompile
 
     def _ollama_model(self) -> str:
         return resolve_ollama_model(self._ollama_model_override)
@@ -36,7 +38,7 @@ class DatasetPipeline:
     def _ollama_base_url(self) -> str:
         return resolve_ollama_base_url(self._ollama_base_url_override)
 
-    def extract_dataset_config(self, user_message: str, execution_mode: str) -> DatasetFederatedConfigResult | DatasetCentralizedConfigResult:
+    def extract_dataset_config(self, user_message: str, execution_mode: str) -> DatasetFederatedConfigResult | DatasetCentralizedConfigResult | DatasetSimulationConfigResult:
         request = user_message.strip()
         if not request:
             raise ValueError(
@@ -50,6 +52,7 @@ class DatasetPipeline:
                 self._ollama_model(),
                 self._ollama_base_url(),
                 execution_mode,
+                self._recompile,
             )
             result = module(user_message=request)
 

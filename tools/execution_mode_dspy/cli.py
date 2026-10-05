@@ -2,30 +2,53 @@
 
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 
-from .config import load_settings
+from .config import load_settings, resolve_recompile
 from .pipeline import WorkflowPipeline
 
 
-def _activate_next_agent(execution_mode: str) -> None:
+def _activate_next_agent(execution_mode: str, recompile: bool) -> None:
     """Run the config agent for this execution mode (python -m tools.<agent>.cli)."""
     mode = execution_mode.strip().lower()
+    recompile_flag = f"--recompile={recompile}"
 
     if mode == "federated":
         subprocess.run(
-            [sys.executable, "-m", "tools.federated_config_dspy.cli", "--execution-mode", mode],
+            [
+                sys.executable,
+                "-m",
+                "tools.federated_config_dspy.cli",
+                "--execution-mode",
+                mode,
+                recompile_flag,
+            ],
             check=False,
         )
     elif mode == "simulation":
         subprocess.run(
-            [sys.executable, "-m", "tools.simulation_config_dspy.cli", "--execution-mode", mode],
+            [
+                sys.executable,
+                "-m",
+                "tools.simulation_config_dspy.cli",
+                "--execution-mode",
+                mode,
+                recompile_flag,
+            ],
             check=False,
         )
     elif mode == "centralized":
         subprocess.run(
-            [sys.executable, "-m", "tools.centralized_config_dspy.cli", "--execution-mode", mode],
+            [
+                sys.executable,
+                "-m",
+                "tools.centralized_config_dspy.cli",
+                "--execution-mode",
+                mode,
+                recompile_flag,
+            ],
             check=False,
         )
     else:
@@ -38,14 +61,39 @@ def _activate_next_agent(execution_mode: str) -> None:
     )
 
 
+def _parse_bool(raw: str) -> bool:
+    cleaned = raw.strip().lower()
+    if cleaned in ("true", "1", "yes"):
+        return True
+    if cleaned in ("false", "0", "no"):
+        return False
+    raise argparse.ArgumentTypeError(f"Expected True or False, got {raw!r}.")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Execution mode agent.")
+    parser.add_argument(
+        "--recompile",
+        type=_parse_bool,
+        default=None,
+        metavar="{True,False}",
+        help=(
+            "--recompile=True: run BootstrapFewShot from scratch and overwrite the saved "
+            "compiled agent. --recompile=False: skip compiling and load the saved compiled "
+            "agent (must already exist). If omitted, falls back to FC_DSPY_RECOMPILE env "
+            "var, then RECOMPILE in config.py."
+        ),
+    )
+    args = parser.parse_args()
+
     # load all the necessary information such as avaialable 
     # models that can be used online or offline(ollama), 
     # later will be used for dspy to know whihc llm model uses
     settings = load_settings()
+    recompile = resolve_recompile(args.recompile)
     
     # just create an obj -> later is going to be used to call the 'run()' function
-    pipeline = WorkflowPipeline(settings=settings)
+    pipeline = WorkflowPipeline(settings=settings, recompile=recompile)
 
     print(f"Agent: {pipeline.MODE_QUESTION}")
     try:
@@ -79,7 +127,7 @@ def main() -> int:
     )
 
     # based on the predicted mode, one of the federated, simulation or centrlized mode paths will be selected
-    _activate_next_agent(result["execution_mode"])
+    _activate_next_agent(result["execution_mode"], recompile)
     return 0
 
 

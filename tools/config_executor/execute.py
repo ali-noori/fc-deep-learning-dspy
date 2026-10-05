@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -18,6 +20,12 @@ _DEFAULT_CONTROLLER_HOST = "http://localhost:8000"
 # Staged under repo data/; FeatureCloud controller mounts host data/ as /data.
 _STAGING_REL = Path("data") / "tools" / "config"
 _FEATURECLOUD_GENERIC_DIR = "tools/config"
+
+_TESTS_REL = Path("data") / "tests"
+_ACCURACY_SCRIPT_REL = Path("tools") / "report" / "report_accuracy.py"
+_RESULT_POLL_S = 15
+_RESULT_SETTLE_S = 15
+_RESULT_STATUS_EVERY_S = 5 * 60
 
 # Nested keys under fc_deep that may hold plugins/.../*.py references.
 _PLUGIN_FIELD_PATHS: tuple[tuple[str, ...], ...] = (
@@ -192,6 +200,8 @@ class ConfigExecutor:
             raise ValueError(f"Plugin file not found: {source}")
         filename = source.name
         shutil.copy2(source, staging_dir / filename)
+        for weight in source.parent.glob(f"{source.stem}*.pth"):
+            shutil.copy2(weight, staging_dir / weight.name)
         return filename
 
     def _resolve_plugin_fields(self, fc_deep: dict[str, Any], staging_dir: Path) -> None:
@@ -261,8 +271,13 @@ class ConfigExecutor:
             )
 
     def build_featurecloud_command(self, plan: ExecutionPlan) -> list[str]:
+        # Use `python -m FeatureCloud.api.cli` instead of `featurecloud.exe`.
+        # Windows Application Control (WinError 4551) often blocks the pip
+        # console-script .exe while the already-running interpreter is allowed.
         return [
-            "featurecloud",
+            sys.executable,
+            "-m",
+            "FeatureCloud.api.cli",
             "test",
             "start",
             "--app-image",
@@ -274,6 +289,57 @@ class ConfigExecutor:
             "--controller-host",
             self.controller_host,
         ]
+
+    def tests_dir(self) -> Path:
+        return self.repo_root / _TESTS_REL
+
+    def snapshot_result_zips(self) -> set[Path]:
+        """Zip paths already in data/tests, so we can detect a new test later."""
+        tests_dir = self.tests_dir()
+        if not tests_dir.is_dir():
+            return set()
+        found: set[Path] = set()
+        for path in tests_dir.rglob("*.zip"):
+            if path.is_file():
+                found.add(path.resolve())
+        return found
+
+    def wait_for_new_result_zips(self, before: set[Path]) -> None:
+        """Wait until new result zips appear and stop growing. No time limit."""
+        tests_dir = self.tests_dir()
+        print(f"ConfigExecutor: waiting for new result zips under {tests_dir} (Ctrl+C to stop)")
+        started = time.monotonic()
+        last_status = started
+        last_new_count = -1
+        quiet_since: float | None = None
+
+        while True:
+            now = self.snapshot_result_zips()
+            new_count = len(now - before)
+            if new_count > 0:
+                if new_count != last_new_count:
+                    print(f"ConfigExecutor: {new_count} new zip(s)")
+                    last_new_count = new_count
+                    quiet_since = time.monotonic()
+                elif (
+                    quiet_since is not None
+                    and time.monotonic() - quiet_since >= _RESULT_SETTLE_S
+                ):
+                    return
+            elif time.monotonic() - last_status >= _RESULT_STATUS_EVERY_S:
+                minutes = int((time.monotonic() - started) // 60)
+                print(f"ConfigExecutor: still waiting for result zips ({minutes} min)")
+                last_status = time.monotonic()
+            time.sleep(_RESULT_POLL_S)
+
+    def run_accuracy_report(self) -> None:
+        """Print accuracy for the last test (report_accuracy.py with no --path)."""
+        script = self.repo_root / _ACCURACY_SCRIPT_REL
+        if not script.is_file():
+            print(f"ConfigExecutor: accuracy script not found: {script}")
+            return
+        print("ConfigExecutor: accuracy for the last test")
+        subprocess.run([sys.executable, str(script)], cwd=self.repo_root, check=False)
 
     def run_featurecloud(self, plan: ExecutionPlan) -> int:
         command = self.build_featurecloud_command(plan)
@@ -288,10 +354,14 @@ class ConfigExecutor:
             print("ConfigExecutor: cancelled.")
             return 0
 
+        zips_before = self.snapshot_result_zips()
         completed = subprocess.run(command, cwd=self.repo_root, check=False)
         exit_code = int(completed.returncode or 0)
         if exit_code == 0 and not self.keep_staging:
             self.clear_staging_dir()
+        if exit_code == 0:
+            self.wait_for_new_result_zips(zips_before)
+            self.run_accuracy_report()
         return exit_code
 
     def execute(self, cli_execution_mode: str) -> int:

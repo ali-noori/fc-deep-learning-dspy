@@ -40,6 +40,26 @@ class ParseModelConfigSignature(dspy.Signature):
       * Bare "CNN" without .py/plugin/custom wording defaults to built-in CNN.
       * Do not convert built-in CNN into cnn.py unless the user asks for the plugin.
     - Choose name only from known built-ins or discovered plugins in known_models.
+    - Plugins are not limited to cnn.py/mlp.py: any filename listed in
+      known_models is a valid plugin name, including previously generated
+      and saved custom models (e.g. custom_model.py). Echo the plugin name
+      exactly as it appears in known_models; do not force it to cnn.py/mlp.py.
+    - Pretrained/architecture-only plugins (matched from known_models the same
+      way as any other plugin filename; never invent one that is not listed):
+      * resnet / resnet18 / "ResNet-18" -> resnet18.py
+        (pretrained CNN backbone, image data, ready to fine-tune)
+      * efficientnet / "efficientnet-b0" / "EfficientNet B0" -> efficientnet_b0.py
+        (pretrained CNN backbone, image data, ready to fine-tune)
+      * mobilenet / mobilenetv3 / "MobileNetV3-Small" / "mobile net small" -> mobilenetv3_small.py
+        (pretrained CNN backbone, image data, ready to fine-tune)
+      * tabnet / "tab net" -> tabnet.py
+        (tabular; attention-based, sparse feature selection; trained from scratch)
+      * "ft-transformer" / "ft transformer" / "feature tokenizer transformer" / fttransformer -> ft_transformer.py
+        (tabular; transformer-based; strong general tabular performance; trained from scratch)
+      * tabtransformer / "tab transformer" -> tabtransformer.py
+        (tabular; transformer-based; especially good with categorical features; trained from scratch)
+      * These aliases only apply when the matching filename is present in
+        known_models; if it is absent, do not output it anyway.
     - n_classes and in_features must be positive integers.
     """
 
@@ -60,8 +80,10 @@ class ParseModelConfigSignature(dspy.Signature):
     name: str = dspy.OutputField(
         desc=(
             "Built-in model name (e.g. CNN) OR plugin filename/path "
-            "(e.g. cnn.py, mlp.py, or plugins/models/cnn.py). "
-            "Do not confuse built-in CNN with plugin cnn.py."
+            "(e.g. cnn.py, mlp.py, resnet18.py, tabnet.py, or a full "
+            "plugins/models/... path). Do not confuse built-in CNN with "
+            "plugin cnn.py, and never invent a plugin name not present in "
+            "known_models."
         )
     )
     n_classes: str = dspy.OutputField(

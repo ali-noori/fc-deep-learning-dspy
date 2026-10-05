@@ -1,0 +1,214 @@
+# =============================================================================
+# Complete Federated-mode parameter reference for fc_deep
+# =============================================================================
+# Purpose: enumerate every configuration *parameter* (key / structure) that the
+# runtime can accept when running the standard FeatureCloud federated path
+# (LocalUpdate ↔ GlobalAggregation → WriteResults).
+#
+# Ground truth: CustomStates/ConfigState.py, utils/pytorch/states.py
+# (Initialization / LocalUpdate / GlobalAggregation / WriteResults),
+# utils/utils.py (design_architecture / get_*), utils/pytorch/DeepModel.py,
+# utils/pytorch/optimizer.py, plugins under plugins/.
+#
+# NOT for: Simulation (`fc_deep.simulation`) or Centralized (`fc_deep.centralized`).
+# Those keys must be ABSENT or null here; their presence switches the app out of
+# federated mode (simulation is checked first, then centralized).
+#
+# This file is a reference/template, not a guaranteed runnable sample.
+# Placeholder values illustrate shape only; they are not an exhaustive value list.
+# Open kwargs bags (detail, *.param, train_config extras, model constructor kwargs)
+# accept additional keys depending on the chosen plugin/class.
+# =============================================================================
+
+fc_deep:
+
+  # Optional. ConfigState.read_config() stores it when present; enables extra debug logging.
+  debug: false
+
+  # ---------------------------------------------------------------------------
+  # local_dataset — input basenames + dataloader kwargs (federated clients + coordinator)
+  # ---------------------------------------------------------------------------
+  local_dataset:
+
+    # Required. Basename of the per-split training file; finalize_config builds {split}/{train}.
+    train: "train.npz"
+
+    # Usually required. Per-split test basename; Initialization errors if both test and central_test are missing.
+    test: "test.npz"
+
+    # Optional (federated). Non-null → coordinator loads this file as a shared central evaluation set.
+    central_test: null
+
+    # Required as a dict (may be {}). Passed as **kwargs to the dataloader constructor in get_dataloader().
+    # Do not put a filename string here: finalize_config walks every local_dataset key as a path.
+    detail:
+      # Conditional (RnaLoader / RnaLoader.py). Separator for CSV/TSV; KeyError if missing for that loader.
+      sep: ","
+      # Conditional (RnaLoader / RnaLoader.py). Label column name; KeyError if missing for that loader.
+      label: "Group"
+      # ImageLoader ignores extra detail keys; other custom loaders may define further kwargs.
+
+    # Optional (federated coordinator). Non-null → coordinator warm-starts from this weight file before rounds.
+    init_model: null
+
+  # ---------------------------------------------------------------------------
+  # logic — how ConfigState discovers CV splits under mnt/input
+  # ---------------------------------------------------------------------------
+  logic:
+
+    # Required (or defaults to "file"). "directory" = each subfolder under dir is a fold; "file" = single split.
+    mode: "directory"
+
+    # Required with logic section. Folder name scanned when mode=directory (e.g. data → data/0, data/1).
+    dir: "data"
+
+  # ---------------------------------------------------------------------------
+  # result — output basenames written under each split’s mnt/output tree
+  # ---------------------------------------------------------------------------
+  result:
+
+    # Required. Local (and central) prediction CSV basename written in WriteResults.
+    pred: "y_pred.csv"
+
+    # Required. Ground-truth CSV basename paired with pred.
+    target: "y_test.csv"
+
+    # Optional. If set, WriteResults saves each fold’s final weights via client_model.store_model().
+    model: "model.pt"
+
+  # ---------------------------------------------------------------------------
+  # fed_hyper_params — federated rounds + aggregator (coordinator builds FedOptimizer)
+  # ---------------------------------------------------------------------------
+  fed_hyper_params:
+
+    # Required (federated). Number of communication rounds; FedAvg stoppage uses iteration >= max_iter.
+    max_iter: 10
+
+    # Allowed. Passed into the aggregator kwargs; built-in FedAvg does not read it (keep for custom aggregators / convention).
+    n_classes: 10
+
+    # Required (federated coordinator). Aggregator module: built-in name (e.g. FedAvg) or "<file>.py" with CustomAggregator.
+    federated_model: "FedAvg"
+
+    # Required. GlobalUpdates enum name; sets which fields the coordinator broadcasts (weights/grads/config/stoppage/…).
+    global_updates: "WEIGHTS_STOPPING"
+
+    # Allowed (may be {}). Extra kwargs merged into the aggregator constructor with the rest of fed_hyper_params.
+    # Built-in FedAvg needs no extra keys; custom aggregators may define their own.
+    param: {}
+
+  # Optional (federated). If true, LocalUpdate/GlobalAggregation use FeatureCloud SMPC gather/send paths.
+  use_smpc: false
+
+  # ---------------------------------------------------------------------------
+  # trainer — local training stack (resolved in Initialization.get_custom_modules / build_client_model)
+  # ---------------------------------------------------------------------------
+  trainer:
+
+    # Required. Trainer class: built-in BasicTrainer or "<file>.py" exposing CustomTrainer (e.g. FedMMb.py).
+    name: "BasicTrainer"
+
+    # Allowed (may be {}). Extra kwargs passed into the trainer constructor (**trainer.param).
+    param: {}
+
+    # Required. LocalUpdates enum name; decides which fields each client sends after local training.
+    local_updates: "WEIGHTS_N_SAMPLES"
+
+    # Required. Dataloader: built-in ImageLoader or "<file>.py" exposing CustomDataLoader.
+    data_loader: "ImageLoader"
+
+    optimizer:
+      # Required. torch.optim class name or custom "<file>.py" with CustomOptimizer.
+      name: "SGD"
+      # Allowed. Kwargs for the optimizer constructor (plus params=model.parameters() injected in code).
+      param:
+        # Common / documented. Learning rate for SGD/Adam/etc.
+        lr: 0.1
+        # Optional example for SGD; any other torch.optim kwargs for the chosen class are also allowed here.
+        momentum: 0.9
+
+    loss:
+      # Required. torch.nn loss class name or custom "<file>.py" with CustomLoss (e.g. focal_loss.py).
+      name: "CrossEntropyLoss"
+      # Allowed (may be {}). Kwargs for the loss constructor (e.g. focal_loss.py: gamma, weight).
+      param: {}
+
+    # Required (non-empty list in practice). Each entry is resolved via get_metrics(name, package).
+    metrics:
+      - # Required per metric. Metric class name (torchmetrics or CustomMetric in a .py module).
+        name: "Accuracy"
+        # Required per metric. Importable package/module path providing that class.
+        package: "torchmetrics.classification"
+        # Allowed (may be {}). Kwargs for the metric constructor (task/num_classes common for classification).
+        param:
+          # Conditional (many torchmetrics classification metrics). Task type string.
+          task: "multiclass"
+          # Conditional (multiclass metrics). Class count; should align with model / labels.
+          num_classes: 10
+
+  # ---------------------------------------------------------------------------
+  # train_config — copied onto the trainer via setattr; also passed into aggregator kwargs
+  # ---------------------------------------------------------------------------
+  train_config:
+
+    # Allowed. Controls whether BasicTrainer logs train/val metric lines each epoch.
+    verbose: false
+
+    # Required in practice. Training DataLoader batch size (client_model.model.batch_size).
+    batch_size: 32
+
+    # Required in practice. Test / central-test DataLoader batch size (test_batch_size).
+    test_batch_size: 32
+
+    # Allowed. Local epochs per round for BasicTrainer; ignored by FedMMb (uses batch_count instead).
+    epochs: 1
+
+    # Allowed. Stored on the trainer; optimizer lr still comes from trainer.optimizer.param unless a custom trainer reads this.
+    lr: 0.1
+
+    # Allowed. Local batch limit for FedMMb.py (stops after batch_count batches); unused by BasicTrainer.fit().
+    batch_count: 1
+
+    # Required in practice. "cpu" or "gpu"; normalized with CUDA availability in set_device().
+    device: "cpu"
+
+    # Note: additional keys under train_config are also accepted: Trainer.__init__ setattr’s every item.
+    # Only the keys above are known consumers in built-in BasicTrainer / FedMMb / samples.
+
+  # ---------------------------------------------------------------------------
+  # model — Shape A (named / plugin). Alternative Shape B (layer list) is commented below.
+  # ---------------------------------------------------------------------------
+  model:
+
+    # Shape A: present → design_architecture loads built-in models.pytorch.models name or Model from .py.
+    name: "cnn.py"
+
+    # Typical for CNN / cnn.py / mlp.py. Output class count for the model constructor.
+    n_classes: 10
+
+    # Typical for CNN / cnn.py / mlp.py. Channels (CNN) or flat feature size (MLP); other Model classes may need other kwargs.
+    in_features: 1
+
+    # Any further keys beside `name` are forwarded as **kwargs to the Model / CNN constructor after name is popped.
+
+  # --- Shape B (layer-list architecture): use INSTEAD of Shape A (no `name` key) ---
+  # design_architecture treats `model` as a list when `name` is absent.
+  # Each item: type = torch.nn class name; optional param = constructor kwargs.
+  # Special: param.in_features / param.in_channels may be the string "None" to infer from a sample batch.
+  #
+  # model:
+  #   - # Required per layer. torch.nn module class name (e.g. Conv2d, ReLU, Flatten, Linear).
+  #     type: "Conv2d"
+  #     # Optional per layer. Layer constructor kwargs (defaults carry forward per type when omitted).
+  #     param:
+  #       # Optional; "None" triggers sample-based channel inference.
+  #       in_channels: "None"
+  #       out_channels: 32
+  #       kernel_size: 3
+  #   - type: "ReLU"
+  #   - type: "Flatten"
+  #   - type: "Linear"
+  #     param:
+  #       # Optional; "None" triggers flat-feature inference from a sample forward pass.
+  #       in_features: "None"
+  #       out_features: 10

@@ -1,0 +1,697 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "name: CNN\nn_class: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py.\nname: cnn.py\nn_class: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: CNN\nn_classes: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user specified a built-in CNN model with 10 classes and 1 input feature.",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py.\nname: cnn.py\nn_classes: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: mlp.py\nn_classes: 10\nin_features: 784",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "augmented": true,
+        "user_message": "- name: CNN\n- n_classes: 10\n- in_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py (full plugin path).\nname: plugins/models/cnn.py\nn_classes: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: plugins/models/mlp.py\nn_class: 10\nin_features: 784",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: CNN\nn_class: 2\nin_features: 3",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user specified a built-in CNN model with 2 classes and 3 input features.",
+        "name": "CNN",
+        "n_classes": "2",
+        "in_features": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py.\nname: cnn.py\nn_class: 2\nin_features: 3",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "2",
+        "in_features": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: CNN\nn_classes: 100\nin_features: 512",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "CNN",
+        "n_classes": "100",
+        "in_features": "512"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py.\nname: cnn.py\nn_classes: 100\nin_features: 512",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "100",
+        "in_features": "512"
+      },
+      {
+        "augmented": true,
+        "user_message": "- name: CNN\n- n_class: 4\n- in_features: 8",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "CNN",
+        "n_classes": "4",
+        "in_features": "8"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin model cnn.py.\n- name: cnn.py\n- n_class: 4\n- in_features: 8",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user specified using the custom plugin model cnn.py with 4 classes and 8 input features.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "4",
+        "in_features": "8"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: \"mlp.py\"\nn_classes: 5\nin_features: 128",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "5",
+        "in_features": "128"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use built-in CNN architecture with n_classes 10 and in_features 1.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user explicitly asked for the built-in CNN architecture.",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "I want the custom plugin model cnn.py with 10 classes and 1 input channel for MNIST.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user wants to use a custom plugin model named cnn.py with 10 classes and 1 input channel for the MNIST dataset.",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use built-in CNN with 50 output classes and 25 input features.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "reasoning": "The user requests a built-in CNN model with specific output classes and input features.",
+        "name": "CNN",
+        "n_classes": "50",
+        "in_features": "25"
+      },
+      {
+        "user_message": "architecture CNN (library built-in), output classes 10, input size 1. I'll choose trainer later.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "mlp plugin under plugins/models/mlp.py, classes=10, features=784",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "ok model: cnn.py plugin; outputs=10; inputs=1. ignore trainer choice for now.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "n_classes 10\nin_features 1\nname CNN",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "use ft transformer (feature tokenizer transformer), n_class 3, in_features 18",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py",
+        "n_classes": "3",
+        "in_features": "18"
+      },
+      {
+        "user_message": "Not MobileNet, not EfficientNet — I want ResNet18 pretrained. n_classes 30, in_features 3.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/resnet18.py",
+        "n_classes": "30",
+        "in_features": "3"
+      },
+      {
+        "user_message": "I want tabnet because i have and mlp task and in_feature is 5 and n_classes is 100",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabnet.py",
+        "n_classes": "100",
+        "in_features": "5"
+      },
+      {
+        "user_message": "name plugins\\models\\cnn.py ; n_class 10 ; in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "name: resnet18.py\nn_classes: 20\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/resnet18.py",
+        "n_classes": "20",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I want EfficientNet-B0 pretrained, fine-tune the head. classes 10, in_features 3.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py",
+        "n_classes": "10",
+        "in_features": "3"
+      },
+      {
+        "user_message": "cnn.py plugin, n_classes 1, in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "1",
+        "in_features": "1"
+      },
+      {
+        "user_message": "mlp.y — I mean mlp.py. classes 10, in_features 784",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "Use the custom plugin model cnn.py.\nname: \"cnn.py\"\nn_classes: 7\nin_features: 2",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "7",
+        "in_features": "2"
+      },
+      {
+        "user_message": "Use plugins/models/cnn.py with 27 classes and 3 input features — custom plugin, not built-in CNN.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "27",
+        "in_features": "3"
+      },
+      {
+        "user_message": "use efficientnet b0 backbone (transfer learning). n_class 4 in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py",
+        "n_classes": "4",
+        "in_features": "1"
+      },
+      {
+        "user_message": "name: mobilenetv3_small.py\nn_classes: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "name: efficientnet_b0.py\nn_classes: 15\nin_features: 3",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py",
+        "n_classes": "15",
+        "in_features": "3"
+      },
+      {
+        "user_message": "name:CNN n_class:10 in_features:1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "use tab transformer for categorical-heavy tabular data, n_class 9, in_features 14",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "n_classes": "9",
+        "in_features": "14"
+      },
+      {
+        "user_message": "ok model hyper: CNN built-in; outputs=10; inputs/channels=1. Also ignore FedAvg and dataset talk.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "model=mlp.py, classes=3, in_features=64 (plugin MLP, not CNN)",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "3",
+        "in_features": "64"
+      },
+      {
+        "user_message": "n_classes 10\nin_features 1\nname cnn.py",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I want plugins/models/cnn.py as the model name, n_class 10, in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I said CNN but I mean the plugin file cnn.py. n_classes 10, in_features 1.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Use my previously generated custom_model.py plugin, classes=20, in_features=64",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "20",
+        "in_features": "64"
+      },
+      {
+        "user_message": "I want the FT-Transformer for my tabular dataset, general performance. classes 5, in_features 40.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py",
+        "n_classes": "5",
+        "in_features": "40"
+      },
+      {
+        "user_message": "name plugins\\models\\mlp.py ; n_classes 10 ; in_features 784",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "in_features 784, n_classes 10, name mlp.py",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "I want the resnet and in_feature to 1 and n-classes to 20.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/resnet18.py",
+        "n_classes": "20",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Someone wrote MLP; use plugin mlp.py instead. classes 10, in_features 784.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "name CNNN — wait built-in CNN. n_clas 10, in_featurs 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "tabnett architecture, 4 classes, 6 infeatures",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabnet.py",
+        "n_classes": "4",
+        "in_features": "6"
+      },
+      {
+        "user_message": "use mobilenet v3 small backbone, classes=6, in_features=3",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py",
+        "n_classes": "6",
+        "in_features": "3"
+      },
+      {
+        "user_message": "Not TabNet, not TabTransformer — I want the FT-Transformer. n_classes 11, in_features 9.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py",
+        "n_classes": "11",
+        "in_features": "9"
+      },
+      {
+        "user_message": "name CNN, n_classes 1, in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "1",
+        "in_features": "1"
+      },
+      {
+        "user_message": "name: ft_transformer.py\nn_classes: 10\nin_features: 30",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py",
+        "n_classes": "10",
+        "in_features": "30"
+      },
+      {
+        "user_message": "name: tabtransformer.py\nn_classes: 6\nin_features: 22",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "n_classes": "6",
+        "in_features": "22"
+      },
+      {
+        "user_message": "pls cnn.py plugin (not built-in CNN). n_clas=10 in_featurs=1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "custom cnn.py only, 9 classes, 2 in_features (not built-in CNN)",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "9",
+        "in_features": "2"
+      },
+      {
+        "user_message": "NOT cnn.py — use built-in CNN. classes 8, in_features 1.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "8",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Use CNN for the architecture with 27 classes and 3 input features — built-in, not plugins/models/cnn.py.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "27",
+        "in_features": "3"
+      },
+      {
+        "user_message": "name:cnn.py,n_classes:10,in_features:1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "resnett18 pretraiend modle, 10 clases, 3 infeatures",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/resnet18.py",
+        "n_classes": "10",
+        "in_features": "3"
+      },
+      {
+        "user_message": "Use TabNet for tabular data, I need sparse attention-based feature selection. classes 2, in_features 20.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabnet.py",
+        "n_classes": "2",
+        "in_features": "20"
+      },
+      {
+        "user_message": "cnn.py, n_classes 2, in_features 2048",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "2",
+        "in_features": "2048"
+      },
+      {
+        "user_message": "Do NOT use CNN built-in. Use cnn.py plugin. classes 10, in_features 3.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "3"
+      },
+      {
+        "user_message": "Someone wrote cnn.py earlier; ignore that. Use built-in CNN. n_classes 10, in_features 1.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I want TabTransformer, my tabular data has many categorical features. classes 4, in_features 16.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "n_classes": "4",
+        "in_features": "16"
+      },
+      {
+        "user_message": "mlp.py with n_classes 100, in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "100",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Please set name to cnn.py, n_classes to ten (10), and in_features to one (1).",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Use the custom plugin model cnn.py with 50 classes and 25 input features.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "50",
+        "in_features": "25"
+      },
+      {
+        "user_message": "built-in CNN, n_classes 1000, in_features 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "1000",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I saved a custom model earlier called custom_model.py. Use it, with 10 classes and 1 input feature.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I want MobileNetV3-Small pretrained for image classification, fine-tune it. n_classes 10, in_features 1.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "cnn built in, 16 classes, 1 channel",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "16",
+        "in_features": "1"
+      },
+      {
+        "user_message": "pls built-in CNN, 10 classes, 1 input feature/channel — not cnn.py",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "Please set name to CNN, n_classes to ten (10), and in_features to one (1).",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "I need the built-in CNN model (not the .py plugin) with n_classes 7 and in_features 2.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "7",
+        "in_features": "2"
+      },
+      {
+        "user_message": "Use the custom plugin model custom_model.py.\nname: custom_model.py\nn_classes: 10\nin_features: 1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "built-in CNN only. n_classes ten (10), in_features one (1).",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "name: plugins/models/custom_model.py\nn_class: 5\nin_features: 128",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "5",
+        "in_features": "128"
+      },
+      {
+        "user_message": "use the .py model cnn.py — 12 classes — 1 in_features",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "12",
+        "in_features": "1"
+      },
+      {
+        "user_message": "bare name CNN only, 9 classes, 2 in_features (no plugin)",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "CNN",
+        "n_classes": "9",
+        "in_features": "2"
+      },
+      {
+        "user_message": "mlp.py (plugins/models/mlp.py), n_class=10, in_features=784 for flattened MNIST",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "custom plugin cnn.py please, 10 classes, in_features=1",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/cnn.py",
+        "n_classes": "10",
+        "in_features": "1"
+      },
+      {
+        "user_message": "custom_model.y — I mean custom_model.py. classes 10, in_features 32",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "10",
+        "in_features": "32"
+      },
+      {
+        "user_message": "name: tabnet.py\nn_classes: 100\nin_features: 5",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/mlp_architectures/tabnet.py",
+        "n_classes": "100",
+        "in_features": "5"
+      },
+      {
+        "user_message": "use mlp.py plugin for a fully connected net, 10 classes, 784 in_features",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/mlp.py",
+        "n_classes": "10",
+        "in_features": "784"
+      },
+      {
+        "user_message": "Use the pretrained ResNet-18 backbone, fine-tune it. n_classes 10, in_features 3.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/pre-trained_models/cnn_architectures/resnet18.py",
+        "n_classes": "10",
+        "in_features": "3"
+      },
+      {
+        "user_message": "Not CNN, not MLP — use the reusable custom_model.py plugin I saved. n_classes 2, in_features 16.",
+        "known_models": "built-in names without .py (CNN); plugins: cnn.py -> plugins/models/cnn.py, customized_model_v2.py -> plugins/models/generated_architecture/customized_model_v2.py, efficientnet_b0.py -> plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py, ft_transformer.py -> plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py, majid.py -> plugins/models/majid.py, mlp.py -> plugins/models/mlp.py, mobilenetv3_small.py -> plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, nasrin.py -> plugins/models/nasrin.py, resnet18.py -> plugins/models/pre-trained_models/cnn_architectures/resnet18.py, tabnet.py -> plugins/models/pre-trained_models/mlp_architectures/tabnet.py, tabtransformer.py -> plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py",
+        "name": "plugins/models/custom_model.py",
+        "n_classes": "2",
+        "in_features": "16"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract model architecture fields from the developer's answer.\n\nOutputs:\n- name: built-in model name OR custom plugin reference (resolved path in gold/config)\n- n_classes: positive integer output class count (n_class is a synonym)\n- in_features: positive integer input size / channel count\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (dataset paths, trainer, loss, FedAvg), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Synonyms: classes / n_class / n_classes → n_classes;\n  input features / channels / input size → in_features.\n- Built-in vs plugin (critical):\n  * CNN / \"built-in\" / \"library\" / \"not the .py file\" → CNN\n  * cnn.py / \"custom plugin cnn\" / plugins/models/cnn.py → plugin cnn\n  * mlp.py / plugins/models/mlp.py → plugin mlp\n  * Bare \"CNN\" without .py/plugin/custom wording defaults to built-in CNN.\n  * Do not convert built-in CNN into cnn.py unless the user asks for the plugin.\n- Choose name only from known built-ins or discovered plugins in known_models.\n- Plugins are not limited to cnn.py/mlp.py: any filename listed in\n  known_models is a valid plugin name, including previously generated\n  and saved custom models (e.g. custom_model.py). Echo the plugin name\n  exactly as it appears in known_models; do not force it to cnn.py/mlp.py.\n- Pretrained/architecture-only plugins (matched from known_models the same\n  way as any other plugin filename; never invent one that is not listed):\n  * resnet / resnet18 / \"ResNet-18\" -> resnet18.py\n    (pretrained CNN backbone, image data, ready to fine-tune)\n  * efficientnet / \"efficientnet-b0\" / \"EfficientNet B0\" -> efficientnet_b0.py\n    (pretrained CNN backbone, image data, ready to fine-tune)\n  * mobilenet / mobilenetv3 / \"MobileNetV3-Small\" / \"mobile net small\" -> mobilenetv3_small.py\n    (pretrained CNN backbone, image data, ready to fine-tune)\n  * tabnet / \"tab net\" -> tabnet.py\n    (tabular; attention-based, sparse feature selection; trained from scratch)\n  * \"ft-transformer\" / \"ft transformer\" / \"feature tokenizer transformer\" / fttransformer -> ft_transformer.py\n    (tabular; transformer-based; strong general tabular performance; trained from scratch)\n  * tabtransformer / \"tab transformer\" -> tabtransformer.py\n    (tabular; transformer-based; especially good with categorical features; trained from scratch)\n  * These aliases only apply when the matching filename is present in\n    known_models; if it is absent, do not output it anyway.\n- n_classes and in_features must be positive integers.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about the model block; may be short, long, messy, incomplete, or misspelled, and may not use exact field names"
+        },
+        {
+          "prefix": "Known Models:",
+          "description": "Allowed models: built-in names without .py (e.g. CNN) and discovered plugins as filename -> repo-relative path (e.g. cnn.py -> plugins/models/cnn.py, mlp.py -> plugins/models/mlp.py)"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Name:",
+          "description": "Built-in model name (e.g. CNN) OR plugin filename/path (e.g. cnn.py, mlp.py, resnet18.py, tabnet.py, or a full plugins/models/... path). Do not confuse built-in CNN with plugin cnn.py, and never invent a plugin name not present in known_models."
+        },
+        {
+          "prefix": "N Classes:",
+          "description": "Positive integer: number of output classes (e.g. 10). Accept n_class as synonym."
+        },
+        {
+          "prefix": "In Features:",
+          "description": "Positive integer: input size / channel count (e.g. 1 for MNIST grayscale, 784 for flattened MLP input)."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

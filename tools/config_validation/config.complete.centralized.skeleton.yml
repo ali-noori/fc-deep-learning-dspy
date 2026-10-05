@@ -1,0 +1,178 @@
+fc_deep:
+
+  # Optional. ConfigState.read_config() stores it when present; enables extra debug logging.
+  debug: false
+
+  # Required (centralized). Any non-null value selects Centralized after Initialization
+  # (samples use true). Absence → federated path instead.
+  centralized: true
+
+  # ---------------------------------------------------------------------------
+  # local_dataset — input basenames + dataloader kwargs (single container / coordinator)
+  # ---------------------------------------------------------------------------
+  local_dataset:
+
+    # Required. Basename of the per-split training file; finalize_config builds {split}/{train}.
+    train: "train.npz"
+
+    # Usually required. Per-split test basename; Initialization errors if both test and central_test are missing.
+    test: "test.npz"
+
+    # Optional (centralized). Non-null → coordinator builds central test_loader; WriteResults may write central_* CSVs.
+    central_test: null
+
+    # Required as a dict (may be {}). Passed as **kwargs to the dataloader constructor in get_dataloader().
+    # Do not put a filename string here: finalize_config walks every local_dataset key as a path.
+    detail:
+      # Conditional (RnaLoader / RnaLoader.py). Separator for CSV/TSV; KeyError if missing for that loader.
+      sep: ","
+      # Conditional (RnaLoader / RnaLoader.py). Label column name; KeyError if missing for that loader.
+      label: "Group"
+      # ImageLoader ignores extra detail keys; other custom loaders may define further kwargs.
+
+    # Optional (centralized). Non-null → coordinator load_model() during Initialization before Centralized.run.
+    init_model: null
+
+  # ---------------------------------------------------------------------------
+  # logic — how ConfigState discovers CV splits under mnt/input
+  # ---------------------------------------------------------------------------
+  logic:
+
+    # Required (or defaults to "file"). "directory" = each subfolder under dir is a fold; "file" = single split.
+    mode: "directory"
+
+    # Required with logic section. Folder name scanned when mode=directory (e.g. data → data/0, data/1).
+    dir: "data"
+
+  # ---------------------------------------------------------------------------
+  # result — output basenames written under each split’s mnt/output tree
+  # ---------------------------------------------------------------------------
+  result:
+
+    # Required. Local prediction CSV basename written via write_local_test_results.
+    pred: "y_pred.csv"
+
+    # Required. Ground-truth CSV basename paired with pred.
+    target: "y_test.csv"
+
+    # Optional. If set, write_dnn_models saves each fold’s final weights.
+    model: "model.pt"
+
+  # ---------------------------------------------------------------------------
+  # fed_hyper_params — still parsed at init; only max_iter is used by Centralized.run
+  # ---------------------------------------------------------------------------
+  fed_hyper_params:
+
+    # Required (centralized). Copied onto client_model.model.epochs before fold training
+    # (BasicTrainer length). Different from federated/simulation “communication rounds”.
+    # FedMMb.py still follows train_config.batch_count and ignores this epoch override.
+    max_iter: 10
+
+    # Allowed structurally (passed into aggregator kwargs at init). Built-in FedAvg does not read it;
+    # Centralized.run never aggregates — kept for template/schema compatibility.
+    n_classes: 10
+
+    # Present because Initialization builds an aggregator on the coordinator before branching.
+    # Centralized.run never calls aggregate(); value must still resolve via get_aggregator() at init.
+    federated_model: "FedAvg"
+
+    # Present because load_schemas() runs in store_() during Initialization (getattr GlobalUpdates).
+    # Centralized.run does not broadcast global packages — kept for init/schema compatibility.
+    global_updates: "WEIGHTS_STOPPING"
+
+    # Allowed (may be {}). Merged into aggregator constructor at init; unused by Centralized.run itself.
+    param: {}
+
+  # Stored from config in store_() during Initialization. Centralized.run never uses FC SMPC paths.
+  use_smpc: false
+
+  # ---------------------------------------------------------------------------
+  # trainer — local training stack (resolved in Initialization; used by Centralized.update loop)
+  # ---------------------------------------------------------------------------
+  trainer:
+
+    # Required. Trainer class: built-in BasicTrainer or "<file>.py" exposing CustomTrainer (e.g. FedMMb.py).
+    name: "BasicTrainer"
+
+    # Allowed (may be {}). Extra kwargs passed into the trainer constructor (**trainer.param).
+    param: {}
+
+    # Present because load_schemas() reads trainer.local_updates during Initialization.
+    # Centralized.run trains via client_model.update / get_weights and does not pack network local updates.
+    local_updates: "WEIGHTS_N_SAMPLES"
+
+    # Required. Dataloader: built-in ImageLoader or "<file>.py" exposing CustomDataLoader.
+    data_loader: "ImageLoader"
+
+    optimizer:
+      # Required. torch.optim class name or custom "<file>.py" with CustomOptimizer.
+      name: "SGD"
+      # Allowed. Kwargs for the optimizer constructor (plus params=model.parameters() injected in code).
+      param:
+        # Common / documented. Learning rate for SGD/Adam/etc.
+        lr: 0.1
+        # Optional example for SGD; any other torch.optim kwargs for the chosen class are also allowed here.
+        momentum: 0.9
+
+    loss:
+      # Required. torch.nn loss class name or custom "<file>.py" with CustomLoss (e.g. focal_loss.py).
+      name: "CrossEntropyLoss"
+      # Allowed (may be {}). Kwargs for the loss constructor (e.g. focal_loss.py: gamma, weight).
+      param: {}
+
+    # Required (non-empty list in practice). Each entry is resolved via get_metrics(name, package).
+    metrics:
+      - # Required per metric. Metric class name (torchmetrics or CustomMetric in a .py module).
+        name: "Accuracy"
+        # Required per metric. Importable package/module path providing that class.
+        package: "torchmetrics.classification"
+        # Allowed (may be {}). Kwargs for the metric constructor (task/num_classes common for classification).
+        param:
+          # Conditional (many torchmetrics classification metrics). Task type string.
+          task: "multiclass"
+          # Conditional (multiclass metrics). Class count; should align with model / labels.
+          num_classes: 10
+
+  # ---------------------------------------------------------------------------
+  # train_config — copied onto the trainer via setattr; epochs often overridden by max_iter
+  # ---------------------------------------------------------------------------
+  train_config:
+
+    # Allowed. Controls whether BasicTrainer logs train/val metric lines each epoch.
+    verbose: false
+
+    # Required in practice. Training DataLoader batch size (client_model.model.batch_size).
+    batch_size: 32
+
+    # Required in practice. Test / central-test DataLoader batch size (test_batch_size).
+    test_batch_size: 32
+
+    # Allowed at init, but Centralized.run sets model.epochs = fed_hyper_params.max_iter afterward
+    # for BasicTrainer. With FedMMb.py, local length still follows batch_count, not epochs/max_iter.
+    epochs: 1
+
+    # Allowed. Stored on the trainer; optimizer lr still comes from trainer.optimizer.param unless a custom trainer reads this.
+    lr: 0.1
+
+    # Allowed. Local batch limit for FedMMb.py; unused by BasicTrainer.fit().
+    batch_count: 1
+
+    # Required in practice. "cpu" or "gpu"; normalized with CUDA availability in set_device().
+    device: "cpu"
+
+    # Note: additional keys under train_config are also accepted: Trainer.__init__ setattr’s every item.
+    # Only the keys above are known consumers in built-in BasicTrainer / FedMMb / samples.
+
+  # ---------------------------------------------------------------------------
+  # model — Shape A (named / plugin). Alternative Shape B (layer list) is commented below.
+  # ---------------------------------------------------------------------------
+  model:
+
+    # Shape A: present → design_architecture loads built-in models.pytorch.models name or Model from .py.
+    name: "cnn.py"
+
+    # Typical for CNN / cnn.py / mlp.py. Output class count for the model constructor.
+    n_classes: 10
+
+    # Typical for CNN / cnn.py / mlp.py. Channels (CNN) or flat feature size (MLP); other Model classes may need other kwargs.
+    in_features: 1

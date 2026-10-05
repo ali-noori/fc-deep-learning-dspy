@@ -17,10 +17,12 @@ class WorkflowPipeline:
         settings: Settings,
         ollama_model: str | None = None,
         ollama_base_url: str | None = None,
+        recompile: bool | None = None,
     ) -> None:
         self._settings = settings
         self._ollama_model_override = ollama_model
         self._ollama_base_url_override = ollama_base_url
+        self._recompile = recompile
 
     def _ollama_model(self) -> str:
         return resolve_ollama_model(self._ollama_model_override)
@@ -40,6 +42,7 @@ class WorkflowPipeline:
                 self._settings,
                 self._ollama_model(),
                 self._ollama_base_url(),
+                self._recompile,
             )
             result = module(user_message=request)
         except ValueError:

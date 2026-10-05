@@ -1,4 +1,4 @@
 model:
-  name: plugins/models/cnn.py
+  name: plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py
   n_classes: 10
   in_features: 1

@@ -1,0 +1,281 @@
+{
+  "select.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "I want to run the federated mode.",
+        "reasoning": "The user explicitly mentions wanting to run in federated mode.",
+        "execution_mode": "federated"
+      },
+      {
+        "augmented": true,
+        "user_message": "Please use federated learning with two clients.",
+        "reasoning": "The user explicitly mentions 'federated learning with two clients', which implies a real multi-client distributed training setup across separate clients or sites.",
+        "execution_mode": "federated"
+      },
+      {
+        "augmented": true,
+        "user_message": "Train across multiple hospitals / clients.",
+        "reasoning": "The user wants to train across multiple hospitals or clients, indicating a need for real, separate clients or sites.",
+        "execution_mode": "federated"
+      },
+      {
+        "augmented": true,
+        "user_message": "I need distributed learning with real clients.",
+        "reasoning": "The user explicitly mentions the need for distributed learning with real clients.",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "local fake clients please",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "go with federation",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "test multi-client without deploying",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "I want feder... with multiple clients",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "single-node / non-federated run",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "Use the mode where each partner trains locally and we only exchange weights, not the raw datasets.",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "centr",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "multi client training please",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "I need simulation for local testing.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "centralized",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "mock FL run on my machine",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "centralised",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "I want to run this in federatd mode and use mlp, CrossEntropy, and FedAvg across the hospital clients.",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "fed learning w/ 4 clients",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "i need sim mode for quick check",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "simul",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "not federated and not simulation — classic single-node training on all data together",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "not simulation, not one machine — actual distributed clients connected through the controller",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "run as if there are clients, but locally",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "Run the app in simulation mode.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "pls start federat learning now",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "sim",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "I want to dry-run federated locally before real clients.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "I want centralized mode.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "I want to run this in centraliyed mode and use one data_dir, mlp model, and normal training — no clients.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "simulation",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "option: real FL with clients",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "dry run / simulated clients",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "federated",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "Train everything on a single server, no federation.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "i dont need clients, just train",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "we have 3 real sites and each keeps its own data",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "Use centralized training on one machine.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "run across clients (real)",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "not real federated yet — just simulate clients locally so I can debug the config",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "Just train on my laptop with one dataset folder. No multi-client, no simulation of clients, plain centralized DL.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "no FL, just normal training",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "I want to run this in simualtion and use my sample data folders to pretend there are several clients.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "Before contacting real hospitals I just want to emulate multi-client federated learning on one PC.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "fed",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "central",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "We are not doing distributed learning. Put everything in one place and train end-to-end on that single machine.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "One dataset on one machine only.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "Fake multi-client run on my laptop first.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "Please configure the app for centralized execution because we only have one machine and one shared dataset path.",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "single machine training",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "Long story short: I want federation behavior but everything should stay on localhost with fake clients.",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "My thesis setup needs training on separate nodes where each client has its own folder and we aggregate after local updates.",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "Okay so basically we need real FeatureCloud clients in different organizations, data stays local, only model updates are shared.",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "simulatn mode pls",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "fedarated",
+        "execution_mode": "federated"
+      },
+      {
+        "user_message": "Can we do a simulated federated experiment where client_dirs are local folders under data/, no real remote clients?",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "central training please",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "centrallized mode",
+        "execution_mode": "centralized"
+      },
+      {
+        "user_message": "simualtion",
+        "execution_mode": "simulation"
+      },
+      {
+        "user_message": "one server, one dataset",
+        "execution_mode": "centralized"
+      }
+    ],
+    "signature": {
+      "instructions": "Choose exactly one FeatureCloud execution mode from the developer's answer.\n\nModes:\n- federated: real multi-client / distributed training across separate clients or sites\n- simulation: local fake multi-client / dry-run testing without real remote clients\n- centralized: single-machine / single-server training with one dataset (no federation)\n\nDecision rules:\n- Ignore typos, incomplete words, informal wording; infer the intended mode.\n- If the user mentions many requirements (model, loss, data, etc.), still pick only the execution mode.\n- If they want federated behavior but with local/fake clients or a dry-run first → simulation.\n- If they want real separate clients/sites that keep data local → federated.\n- If they want one machine / one dataset / no clients → centralized.\n- Reply with exactly one label word only.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer's natural-language answer about how to run the app; may be short, long, informal, incomplete, or misspelled"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Execution Mode:",
+          "description": "Exactly one lowercase label only: federated, simulation, or centralized"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -8,6 +8,21 @@ CNN_BUILTIN = "CNN"
 CNN_PLUGIN = "plugins/models/cnn.py"
 MLP_PLUGIN = "plugins/models/mlp.py"
 
+# Generic, non-hardcoded plugin name: teaches the LM that plugin selection
+# generalizes to ANY filename discovered under plugins/models (e.g. a
+# previously generated/saved custom model), not only cnn.py / mlp.py.
+CUSTOM_PLUGIN = "plugins/models/custom_model.py"
+
+# Pretrained/architecture-only plugins under plugins/models/pre-trained_models.
+# CNN group: pretrained ImageNet backbones, ready to fine-tune.
+RESNET18_PRETRAINED = "plugins/models/pre-trained_models/cnn_architectures/resnet18.py"
+EFFICIENTNET_B0_PRETRAINED = "plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py"
+MOBILENETV3_SMALL_PRETRAINED = "plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py"
+# Tabular group: architecture-only, trained from scratch (no pretrained weights).
+TABNET_PRETRAINED = "plugins/models/pre-trained_models/mlp_architectures/tabnet.py"
+FT_TRANSFORMER_PRETRAINED = "plugins/models/pre-trained_models/mlp_architectures/ft_transformer.py"
+TABTRANSFORMER_PRETRAINED = "plugins/models/pre-trained_models/mlp_architectures/tabtransformer.py"
+
 FEWSHOT_PAIRS: list[tuple[str, str, str, str]] = [
     # --- structured / common ---
     (
@@ -384,5 +399,186 @@ FEWSHOT_PAIRS: list[tuple[str, str, str, str]] = [
         MLP_PLUGIN,
         "10",
         "784",
+    ),
+    # --- generalization: previously generated/saved custom plugin models ---
+    # (not limited to cnn.py / mlp.py; any discovered plugin filename is valid)
+    (
+        "Use the custom plugin model custom_model.py.\n"
+        "name: custom_model.py\nn_classes: 10\nin_features: 1",
+        CUSTOM_PLUGIN,
+        "10",
+        "1",
+    ),
+    (
+        "I saved a custom model earlier called custom_model.py. Use it, "
+        "with 10 classes and 1 input feature.",
+        CUSTOM_PLUGIN,
+        "10",
+        "1",
+    ),
+    (
+        "name: plugins/models/custom_model.py\nn_class: 5\nin_features: 128",
+        CUSTOM_PLUGIN,
+        "5",
+        "128",
+    ),
+    (
+        "Use my previously generated custom_model.py plugin, classes=20, in_features=64",
+        CUSTOM_PLUGIN,
+        "20",
+        "64",
+    ),
+    (
+        "custom_model.y — I mean custom_model.py. classes 10, in_features 32",
+        CUSTOM_PLUGIN,
+        "10",
+        "32",
+    ),
+    (
+        "Not CNN, not MLP — use the reusable custom_model.py plugin I saved. "
+        "n_classes 2, in_features 16.",
+        CUSTOM_PLUGIN,
+        "2",
+        "16",
+    ),
+    # --- pretrained CNN backbones (image data, ready to fine-tune) ---
+    (
+        "name: resnet18.py\nn_classes: 20\nin_features: 1",
+        RESNET18_PRETRAINED,
+        "20",
+        "1",
+    ),
+    (
+        "I want the resnet and in_feature to 1 and n-classes to 20.",
+        RESNET18_PRETRAINED,
+        "20",
+        "1",
+    ),
+    (
+        "Use the pretrained ResNet-18 backbone, fine-tune it. n_classes 10, in_features 3.",
+        RESNET18_PRETRAINED,
+        "10",
+        "3",
+    ),
+    (
+        "resnett18 pretraiend modle, 10 clases, 3 infeatures",
+        RESNET18_PRETRAINED,
+        "10",
+        "3",
+    ),
+    (
+        "name: efficientnet_b0.py\nn_classes: 15\nin_features: 3",
+        EFFICIENTNET_B0_PRETRAINED,
+        "15",
+        "3",
+    ),
+    (
+        "I want EfficientNet-B0 pretrained, fine-tune the head. classes 10, in_features 3.",
+        EFFICIENTNET_B0_PRETRAINED,
+        "10",
+        "3",
+    ),
+    (
+        "use efficientnet b0 backbone (transfer learning). n_class 4 in_features 1",
+        EFFICIENTNET_B0_PRETRAINED,
+        "4",
+        "1",
+    ),
+    (
+        "name: mobilenetv3_small.py\nn_classes: 10\nin_features: 1",
+        MOBILENETV3_SMALL_PRETRAINED,
+        "10",
+        "1",
+    ),
+    (
+        "I want MobileNetV3-Small pretrained for image classification, fine-tune it. "
+        "n_classes 10, in_features 1.",
+        MOBILENETV3_SMALL_PRETRAINED,
+        "10",
+        "1",
+    ),
+    (
+        "use mobilenet v3 small backbone, classes=6, in_features=3",
+        MOBILENETV3_SMALL_PRETRAINED,
+        "6",
+        "3",
+    ),
+    (
+        "Not MobileNet, not EfficientNet — I want ResNet18 pretrained. "
+        "n_classes 30, in_features 3.",
+        RESNET18_PRETRAINED,
+        "30",
+        "3",
+    ),
+    # --- tabular architectures (architecture-only, trained from scratch) ---
+    (
+        "name: tabnet.py\nn_classes: 100\nin_features: 5",
+        TABNET_PRETRAINED,
+        "100",
+        "5",
+    ),
+    (
+        "I want tabnet because i have and mlp task and in_feature is 5 and n_classes is 100",
+        TABNET_PRETRAINED,
+        "100",
+        "5",
+    ),
+    (
+        "Use TabNet for tabular data, I need sparse attention-based feature selection. "
+        "classes 2, in_features 20.",
+        TABNET_PRETRAINED,
+        "2",
+        "20",
+    ),
+    (
+        "tabnett architecture, 4 classes, 6 infeatures",
+        TABNET_PRETRAINED,
+        "4",
+        "6",
+    ),
+    (
+        "name: ft_transformer.py\nn_classes: 10\nin_features: 30",
+        FT_TRANSFORMER_PRETRAINED,
+        "10",
+        "30",
+    ),
+    (
+        "I want the FT-Transformer for my tabular dataset, general performance. "
+        "classes 5, in_features 40.",
+        FT_TRANSFORMER_PRETRAINED,
+        "5",
+        "40",
+    ),
+    (
+        "use ft transformer (feature tokenizer transformer), n_class 3, in_features 18",
+        FT_TRANSFORMER_PRETRAINED,
+        "3",
+        "18",
+    ),
+    (
+        "name: tabtransformer.py\nn_classes: 6\nin_features: 22",
+        TABTRANSFORMER_PRETRAINED,
+        "6",
+        "22",
+    ),
+    (
+        "I want TabTransformer, my tabular data has many categorical features. "
+        "classes 4, in_features 16.",
+        TABTRANSFORMER_PRETRAINED,
+        "4",
+        "16",
+    ),
+    (
+        "use tab transformer for categorical-heavy tabular data, n_class 9, in_features 14",
+        TABTRANSFORMER_PRETRAINED,
+        "9",
+        "14",
+    ),
+    (
+        "Not TabNet, not TabTransformer — I want the FT-Transformer. "
+        "n_classes 11, in_features 9.",
+        FT_TRANSFORMER_PRETRAINED,
+        "11",
+        "9",
     ),
 ]

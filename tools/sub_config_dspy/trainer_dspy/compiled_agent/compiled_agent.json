@@ -1,0 +1,717 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "name: BasicTrainer\ndata_loader: ImageLoader\nloss.name: CrossEntropyLoss\nn_class: 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use built-in BasicTrainer (not the .py plugin) with ImageLoader, CrossEntropyLoss, and 3 classes.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "- name: BasicTrainer\n- data_loader: ImageLoader\n- loss.name: CrossEntropyLoss\n- n_class: 50",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "50"
+      },
+      {
+        "augmented": true,
+        "user_message": "BasicTrainer, ImageLoader, built-in BCEWithLogitsLoss loss, 2 classes.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "BCEWithLogitsLoss",
+        "num_classes": "2"
+      },
+      {
+        "augmented": true,
+        "user_message": "- name: BasicTrainer\n- data_loader: ImageLoader\n- loss.name: MSELoss\n- n_class: 50",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "MSELoss",
+        "num_classes": "50"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: BasicTrainer\ndata_loader: ImageLoader\nloss.name: NLLLoss\nn_classes: 7",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "NLLLoss",
+        "num_classes": "7"
+      },
+      {
+        "augmented": true,
+        "user_message": "I want built-in CrossEntropyLoss (not focal_loss.py) with BasicTrainer, ImageLoader, n_class 3.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "pls all built-in: BasicTrainer + ImageLoader + CrossEntropyLoss, 10 classes (no .py plugins)",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "n_classes 1\nloss.name CrossEntropyLoss\ndata_loader ImageLoader\nname BasicTrainer",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use custom plugins: FedMMb.py trainer, ImageLoader.py dataloader, focal_loss.py loss, n_class 10.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: FedMMb.py\ndata_loader: ImageLoader.py\nloss.name: focal_loss.py\nn_classes: 10\n\nYour last answer was invalid: trainer name 'plugins/trainers/FeedMMb.py' is not a discovered plugin. Allowed plugins: FedMMb.py\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "FedMMb.py",
+        "data_loader": "ImageLoader.py",
+        "loss_name": "focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "all custom: FedMMb.py + RnaLoader.py + focal_loss.py, classes 8\n\nYour last answer was invalid: Adapter JSONAdapter failed to parse the LM response. \n\nLM Response: {\n   \"reasoning\":  \"\",\n   \"name\":  \"plugins/trainers/ FedMMb. py\",\n   \"data_ loader\":  \"plugins/dataloaders/RnaLoader. py\",\n   \"loss_ name\":  \"plugins/loss/focal_ loss. py\",\n   \"num_ classes\":  \"8\"\n} \n\nExpected to find output fields in the LM response: [reasoning, name, data_loader, loss_name, num_classes] \n\nActual output fields parsed from the LM response: [reasoning, name] \n\n\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "FedMMb.py",
+        "data_loader": "RnaLoader.py",
+        "loss_name": "focal_loss.py",
+        "num_classes": "8"
+      },
+      {
+        "augmented": true,
+        "user_message": "plugin stack FedMMb.py / ImageLoader.py / focal_loss.py — 100 classes\n\nYour last answer was invalid: trainer name 'plugins/trainers/FeedMMb.py' is not a discovered plugin. Allowed plugins: FedMMb.py\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "FedMMb.py",
+        "data_loader": "ImageLoader.py",
+        "loss_name": "focal_loss.py",
+        "num_classes": "100"
+      },
+      {
+        "augmented": true,
+        "user_message": "name: \"FedMMb.py\"\ndata_loader: \"ImageLoader.py\"\nloss.name: \"focal_loss.py\"\nn_class: 2",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "2"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin trainer FedMMb.py.\nname: FedMMb.py\ndata_loader: ImageLoader\nloss.name: CrossEntropyLoss\nn_class: 10\n\nYour last answer was invalid: trainer name 'plugins/trainers/FeedMMb.py' is not a discovered plugin. Allowed plugins: FedMMb.py\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin trainer FedMMb.py with ImageLoader, CrossEntropyLoss, and 3 classes.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "plugins/trainers/FeedMMb.ply",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin trainer FedMMb.py (full plugin path).\nname: plugins/trainers/FedMMb.py\ndata_loader: ImageLoader\nloss.name: CrossEntropyLoss\nn_class: 50\n\nYour last answer was invalid: Adapter JSONAdapter failed to parse the LM response. \n\nLM Response: {\n   \"reasoning\":  \"Not supplied for this particular example.  \",\n   \"name\":  \"plugins/trainers/FeedMMb. To adhere to prior examples: plugins/ trainers/ FedMMb. This is a plugin path, not BasicTrainer.  \",\n   \"data_ loader\":  \"ImageLoader.  \",\n   \"loss_ name\":  \"CrossEntropyLoss.  \",\n   \"num_ classes\":  \"50  \"\n} \n\nExpected to find output fields in the LM response: [reasoning, name, data_loader, loss_name, num_classes] \n\nActual output fields parsed from the LM response: [reasoning, name] \n\n\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "50"
+      },
+      {
+        "augmented": true,
+        "user_message": "NOT BasicTrainer — use FedMMb.py plugin. ImageLoader + CrossEntropyLoss, n_class 7.\n\nYour last answer was invalid: trainer name 'plugins/trainers/FeedMMb.py' is not a discovered plugin. Allowed plugins: FedMMb.py\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "User specified not to use BasicTrainer, implying the use of a plugin trainer. The only discovered plugin trainer is FedMMb.py.",
+        "name": "FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "7"
+      },
+      {
+        "augmented": true,
+        "user_message": "Someone wrote BasicTrainer; ignore that. Use FedMMb.py. ImageLoader, CrossEntropyLoss, classes 12.\n\nYour last answer was invalid: trainer name 'plugins/trainers/FeedMMb.py' is not a discovered plugin. Allowed plugins: FedMMb.py\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "The user explicitly mentioned to ignore BasicTrainer and use FedMMb.py as the trainer, ImageLoader as the data loader, CrossEntropyLoss as the loss, and 12 classes.",
+        "name": "FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "12"
+      },
+      {
+        "augmented": true,
+        "user_message": "built-in BasicTrainer only (not FedMMb.py), ImageLoader, CrossEntropyLoss, 9 classes",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "9"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin dataloader ImageLoader.py.\nname: BasicTrainer\ndata_loader: ImageLoader.py\nloss.name: CrossEntropyLoss\nn_class: 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "BasicTrainer with custom plugin dataloader RnaLoader.py, CrossEntropyLoss, 100 classes.\n\nYour last answer was invalid: Adapter JSONAdapter failed to parse the LM response. \n\nLM Response: {\n   \"reasoning\":  \"Not supplied for this particular example.  \",\n   \"name\":  \"BasicTrainer\",\n   \"data_loader\":  \"plugins/ dataloaders/RnaLoader.py\",\n   \"loss_ name\":  \"CrossEntropyLoss\",\n   \"num_classes\":  \"100\"\n} \n\nExpected to find output fields in the LM response: [reasoning, name, data_loader, loss_name, num_classes] \n\nActual output fields parsed from the LM response: [reasoning, name, data_loader, num_classes] \n\n\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/RnaLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "100"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin dataloader RnaLoader.py.\nname: BasicTrainer\ndata_loader: \"RnaLoader.py\"\nloss.name: CrossEntropyLoss\nn_class: 25",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/ dataloaders/RnaLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "25"
+      },
+      {
+        "augmented": true,
+        "user_message": "Do NOT use ImageLoader.py. Use built-in ImageLoader. BasicTrainer, CrossEntropyLoss, n_class 6.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "6"
+      },
+      {
+        "augmented": true,
+        "user_message": "I said ImageLoader but I mean the plugin ImageLoader.py. BasicTrainer, CrossEntropyLoss, classes 10.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "dataloader plugins\\dataloaders\\RnaLoader.py with BasicTrainer and CrossEntropyLoss, n_classes 15",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/RnaLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "15"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin loss focal_loss.py.\nname: BasicTrainer\ndata_loader: ImageLoader\nloss.name: focal_loss.py\nn_class: 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "augmented": true,
+        "user_message": "BasicTrainer, ImageLoader, custom plugin loss focal_loss.py, 2 classes.\n\nYour last answer was invalid: Adapter JSONAdapter failed to parse the LM response. \n\nLM Response: {\n   \"reasoning\":  \"Not supplied for this particular example.  \",\n   \"name\":  \"BasicTrainer\",\n   \"data__loader\":  \"ImageLoader\",\n   \"loss_name\":  \"plugins/loss/focal_loss.py\",\n   \"num_classes\":  \"2\"\n} \n\nExpected to find output fields in the LM response: [reasoning, name, data_loader, loss_name, num_classes] \n\nActual output fields parsed from the LM response: [reasoning, name, loss_name, num_classes] \n\n\nReply with name, data_loader, loss.name, and n_class copied exactly from the developer answer. Allowed trainers: built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py. Allowed dataloaders: built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py. Allowed losses: built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "2"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin loss focal_loss.py (full plugin path).\nname: BasicTrainer\ndata_loader: ImageLoader\nloss.name: plugins/loss/focal_loss.py\nn_class: 50",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal__loss.py",
+        "num_classes": "50"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the custom plugin loss focal_loss.py.\nname: BasicTrainer\ndata_loader: ImageLoader\nloss.name: \"focal_loss.py\"\nn_class: 3",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "3"
+      },
+      {
+        "user_message": "loss_name: CrossEntropyLoss\ntrainer: BasicTrainer\ndata_loader: ImageLoader\nn_class: 14",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "14"
+      },
+      {
+        "user_message": "Bare names only: BasicTrainer / ImageLoader / CrossEntropyLoss / 1 class",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "1"
+      },
+      {
+        "user_message": "FedMMb.py + ImageLoader + focal_loss.py, classes 10 (trainer+loss plugins, built-in loader)",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "built-in CrossEntropyLoss only — not focal_loss.py. BasicTrainer, ImageLoader, classes 11.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "11"
+      },
+      {
+        "user_message": "FedMMb.py with RnaLoader.py and NLLLoss, n_classes 20",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/RnaLoader.py",
+        "loss_name": "NLLLoss",
+        "num_classes": "20"
+      },
+      {
+        "user_message": "Use plugins/trainers/FedMMb.py with plugins/dataloaders/ImageLoader.py and plugins/loss/focal_loss.py — full plugin stack, not built-ins. n_class 18.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "18"
+      },
+      {
+        "user_message": "Ignore model mlp. Use FedMMb.py, ImageLoader.py, focal_loss.py, n_class=10.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "FedMMb.py trainer, built-in ImageLoader, CrossEntropyLoss, n_class 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "plugin trainer FedMMb.py, built-in ImageLoader, BCEWithLogitsLoss, 2 classes",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "BCEWithLogitsLoss",
+        "num_classes": "2"
+      },
+      {
+        "user_message": "pls BasicTriner — wait BasicTrainer; ImageLoader; CrossEntropyLoss; 10 classes",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "fedmmb.py plugin trainer, imageloader.py plugin loader, focal_loss.py, n_clas 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "loss_name: focal_loss.py\ntrainer: FedMMb.py\ndata_loader: RnaLoader.py\nn_class: 14",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/RnaLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "14"
+      },
+      {
+        "user_message": "FedMMb.py + ImageLoader.py + CrossEntropyLoss, classes 10 (trainer+loader plugins, built-in loss)",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "name:BasicTrainer data_loader:ImageLoader loss.name:CrossEntropyLoss n_class:10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "BasicTrainer, ImageLoader.py plugin, CrossEntropyLoss, n_class 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "Ignore dataset and FedAvg talk. Trainer=BasicTrainer, loader=ImageLoader, loss=CrossEntropyLoss, n_classes=10.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "classes 10, loss CrossEntropyLoss, loader ImageLoader, trainer BasicTrainer",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "Use BasicTrainer with ImageLoader and CrossEntropyLoss — built-in stack, not plugins/trainers/FedMMb.py / ImageLoader.py / focal_loss.py. n_class 18.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "18"
+      },
+      {
+        "user_message": "Use the custom plugin dataloader ImageLoader.py (full plugin path).\nname: BasicTrainer\ndata_loader: plugins/dataloaders/ImageLoader.py\nloss.name: CrossEntropyLoss\nn_classes: 8",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "8"
+      },
+      {
+        "user_message": "BasicTrainer + ImageLoader.py + focal_loss.py, classes 10 (loader+loss plugins, built-in trainer)",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "classes 10, loss focal_loss.py, loader ImageLoader.py, trainer FedMMb.py",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "Please set trainer to FedMMb.py, dataloader to ImageLoader.py, loss to focal_loss.py, and classes to ten (10).",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "mixed: name plugins/trainers/FedMMb.py, data_loader ImageLoader, loss.name plugins/loss/focal_loss.py, n_classes 16",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "16"
+      },
+      {
+        "user_message": "Please set trainer to BasicTrainer, dataloader to ImageLoader, loss to CrossEntropyLoss, and classes to ten (10).",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "I said CrossEntropyLoss earlier; actually use focal_loss.py plugin. BasicTrainer + ImageLoader, n_class 10.",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "full paths please:\nname: plugins/trainers/FedMMb.py\ndata_loader: plugins/dataloaders/ImageLoader.py\nloss.name: plugins/loss/focal_loss.py\nn_class: 5",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "5"
+      },
+      {
+        "user_message": "BasicTrainer, ImageLoader, focal_loss.py, n_class 10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      },
+      {
+        "user_message": "BasicTrainer, RnaLoader.py, MSELoss, n_class 1",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "plugins/dataloaders/RnaLoader.py",
+        "loss_name": "MSELoss",
+        "num_classes": "1"
+      },
+      {
+        "user_message": "Bare ImageLoader (built-in, no .py), BasicTrainer, CrossEntropyLoss, 999 classes",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "BasicTrainer",
+        "data_loader": "ImageLoader",
+        "loss_name": "CrossEntropyLoss",
+        "num_classes": "999"
+      },
+      {
+        "user_message": "name:FedMMb.py,data_loader:ImageLoader.py,loss.name:focal_loss.py,n_classes:10",
+        "known_trainers": "built-in names without .py (BasicTrainer); plugins: FedMMb.py -> plugins/trainers/FedMMb.py",
+        "known_dataloaders": "built-in names without .py (ImageLoader); plugins: ImageLoader.py -> plugins/dataloaders/ImageLoader.py, RnaLoader.py -> plugins/dataloaders/RnaLoader.py",
+        "known_losses": "built-in torch.nn class names without .py (CrossEntropyLoss, NLLLoss, MSELoss, BCEWithLogitsLoss); plugins: focal_loss.py -> plugins/loss/focal_loss.py",
+        "name": "plugins/trainers/FedMMb.py",
+        "data_loader": "plugins/dataloaders/ImageLoader.py",
+        "loss_name": "plugins/loss/focal_loss.py",
+        "num_classes": "10"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract trainer fields from the developer's answer.\n\nOutputs:\n- name: built-in trainer OR trainer plugin path\n- data_loader: built-in dataloader OR dataloader plugin path\n- loss_name: built-in torch.nn loss OR loss plugin path\n- num_classes: positive integer (n_class / n_classes synonym)\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (dataset paths, model architecture, FedAvg), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Synonyms: trainer/name → name; loader/data_loader → data_loader;\n  loss / loss.name / loss_name → loss_name; classes / n_class → num_classes.\n\nBuilt-in vs plugin (critical — apply independently to each of the three components):\n- Trainer:\n  * BasicTrainer / \"built-in trainer\" / \"not the .py file\" → BasicTrainer\n  * FedMMb.py / \"custom trainer plugin\" / plugins/trainers/FedMMb.py → plugin trainer\n  * Bare BasicTrainer without .py/plugin/custom wording defaults to built-in.\n- Data loader:\n  * ImageLoader / \"built-in loader\" → ImageLoader\n  * ImageLoader.py / RnaLoader.py / plugins/dataloaders/... → plugin dataloader\n  * Do not convert ImageLoader into ImageLoader.py unless the user asks for the plugin.\n- Loss:\n  * CrossEntropyLoss / NLLLoss / MSELoss / BCEWithLogitsLoss → built-in torch.nn names\n  * focal_loss.py / plugins/loss/focal_loss.py → plugin loss\n  * Do not convert CrossEntropyLoss into a .py plugin unless requested.\n\nMixed configs are allowed (e.g. built-in trainer + plugin loader + built-in loss).\nChoose each field only from the corresponding known_* built-ins/plugins list.\nnum_classes must be a positive integer.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about trainer/data_loader/loss; may be short, long, messy, incomplete, or misspelled, and may not use exact field names; components may be mixed built-in/plugin"
+        },
+        {
+          "prefix": "Known Trainers:",
+          "description": "Allowed trainers: built-in names without .py (e.g. BasicTrainer) and discovered plugins as filename -> path (e.g. FedMMb.py -> plugins/trainers/FedMMb.py)"
+        },
+        {
+          "prefix": "Known Dataloaders:",
+          "description": "Allowed dataloaders: built-in names without .py (e.g. ImageLoader) and discovered plugins as filename -> path (e.g. ImageLoader.py -> plugins/dataloaders/ImageLoader.py)"
+        },
+        {
+          "prefix": "Known Losses:",
+          "description": "Allowed losses: built-in torch.nn class names without .py (e.g. CrossEntropyLoss) and discovered plugins as filename -> path (e.g. focal_loss.py -> plugins/loss/focal_loss.py)"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Name:",
+          "description": "Built-in trainer (e.g. BasicTrainer) OR plugin filename/path (e.g. FedMMb.py or plugins/trainers/FedMMb.py). Do not confuse BasicTrainer with FedMMb.py."
+        },
+        {
+          "prefix": "Data Loader:",
+          "description": "Built-in dataloader (e.g. ImageLoader) OR plugin filename/path (e.g. ImageLoader.py, RnaLoader.py, or plugins/dataloaders/...). Do not confuse ImageLoader with ImageLoader.py."
+        },
+        {
+          "prefix": "Loss Name:",
+          "description": "Built-in torch.nn loss (e.g. CrossEntropyLoss) OR plugin filename/path (e.g. focal_loss.py or plugins/loss/focal_loss.py). Do not confuse CrossEntropyLoss with focal_loss.py."
+        },
+        {
+          "prefix": "Num Classes:",
+          "description": "Positive integer: number of classes (e.g. 10). Accept n_class as synonym."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

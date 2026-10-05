@@ -12,11 +12,34 @@ class CustomAggregator(FedOptimizer):
     """
     def __init__(self, **kwargs):
         super(CustomAggregator, self).__init__(**kwargs)
+        '''
+        params = [
+        client 0:  [ (weights_fold0, n0_fold0),  (weights_fold1, n0_fold1) ],
+        client 1:  [ (weights_fold0, n1_fold0),  (weights_fold1, n1_fold1) ],
+        ]
+        '''
         self.global_weights = []
         self.stopping_criteria = []
 
     def aggregate(self, params, **kwargs):
         # NEW; THIS CODE WAS ADDED AND INSTEAD OF THAT THERE WAS NOT CODE
+        '''
+        A. self.iteration += 1
+        Count this meeting (1, 2, ..., up to max_iter).
+        
+        B. n_splits = len(params[0])
+        How many folds? For you, 2.
+        
+        C.for each client:
+        for each fold:
+            sum_weights[fold] += client_weights[fold] * n_samples[fold]
+            sum_n[fold]      += n_samples[fold]
+
+        D. for each fold:
+        updated_weights[fold] = sum_weights[fold] / sum_n[fold]
+
+        E. self.global_weights = updated_weights
+        '''
         self.iteration += 1
         n_splits = len(params[0])
         global_weights = [np.array(params[0][0][0], dtype='object') * 0] * n_splits
@@ -40,23 +63,45 @@ class CustomAggregator(FedOptimizer):
         # OLD: self.stopping_criteria = [[iter_limit]] * len(metrics)
 
         # NEW
+        '''
+        The function is being called after the aggregation is done.
+        It checks if the number of iterations has reached the maximum number of iterations.
+        For each client that we have it send a sign that shows wether the client should stop or not.
+        example:
+        [[False, False], [True, True]]
+        '''
         iter_limit = self.iteration >= self.max_iter
         n_models = len(self.global_weights)
         self.stopping_criteria = [iter_limit] * n_models
         # END NEW
 
+    '''
+    The FedAvg.py is module that it only returns the stopping criteria
+    '''
     @property
     def stoppage(self):
         return self.stopping_criteria
 
+
+    '''
+    The FedAvg.py is module that it only returns the weights
+    '''
     @property
     def weights(self):
         return self.global_weights
 
+    '''
+    The FedAvg.py is module that it only returns nothing for the config
+    It can be used for other implementations of the aggregator.
+    '''
     @property
     def config(self):
-        return None
+        return self.config
 
+    '''
+    The FedAvg.py is module that it only returns nothing for the gradients:
+    It can be used for other implementations of the aggregator.
+    '''
     @property
     def gradients(self):
         return None

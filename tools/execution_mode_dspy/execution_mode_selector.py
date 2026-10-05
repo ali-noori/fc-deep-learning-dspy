@@ -64,6 +64,9 @@ class ExecutionModeSelectorModule(dspy.Module):
         result: ExecutionModeResult | None = None
         last_error: Exception | None = None
 
+        # Retry with feedback technique:
+        # This is a technique to improve the accuracy of the model by providing feedback to the model
+        # The model will be retried multiple times with the feedback until it is able to provide a valid answer
         for _ in range(self._settings.mode_select_max_retries):
             try:
                 prediction = self.select(user_message=current_request)

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -22,9 +23,29 @@ _DATALOADERS_DIR = _REPO_ROOT / "plugins" / "dataloaders"
 _LOSSES_DIR = _REPO_ROOT / "plugins" / "loss"
 
 
+def _parse_bool(raw: str) -> bool:
+    cleaned = raw.strip().lower()
+    if cleaned in ("true", "1", "yes"):
+        return True
+    if cleaned in ("false", "0", "no"):
+        return False
+    raise argparse.ArgumentTypeError(f"Expected True or False, got {raw!r}.")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Trainer config agent.")
+    parser.add_argument("--execution-mode", help="Unused; accepted when called from a mode wrapper.")
+    parser.add_argument(
+        "--recompile",
+        type=_parse_bool,
+        default=None,
+        metavar="{True,False}",
+        help="--recompile=True: compile and save. --recompile=False: load saved agent.",
+    )
+    args = parser.parse_args()
+
     settings = load_settings()
-    pipeline = TrainerPipeline(settings=settings)
+    pipeline = TrainerPipeline(settings=settings, recompile=args.recompile)
 
     print(f"Agent: {pipeline.TRAINER_QUESTION}")
     try:

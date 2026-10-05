@@ -1,0 +1,365 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "max_iter: 10\nn_class: 10\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "10",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "- max_iter: 20\n- n_classes: 100\n- federated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "20",
+        "n_classes": "100",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use the built-in FedAvg aggregator with 1000 communication rounds and 100 classes.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "1000",
+        "n_classes": "100",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter: 10000\nn_classes: 50\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "10000",
+        "n_classes": "50",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "- max_iter: 8\n- n_class: 4\n- federated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "8",
+        "n_classes": "4",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "I need 15 rounds, 7 classes, and the built-in FedAvg aggregator (not the .py plugin).",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "The user explicitly mentioned using the built-in FedAvg aggregator, not the .py plugin, and provided the required hyperparameter values.",
+        "max_iter": "15",
+        "n_classes": "7",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter: 5\nn_classes: 3\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "5",
+        "n_classes": "3",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter: 500\nn_classes: 25\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "500",
+        "n_classes": "25",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter: 100\nn_classes: 50\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "100",
+        "n_classes": "50",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter: 3\nn_classes: 2\nfederated_model: FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "3",
+        "n_classes": "2",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "pls 10 rounds, 10 classes, built-in fedavg (not the py file)",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "10",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "I want max_itr 20, n_clas 10, federated_model FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "20",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "Use FedAvg aggregator, 5 communication rounds, 3 classes. Also I'll pick mlp later.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Ignored the mention of 'mlp' and focused on the provided hyperparams and aggregator.",
+        "max_iter": "5",
+        "n_classes": "3",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "rounds=12, classes=8, aggregator=FedAvg — built-in library name only",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "12",
+        "n_classes": "8",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "federated_model FedAvg\nn_class 10\nmax_iter 1",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "",
+        "max_iter": "1",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "Do NOT use FedAvg.py. Use built-in FedAvg. max_iter 30 and n_classes 10.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "30",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "ok so hyper params: communication rounds fifty (50), n_classes=10, fedavg built in",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "50",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_iter 2 ; n_classes 2 ; federated_model: FEDAVG (built-in)",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Not supplied for this particular example.  ",
+        "max_iter": "2",
+        "n_classes": "2",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "I only care about hyperparams: 200 rounds, 10 classes, FedAvg. Ignore dataset paths and trainer for now.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "Ignored dataset paths and trainer, focused on hyperparams",
+        "max_iter": "200",
+        "n_classes": "10",
+        "federated_model": "FedAvg"
+      },
+      {
+        "augmented": true,
+        "user_message": "max_itr: 7\nn_clas: 9\nfederated_model: FedAvgg — wait, built-in FedAvg",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "reasoning": "The user initially mentioned 'FedAvgg' which seems to be a typo, and then corrected to 'built-in FedAvg'.",
+        "max_iter": "7",
+        "n_classes": "9",
+        "federated_model": "FedAvg"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\n- max_iter: 8\n- n_class: 4\n- federated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "8",
+        "n_classes": "4",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "federated_model='plugins/aggregators/FedAvg.py'\nmax_iter=1\nn_class=2",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "1",
+        "n_classes": "2",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "use custom fedavg.py with max_iter 11 and n_classes 10 (plugin .py, not library FedAvg)",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "11",
+        "n_classes": "10",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nfederated_model: FedAvg.py\nmax_iter: 10000\nn_classes: 50",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "10000",
+        "n_classes": "50",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "NOT built-in. Use custom FedAvg.py. rounds 25, n_class 5.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "25",
+        "n_classes": "5",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "federated_model: plugins/aggregators/FedAvg.py, max_iter 50, n_classes 10",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "50",
+        "n_classes": "10",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "use the custom aggregator file FedAvg.py with 15 rounds and 7 classes",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "15",
+        "n_classes": "7",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nmax_iter: 10\nn_classes: 10\nfederated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "10",
+        "n_classes": "10",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py with 1000 communication rounds and 100 classes.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "1000",
+        "n_classes": "100",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "aggregator file: FedAvg.py ; iterations/rounds = 60 ; classes = 20",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "60",
+        "n_classes": "20",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nmax_iter: 3\nn_class: 2\nfederated_model: \"FedAvg.py\"",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "3",
+        "n_classes": "2",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "I want the plugin under plugins/aggregators/FedAvg.py. Communication rounds: 40. Classes: 10.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "40",
+        "n_classes": "10",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "hyper params only: max_iter 9, n_classes 3, federated_model FedAvg.py. Trainer/model can wait.",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "9",
+        "n_classes": "3",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py (full plugin path).\nfederated_model: plugins/aggregators/FedAvg.py\nmax_iter: 500\nn_classes: 25",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "500",
+        "n_classes": "25",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\n- max_iter: 20\n- n_class: 100\n- federated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "20",
+        "n_classes": "100",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "custom plugin FedAvg.py, 10 rounds, 10 classes",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "10",
+        "n_classes": "10",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nmax_iter: 5\nn_class: 3\nfederated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "5",
+        "n_classes": "3",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nmax_iter: 100\nn_class: 50\nfederated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "100",
+        "n_classes": "50",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "pls use FedAvg.py plugin (not built-in). max_itr=12, n_clas=8",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "12",
+        "n_classes": "8",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      },
+      {
+        "user_message": "Use the custom aggregator FedAvg.py.\nmax_iter: 15\nn_class: 7\nfederated_model: FedAvg.py",
+        "known_aggregators": "built-in names without .py (FedAvg); plugins: FedAvg.py -> plugins/aggregators/FedAvg.py",
+        "max_iter": "15",
+        "n_classes": "7",
+        "federated_model": "plugins/aggregators/FedAvg.py"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract federated hyperparameter fields from the developer's answer.\n\nOutputs:\n- max_iter: positive integer federated communication rounds\n- n_classes: positive integer class count (n_class is a synonym)\n- federated_model: built-in aggregator name OR custom plugin reference\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (dataset paths, model architecture, loss, trainer), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Synonyms: rounds / communication rounds / FL iterations → max_iter;\n  classes / n_class / n_classes → n_classes.\n- Built-in vs plugin (critical):\n  * FedAvg / \"built-in\" / \"library\" / \"not the .py file\" → FedAvg\n  * FedAvg.py / \"custom\" / \"plugin\" / plugins/aggregators/FedAvg.py → plugin\n    (FedAvg.py or full path; resolution may map to plugins/aggregators/FedAvg.py)\n  * Bare \"FedAvg\" without .py/plugin/custom wording defaults to built-in FedAvg.\n  * Do not convert built-in FedAvg into FedAvg.py unless the user asks for the plugin.\n- Choose federated_model only from known built-ins or discovered plugins in known_aggregators.\n- max_iter and n_classes must be positive integers.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about fed_hyper_params; may be short, long, messy, incomplete, or misspelled, and may not use exact field names"
+        },
+        {
+          "prefix": "Known Aggregators:",
+          "description": "Allowed aggregators: built-in names without .py (e.g. FedAvg) and discovered plugins as filename -> repo-relative path (e.g. FedAvg.py -> plugins/aggregators/FedAvg.py)"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Max Iter:",
+          "description": "Positive integer: number of federated communication rounds (e.g. 10)."
+        },
+        {
+          "prefix": "N Classes:",
+          "description": "Positive integer: number of classes (e.g. 10). Accept n_class as synonym."
+        },
+        {
+          "prefix": "Federated Model:",
+          "description": "Built-in aggregator name (e.g. FedAvg) OR plugin filename/path (e.g. FedAvg.py or plugins/aggregators/FedAvg.py). Do not confuse built-in FedAvg with plugin FedAvg.py."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

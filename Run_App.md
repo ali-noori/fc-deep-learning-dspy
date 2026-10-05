@@ -273,7 +273,7 @@ featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-d
 **1. Activate environment**
 
 ```powershell
-& "C:\FC\fc-deep-learning-env\Scripts\Activate.ps1"
+& "C:\UH\Thesis\FC\fc-deep-learning-env-zenbook\Scripts\Activate.ps1"
 ```
 
 **2. Go to project root**
@@ -424,7 +424,7 @@ featurecloud test list --controller-host http://localhost:8000 --format json
 
 ```powershell
 cd "C:\FC\fc-deep-learning-master\fc-deep-learning-master"
-python ali_test.py --last-n 1
+python tools/report/report_accuracy.py --last-n 1
 ```
 
 Results are read from `data/tests/` (prediction/target CSVs inside exported zips or extracted folders).

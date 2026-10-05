@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 
+# removes the ```python and ```
 
 def strip_code_fence(text: str) -> str:
     try:
@@ -20,7 +21,8 @@ def strip_code_fence(text: str) -> str:
     except re.error as exc:
         raise RuntimeError("Failed to strip markdown code fences from model output.") from exc
 
-
+# After remiving the ```python and ```, we find the all the lines that includes the 'import'
+# or 'from and then we cut the code from the first line that includes the 'import' or 'from'
 def extract_python_code(text: str) -> str:
     try:
         cleaned = strip_code_fence(text)

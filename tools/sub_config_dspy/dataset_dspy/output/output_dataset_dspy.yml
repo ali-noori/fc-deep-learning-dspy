@@ -1,7 +1,7 @@
 execution_mode: federated
 data_dirs:
-- sample_data/c1
-- sample_data/c2
+- sample_data_cutomized/cross_validation_sample/c1
+- sample_data_cutomized/cross_validation_sample/c2
 local_dataset:
   train: train.npz
   test: test.npz

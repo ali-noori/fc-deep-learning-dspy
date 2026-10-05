@@ -13,3 +13,4 @@ class ArchitectureResult:
     backend: str
     model: str
     base_url: str | None
+    retrieved_paths: tuple[str, ...] = ()

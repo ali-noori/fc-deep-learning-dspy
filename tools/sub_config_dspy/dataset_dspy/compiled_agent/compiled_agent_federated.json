@@ -1,0 +1,255 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "user_message": "client1: D:\\UH\\Thesis\\FC\\fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data\\c1 ; client2: D:\\UH\\Thesis\\FC\\fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data\\c2 ; train_dataset_file_name train.npz ; test_dataset_file_name test.npz ; logic_dir data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "paths:\n  ...\\data\\sample_data\\c1\n  ...\\data\\sample_data\\c2\ntrain file: train.npz\ntest file: test.npz\nlogic: data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sample_data/c1, sample_data/c2, train.npz, test.npz, data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir: sample_data/c1, sample_data/c2\ntrain: train.npz\ntest: test.npz\nlogic_dir: data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I also want mlp and FedAvg later, but for now the data layout is: three hospitals at sample_data/h1, sample_data/h2, sample_data/h3; each has train.npy and test.npy; the input split folder name is data.",
+        "data_dirs": "sample_data/h1,sample_data/h2,sample_data/h3",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have two data directory first one is data\\sample_data\\hospital1 second is data\\sample_data\\hospital2. fle names train.npz amd test.npz. logic directorz named data",
+        "data_dirs": "sample_data/hospital1,sample_data/hospital2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have two data dirs under data\\sample_data\\c1 and data\\sample_data\\c2. IMPORTANT: train is train.npz and test is also test.npz (both npz, not npy). logic directorz = data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Client folders:\n  sample_data/c1\n  sample_data/c2\nFilenames: train.npz and test.npz inside each fold. logic_dir = data.",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "we got 2 real sites: data/clinic_a and data/clinic_b. training file called train.csv, eval file test.csv. logic folder data",
+        "data_dirs": "clinic_a,clinic_b",
+        "train_dataset_file_name": "train.csv",
+        "test_dataset_file_name": "test.csv",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Federated clients live under datasets/part1 and datasets/part2. Same filenames everywhere: X_train.npz for train and X_test.npz for test. logic_dir should be data.",
+        "data_dirs": "datasets/part1,datasets/part2",
+        "train_dataset_file_name": "X_train.npz",
+        "test_dataset_file_name": "X_test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "use these folds sample_data/c1 sample_data/c2 sample_data/c3, files train.npz & test.npz, logic_dir data — ignore model choice for now",
+        "data_dirs": "sample_data/c1,sample_data/c2,sample_data/c3",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "two folders: data/sample_data/c1 and data/sample_data/c2. files train.npy and test.npy. logic_dir data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "My MNIST federated data uses logic dir `data`, train.npz / test.npz per fold, clients at sample_data/c1 and sample_data/c2.",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "ok so each partner keeps data local: paths are ./clients/alpha and ./clients/beta. train is train.npz. test is test.npz. logic dir: data",
+        "data_dirs": "clients/alpha,clients/beta",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir1: C:/FC/project/data/sample_data/c1\ndata_dir2: C:/FC/project/data/sample_data/c2\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "first client folder fc-deep-learning-master/data/sample_data/c1, second fc-deep-learning-master/data/sample_data/c2; train=train.npz; test=test.npz; logic_dir=data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "i need federatd data setup with sample_data/c1 + sample_data/c2, trian.np... wait train.npz and test.npz, logic is da... data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls: 1) sample_data\\c1 2) sample_data\\c2. trian.npz and test.npz. lgic_dir data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I use two clients: sample_data/c1 and sample_data/c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls use sample_data/c1 n sample_data/c2, trian.npz / test.npz, lgic_dir=data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Not simulation. Real multi-client folders at sample_data/hospital1 and sample_data/hospital2. Training matrix file: train.npz. Held-out: test.npz. FeatureCloud logic directory name remains data.",
+        "data_dirs": "sample_data/hospital1,sample_data/hospital2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "repo-relative: fc-deep-learning-master/fc-deep-learning-master/data/sample_data/c1 and .../data/sample_data/c2. train.npz / test.npz. logic data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "dat_dir1=sample_data/c1 dat_dir2=sample_data/c2 train_dataset_file_name=train.npz test_dataset_file_name=test.npz logic=data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "use sample_data/c1 + sample_data/c2. train.npz for training, but test file is test.npy (misspelled; meant npz). logic=data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "- data_dir1: sample_data/c1\n- data_dir2: sample_data/c2\n- train_dataset_file_name: train.npy\n- test_dataset_file_name: test.npy\n- logic_dir: data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir1: sample_data/c1\ndata_dir2: sample_data/c2\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Three-party federated setup:\ndata_dir1: sample_data/c1\ndata_dir2: sample_data/c2\ndata_dir3: sample_data/c3\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dirs": "sample_data/c1,sample_data/c2,sample_data/c3",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "client dirs: D:\\UH\\Thesis\\FC\\data\\siteA ; D:\\UH\\Thesis\\FC\\data\\siteB\ntrain file train.npz, test file test.npz, logic_dir data",
+        "data_dirs": "siteA,siteB",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have two data directory, first one is fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data\\c1 and the second one is fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data\\c2. Also the fle named for the test and train are train.npz amd test.npy and the logic directorz named data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data dirs -> sample_data/c1 ; sample_data/c2\ntrain -> /mnt/somewhere/train.npz\ntest -> /mnt/somewhere/test.npz\nlogic_dir -> data",
+        "data_dirs": "sample_data/c1,sample_data/c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract federated dataset layout fields from the developer's answer.\n\nFederated means real multi-client folders: each client has its own data_dir path.\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (model, loss, aggregator, etc.), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Synonyms: client folders / sites / data_dir1,data_dir2 → data_dirs.\n- data_dirs must be relative to the FeatureCloud mounted data/ directory (for --client-dirs).\n  If the user gives an absolute path containing .../data/<rest>, output only <rest>\n  (keep subfolders, e.g. .../data/sample_data/c1 → sample_data/c1;\n  .../data/siteA → siteA). If already relative (sample_data/c1), keep it.\n  Strip a leading ./ . Do not emit Windows drive letters or full host paths.\n  If the user writes data/<name> meaning under the mount, output <name> (avoid data/data/...).\n- Join data_dirs with commas in stated order.\n- train/test values must be file names only (basename), never directories and never prefixed with data/.\n  Keep the exact basename stem the user stated. For the common pair train.npz/test.npz: if the user\n  writes train.npz but mistypes the other as test.npy (or the reverse), correct the mistyped one to .npz.\n  Only keep .npy when the user clearly intends numpy files (e.g. both train.npy and test.npy).\n- logic_dir is the folder name under mnt/input (often \"data\"), not a host path and not part of train/test.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about federated dataset layout; may be short, long, messy, incomplete, or misspelled, and may not use exact field names; may include long project paths containing \\data\\..."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Data Dirs:",
+          "description": "Comma-separated client dirs relative to the FeatureCloud data/ mount (e.g. sample_data/c1,sample_data/c2), not absolute host paths"
+        },
+        {
+          "prefix": "Train Dataset File Name:",
+          "description": "Train file name only (e.g. train.npz). Correct common .npy typos to .npz when the user meant the standard npz pair; not a full path."
+        },
+        {
+          "prefix": "Test Dataset File Name:",
+          "description": "Test file name only (e.g. test.npz). If user wrote test.npy but train is train.npz as a misspelling of the usual pair, output test.npz; not a full path."
+        },
+        {
+          "prefix": "Logic Dir:",
+          "description": "Folder name under mnt/input that contains split subfolders (e.g. data)."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

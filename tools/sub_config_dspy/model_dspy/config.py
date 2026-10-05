@@ -8,8 +8,16 @@ from dataclasses import dataclass
 ENV_OLLAMA_BASE_URL = "FC_DSPY_OLLAMA_BASE_URL"
 ENV_OLLAMA_MODEL = "FC_DSPY_OLLAMA_MODEL"
 
-DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_OLLAMA_MODEL = "llama3.1"
+# Open WebUI OpenAI-compatible API (POST {base}/chat/completions).
+DEFAULT_OLLAMA_BASE_URL = "https://dev.chat.cosy.bio/api"
+DEFAULT_OLLAMA_MODEL = "llama4:latest"
+COSY_MODEL_CASCADE: tuple[str, ...] = (
+    "qwen3.5:122b",
+    "gpt-oss:120b",
+    "qwen3.6:27b",
+    "gemma4:31b",
+    "llama4:latest",
+)
 
 try:
     from tools.keys_secrets import (
@@ -17,12 +25,14 @@ try:
         GEMINI_API_KEY,
         COHERE_API_KEY,
         MISTRAL_API_KEY,
+        COSY_API_KEY,
     )
 except ImportError:
     GROQ_API_KEY = ""
     GEMINI_API_KEY = ""
     COHERE_API_KEY = ""
     MISTRAL_API_KEY = ""
+    COSY_API_KEY = ""
 
 GROQ_LITELLM_MODEL = "groq/mixtral-8x7b-32768"
 GEMINI_LITELLM_MODEL = "gemini/gemini-1.5-pro"
@@ -40,7 +50,7 @@ PROVIDER_DISPLAY_NAMES: dict[str, str] = {
     BACKEND_GEMINI: "Google Gemini",
     BACKEND_COHERE: "Cohere",
     BACKEND_MISTRAL: "Mistral AI",
-    BACKEND_OLLAMA: "Ollama (local)",
+    BACKEND_OLLAMA: "Ollama (COSY.BIO)",
 }
 
 MODEL_QUESTION = """Please enter the parameter regarding the model:
@@ -72,8 +82,14 @@ PIPELINE_APPROACH = "model_dspy_bootstrap_fewshot"
 OUTPUT_DIR_NAME = "output"
 OUTPUT_FILENAME = "output_model_dspy.yml"
 
+# Total few-shots in fewshot_examples.py: 88
 BOOTSTRAP_MAX_BOOTSTRAPPED_DEMOS = 18
 MODEL_EXTRACT_MAX_RETRIES = 3
+
+RECOMPILE = True
+ENV_RECOMPILE = "FC_DSPY_RECOMPILE"
+COMPILED_PROGRAM_DIR_NAME = "compiled_agent"
+COMPILED_PROGRAM_FILENAME = "compiled_agent.json"
 
 
 @dataclass(frozen=True)
@@ -82,12 +98,14 @@ class Settings:
     gemini_api_key: str
     cohere_api_key: str
     mistral_api_key: str
+    cosy_api_key: str
     groq_litellm_model: str
     gemini_litellm_model: str
     cohere_litellm_model: str
     mistral_litellm_model: str
     default_ollama_base_url: str
     default_ollama_model: str
+    cosy_model_cascade: tuple[str, ...]
     package_tool_name: str
     pipeline_approach: str
     provider_display_names: dict[str, str]
@@ -103,12 +121,14 @@ def load_settings() -> Settings:
         gemini_api_key=GEMINI_API_KEY,
         cohere_api_key=COHERE_API_KEY,
         mistral_api_key=MISTRAL_API_KEY,
+        cosy_api_key=COSY_API_KEY,
         groq_litellm_model=GROQ_LITELLM_MODEL,
         gemini_litellm_model=GEMINI_LITELLM_MODEL,
         cohere_litellm_model=COHERE_LITELLM_MODEL,
         mistral_litellm_model=MISTRAL_LITELLM_MODEL,
         default_ollama_base_url=DEFAULT_OLLAMA_BASE_URL,
         default_ollama_model=DEFAULT_OLLAMA_MODEL,
+        cosy_model_cascade=COSY_MODEL_CASCADE,
         package_tool_name=PACKAGE_TOOL_NAME,
         pipeline_approach=PIPELINE_APPROACH,
         provider_display_names=dict(PROVIDER_DISPLAY_NAMES),
@@ -136,3 +156,12 @@ def resolve_ollama_model(explicit: str | None) -> str:
         return str(os.environ.get(ENV_OLLAMA_MODEL, DEFAULT_OLLAMA_MODEL)).strip()
     except Exception as exc:
         raise RuntimeError("Failed to resolve Ollama model name from environment.") from exc
+
+
+def resolve_recompile(explicit: bool | None = None) -> bool:
+    if explicit is not None:
+        return bool(explicit)
+    raw = os.environ.get(ENV_RECOMPILE)
+    if raw is not None and raw.strip():
+        return raw.strip().lower() not in ("0", "false", "no")
+    return RECOMPILE

@@ -18,6 +18,7 @@ fc-deep-learning-env-new/
 # Runtime / local
 mnt/
 data/logs/
+data/tests/
 *.log
 *.pt
 

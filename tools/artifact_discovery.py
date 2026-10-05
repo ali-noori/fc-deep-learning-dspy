@@ -29,19 +29,22 @@ class ArtifactDiscovery:
 
     def discover(self) -> dict[str, str]:
         """
-        Return artifacts under target_dir.
+        Return artifacts under target_dir, including nested subfolders
+        (e.g. plugins/models/generated_architecture/customized_model_v2.py).
 
         Keys are filenames (e.g. FedAvg.py); values are paths relative to repo_root
         (e.g. plugins/aggregators/FedAvg.py).
+
+        NOTE: if two files in different subfolders share the same filename,
+        the later one (per rglob traversal order) overwrites the earlier one
+        in the returned dict, since the key is the filename only.
         """
         if not self._target_dir.exists() or not self._target_dir.is_dir():
             return {}
 
         artifacts: dict[str, str] = {}
-        for entry in self._target_dir.iterdir():
+        for entry in self._target_dir.rglob("*.py"):
             if not entry.is_file():
-                continue
-            if entry.suffix != ".py":
                 continue
             if entry.name == "__init__.py" or entry.name.startswith("."):
                 continue

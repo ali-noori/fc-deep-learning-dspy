@@ -13,9 +13,9 @@ fc_deep:
     target: y_test.csv
     model: model.pt
   fed_hyper_params:
-    max_iter: 10
+    max_iter: 5
     n_classes: 10
-    federated_model: plugins/aggregators/FedAvg.py
+    federated_model: FedAvg
     global_updates: WEIGHTS_STOPPING
     param: {}
   use_smpc: false
@@ -46,6 +46,6 @@ fc_deep:
     batch_count: 1
     device: cpu
   model:
-    name: plugins/models/cnn.py
+    name: plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py
     n_classes: 10
     in_features: 1

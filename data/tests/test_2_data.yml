@@ -1,10 +1,10 @@
 id: 2
-image: featurecloud.ai/fc_deep_networks6
-createdat: 2026-06-14T08:38:33.362045864Z
+image: featurecloud.ai/fc_deep_networks1
+createdat: 2026-10-05T08:27:50.9187044Z
 relayaddress: localhost
 queryinterval: 2
 dirs:
-- sample_data/c1
-- sample_data/c2
+- sample_data_cutomized/cross_validation_sample/c1
+- sample_data_cutomized/cross_validation_sample/c2
 gendir: tools/config
 resultdir: /data/tests

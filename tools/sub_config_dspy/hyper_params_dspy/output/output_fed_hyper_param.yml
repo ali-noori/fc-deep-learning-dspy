@@ -1,6 +1,6 @@
 fed_hyper_params:
-  max_iter: 10
+  max_iter: 5
   n_classes: 10
-  federated_model: plugins/aggregators/FedAvg.py
+  federated_model: FedAvg
   global_updates: WEIGHTS_STOPPING
   param: {}

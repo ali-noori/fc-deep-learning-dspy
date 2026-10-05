@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import re
+from pathlib import Path
 
 from .code_sanitizer import extract_python_code
+from .config import Settings
 from .dspy_support import dspy
+from .rag import retrieve_plugin_context
 from .types import ArchitectureResult
 
 
@@ -13,9 +16,9 @@ def _validate_forward_pass(request: str, code: str) -> None:
     """
     Run generated code and one forward pass; raise on failure.
     IMPORTANT: the main purpose if that we just check the genearted architecture and 
-    not the exaxt promtp that we have provided. So we might have different in_features and n_classes.
+    not the exact promtp that we have provided. So we might have different in_features and n_classes.
     for example mybe in the prompt it is for 512 layer as input_feature and n_classes is 100.
-    but we test it with deefault values for example for cnn it is 1 and for the n_classes it is 10.
+    but we test it with default values for example for cnn it is 1 and for the n_classes it is 10.
     """
     import torch
     import torch.nn as nn
@@ -62,6 +65,13 @@ class GenerateArchitectureSignature(dspy.Signature):
             "in_features, n_classes, activations, pooling, flatten size, and output rule."
         )
     )
+    retrieved_examples: str = dspy.InputField(
+        desc=(
+            "Existing FeatureCloud plugin source plus the plugin contract. "
+            "Copy the class Model / n_classes / in_features interface. "
+            "Do not copy an example's layers if the user asked for a different architecture."
+        )
+    )
     architecture_code: str = dspy.OutputField(
         desc=(
             "Valid Python source for one class Model(nn.Module) with "
@@ -74,8 +84,14 @@ class GenerateArchitectureSignature(dspy.Signature):
 class ArchitectureGeneratorModule(dspy.Module):
     """Chain-of-Thought generator for FeatureCloud model plugins."""
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        settings: Settings | None = None,
+        repo_root: Path | None = None,
+    ) -> None:
         super().__init__()
+        self._settings = settings
+        self._repo_root = repo_root
         # Strategy of learnign the the example
         self.generate = dspy.ChainOfThought(GenerateArchitectureSignature)
 
@@ -85,10 +101,25 @@ class ArchitectureGeneratorModule(dspy.Module):
         if not current_request:
             raise ValueError("architecture_description must be non-empty")
 
+        # Step 4 — Generate: retrieve once, then CoT. Retries reuse the same pages.
+        retrieved_text = ""
+        retrieved_paths: tuple[str, ...] = ()
+        if self._settings is not None and self._repo_root is not None:
+            context = retrieve_plugin_context(
+                self._repo_root,
+                current_request,
+                self._settings,
+            )
+            retrieved_text = context.text
+            retrieved_paths = context.paths
+
         try:
             result = None
             for attempt in range(max_retries):
-                prediction = self.generate(architecture_description=current_request)
+                prediction = self.generate(
+                    architecture_description=current_request,
+                    retrieved_examples=retrieved_text,
+                )
                 code = extract_python_code(prediction.architecture_code)
 
                 lm = dspy.settings.lm
@@ -101,6 +132,7 @@ class ArchitectureGeneratorModule(dspy.Module):
                     backend=backend,
                     model=model,
                     base_url=base_url,
+                    retrieved_paths=retrieved_paths,
                 )
 
                 try:
