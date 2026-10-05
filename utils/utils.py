@@ -42,6 +42,12 @@ def is_native():
     return True
 
 
+def is_standalone():
+    """True when running without FeatureCloud controller (STANDALONE env)."""
+    value = os.getenv("STANDALONE", "").strip().lower()
+    return value in ("1", "true", "yes")
+
+
 def get_root_path(input=True):
     if input:
         return f"mnt/input"

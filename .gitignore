@@ -32,3 +32,5 @@ Thumbs.db
 eval.py
 test_federated.py
 test
+data/scenarios/**/output/**
+!data/scenarios/**/output/.gitkeep

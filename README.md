@@ -231,3 +231,34 @@ You can run the deep learning app as a standalone app in the [FeatureCloud test-
 ```shell
 featurecloud test start --app-image featurecloud.ai/fc_deep_networks --client-dirs './sample_data/c1,./sample_data/c2' --generic-dir './sample_data/generic'
 ```
+
+### Run without FeatureCloud controller (standalone / centralized)
+
+**Rationale.** On FeatureCloud, the controller starts the container, mounts each client’s data under `/mnt/input`, and drives the state machine over HTTP. The training code and `config.yml` stay the same; only that controller is missing in local Docker. Setting `STANDALONE=1` starts the app as a single coordinator, forces **Centralized Training** (no aggregation / no client communication), uses the usual `mnt/input` and `mnt/output` paths, and exits when training finishes.
+
+The container only **reads** the input mount and **writes** under the output mount, so you can keep scenario folders in the repo (no `/tmp` copy). Put each sample under `data/scenarios/<name>/` with an `input/` (config + data + plugins referenced by the config) and an `output/` directory for results.
+
+#### Sample: centralized MNIST
+
+```shell
+# If apt fails with DNS errors during build, use: docker build --network=host ...
+docker build -t featurecloud.ai/fc_deep_networks .
+
+docker run --rm \
+  -e STANDALONE=1 \
+  -v "$PWD/data/scenarios/standalone_mnist/input:/mnt/input" \
+  -v "$PWD/data/scenarios/standalone_mnist/output:/mnt/output" \
+  featurecloud.ai/fc_deep_networks
+```
+
+After a successful run, check `data/scenarios/standalone_mnist/output/` for `y_pred.csv`, `y_test.csv`, `model.pt`, and a copy of `config.yml`.
+
+Plugin filenames in `config.yml` must match the files in `input/` exactly (Linux paths are case-sensitive), e.g. `FedMMb.py`.
+
+#### Other scenarios
+
+1. Copy `data/scenarios/standalone_mnist/` (or start from an empty `input/` + `output/`).
+2. Place `config.yml` and every file it names (`local_dataset`, model/trainer/loader `.py` plugins) in `input/`.
+3. Mount that scenario’s `input` → `/mnt/input` and `output` → `/mnt/output` as above with `-e STANDALONE=1`.
+
+Federated / simulation modes are **not** supported without the FeatureCloud controller; standalone always runs centralized training.

@@ -33,6 +33,10 @@ class Initialization(ConfigState.State, ABC):
         # This triggers the code from ConfigState.py to build all your /mnt/input 
         # and /mnt/output file paths.
         self.initialize()
+
+        if utils.is_standalone():
+            self.config.pop('simulation', None)
+            self.config['centralized'] = True
         
         if self.config.get('simulation', None) is not None:
             self.update(message="Simulation mode")
