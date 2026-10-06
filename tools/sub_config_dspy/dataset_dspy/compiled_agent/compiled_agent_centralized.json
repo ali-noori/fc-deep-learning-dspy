@@ -1,0 +1,303 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "data_dir: sample_data_centralized\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "reasoning": "The user has provided the centralized dataset layout fields explicitly. The data directory is sample_data_centralized, the train file is train.npz, the test file is test.npz, and the logic directory is data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "I use one directory: sample_data_centralized. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.",
+        "reasoning": "The user has specified a centralized dataset layout with one directory named \"sample_data_centralized\". The train file is \"train.npz\" and the test file is \"test.npz\". The split folder under mnt/input is \"data\".",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "- data_dir: sample_data_centralized\n- train_dataset_file_name: train.npy\n- test_dataset_file_name: test.npy\n- logic_dir: data",
+        "reasoning": "The user has provided the data directory, train dataset file name, test dataset file name, and logic directory. No additional reasoning is needed.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "Single data folder:\n  sample_data_centralized\nFilenames: train.npz and test.npz. logic_dir = data.",
+        "reasoning": "The user has provided a clear and concise description of the centralized dataset layout. The data directory is specified as `sample_data_centralized`, and the filenames for the train and test datasets are given as `train.npz` and `test.npz`, respectively. The logic directory is specified as `data`.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "data_dir1: sample_data_centralized\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "reasoning": "The user has provided the centralized dataset layout fields explicitly. The data directory is `sample_data_centralized`, the train file is `train.npz`, the test file is `test.npz`, and the logic directory is `data`.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "My MNIST centralized data uses logic dir `data`, train.npz / test.npz, data directory sample_data_centralized.",
+        "reasoning": "The user has provided the data directory, train and test file names, and logic directory for their centralized MNIST dataset. The user has explicitly stated that they are using a centralized setup, so we do not need to infer any additional information.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "just sample_data_centralized with train.npz and test.npz, logic data",
+        "reasoning": "The user has provided the data directory as `sample_data_centralized`, the train dataset file name as `train.npz`, the test dataset file name as `test.npz`, and the logic directory as `data`.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "one folder only: data/mnist_all, train=train.csv test=test.csv, logic=data",
+        "reasoning": "The user has specified a centralized dataset layout with one folder: data/mnist_all. The train file is train.csv, the test file is test.csv, and the logic directory is data.",
+        "data_dir": "mnist_all",
+        "train_dataset_file_name": "train.csv",
+        "test_dataset_file_name": "test.csv",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "I dont need clients. Put everything in sample_data_centralized, trian.npz + test.npz, logic dir data.",
+        "reasoning": "The user specifies a centralized setup with a single data directory, sample_data_centralized, containing train.npz and test.npz files. The logic directory is specified as data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "centraliyed run on C:/FC/project/data/sample_data_centralized; train_dataset_file_name train.npz; test_dataset_file_name test.npz; logic_dir data",
+        "reasoning": "The user has specified a centralized run with a single data directory. The data directory is located at C:/FC/project/data/sample_data_centralized. The train dataset file name is train.npz, and the test dataset file name is test.npz. The logic directory is data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "data_dir sample_data_centralized train_dataset_file_name=train.npz test_dataset_file_name=test.npz logic_dir=data — also I might pick mlp later",
+        "reasoning": "The user provided the data_dir, train_dataset_file_name, test_dataset_file_name, and logic_dir. The user also mentioned that they might pick mlp later, but this information is not relevant to the centralized dataset layout.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "all data in one place: ./sample_data_centralized. training file is /tmp/exports/train.npz and test is /tmp/exports/test.npz. logic folder name data",
+        "reasoning": "The user has specified a centralized dataset layout with a single data directory named sample_data_centralized. The training file is train.npz and the test file is test.npz. The logic folder name is data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "datadir: sample_data_centralized\ntrian: train.npz\ntest: test.npz\nlgic: data",
+        "reasoning": "The user provided the data directory as \"sample_data_centralized\", the train file as \"train.npz\", the test file as \"test.npz\", and the logic directory as \"data\". The user also mentioned that this is a centralized setup, so we don't need to consider multiple clients or federated learning.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "We are not doing distributed learning. Use sample_data_centralized as the only data root, with train.npz for training and test.npz for evaluation, and keep logic_dir as data.",
+        "reasoning": "The user is specifying a centralized dataset layout with a single data directory, train and test file names, and logic directory. The user explicitly states that they are not doing distributed learning, so we can ignore any mentions of clients or federation.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "path D:\\UH\\Thesis\\FC\\data\\sample_data_centralized ; train X_train.npz ; test X_test.npz ; logic data",
+        "reasoning": "The user provided a host path for the data directory, which should be converted to a relative path under the FeatureCloud mounted data/ directory. The train and test file names are provided, and the logic directory is specified as \"data\".",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "X_train.npz",
+        "test_dataset_file_name": "X_test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "sample_data_centralized, train.npz, test.npz, data",
+        "reasoning": "The user has provided the data directory as `sample_data_centralized`, the train dataset file name as `train.npz`, the test dataset file name as `test.npz`, and the logic directory as `data`.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "ok single-node: folder data/central_run, train file train.pt, test file test.pt, logic_dir data",
+        "reasoning": "The user has specified a single-node setup with the data directory located at data/central_run. The train file is train.pt, and the test file is test.pt. The logic directory is data.",
+        "data_dir": "central_run",
+        "train_dataset_file_name": "train.pt",
+        "test_dataset_file_name": "test.pt",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "i want central mode on sample_data_centralized. train is train.np... train.npz. test.npz. logic da... data",
+        "reasoning": "The user wants to use centralized mode with the data directory sample_data_centralized. The train file is train.npz and the test file is test.npz. The logic directory is data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "Only one dataset directory called sample_data_centralized. Inside it the train split file is named train.npz and the test split is test.npz. FeatureCloud logic dir remains data.",
+        "reasoning": "The user has specified a centralized dataset layout with a single data directory called sample_data_centralized. The train split file is named train.npz and the test split is test.npz. The FeatureCloud logic dir remains data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "I have one data directory: fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data_centralized. The fle named for train and test are train.npz amd test.npz and the logic directorz named data",
+        "reasoning": "The user has provided a single data directory path, which is relative to the FeatureCloud mounted data/ directory. The train and test file names are provided, and the logic directory name is also provided.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "path ...\\data\\sample_data_centralized ; train.npz ; test.npz ; logic data",
+        "reasoning": "The user provided a path to the centralized dataset directory, the names of the train and test files, and the logic directory. The path is relative to the FeatureCloud mounted data/ directory. The train and test files are in the standard .npz format. The logic directory is specified as \"data\".",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "single folder fc-deep-learning-master/data/sample_data_centralized, train=train.npz, test=test.npz, logic_dir=data",
+        "reasoning": "The user has provided a single data directory path, train and test file names, and the logic directory name. The path is relative to the FeatureCloud mounted data directory, and the train and test files are in the standard .npz format. The logic directory is specified as \"data\".",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "IMPORTANT: both files are npz — train.npz and test.npz (not npy). data dir sample_data_centralized. logic directorz data",
+        "reasoning": "The user has specified that both the train and test files are in the npz format, with the filenames train.npz and test.npz. The data directory is sample_data_centralized, and the logic directory is data.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "augmented": true,
+        "user_message": "D:\\UH\\Thesis\\FC\\fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data_centralized with train_dataset_file_name train.npz and test_dataset_file_name test.npz, logic_dir data",
+        "reasoning": "The user provided a full path to the data directory, which includes the drive letter and multiple subdirectories. The relevant part of the path is the last directory, `sample_data_centralized`, which should be used as the `data_dir`. The user also provided the names of the train and test dataset files, which are `train.npz` and `test.npz`, respectively. The logic directory is specified as `data`.",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls train on single machine. path=datasets/full_set. files: train.npy, test.npy. logic_dir=data. no federation.",
+        "data_dir": "datasets/full_set",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "repo path fc-deep-learning-master/fc-deep-learning-master/data/sample_data_centralized. train.npz / test.npz. logic data",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls one dir sample_data_centralized. trian.npz and test.npz. lgic_dir data",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sample_data_centralized: train.npz for train, test.npy for test (test.npy is a typo for test.npz). logic=data",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "central folder data/sample_data_centralized, files train.npy and test.npy, logic_dir data",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have one data directory data\\sample_data_centralized. fle names train.npz amd test.npz. logic directorz named data",
+        "data_dir": "sample_data_centralized",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract centralized dataset layout fields from the developer's answer.\n\nCentralized means a single data directory on one machine (no multi-client federation).\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (model, loss, etc.), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Exactly one data_dir; never invent multiple clients.\n- If the user says \"client\" but clearly gives only one folder, treat it as data_dir.\n- data_dir must be relative to the FeatureCloud mounted data/ directory (for --client-dirs).\n  Absolute .../data/<rest> → output <rest> (e.g. .../data/sample_data_centralized → sample_data_centralized).\n  Already relative → keep it. Strip leading ./. No drive letters or full host paths.\n  If the user writes data/<name> meaning under the mount, output <name>.\n- train/test values must be file names only (basename), never directories and never prefixed with data/.\n  Keep the exact basename stem the user stated. For the common pair train.npz/test.npz: if the user\n  writes train.npz but mistypes the other as test.npy (or the reverse), correct the mistyped one to .npz.\n  Only keep .npy when the user clearly intends numpy files (e.g. both train.npy and test.npy).\n- logic_dir is the folder name under mnt/input (often \"data\"), not a host path and not part of train/test.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about centralized dataset layout; may be short, long, messy, incomplete, or misspelled, and may not use exact field names; may include long project paths containing \\data\\..."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Data Dir:",
+          "description": "Single data directory relative to the FeatureCloud data/ mount (e.g. sample_data_centralized), not an absolute host path"
+        },
+        {
+          "prefix": "Train Dataset File Name:",
+          "description": "Train file name only (e.g. train.npz). Correct common .npy typos to .npz when the user meant the standard npz pair; not a full path."
+        },
+        {
+          "prefix": "Test Dataset File Name:",
+          "description": "Test file name only (e.g. test.npz). If user wrote test.npy but train is train.npz as a misspelling of the usual pair, output test.npz; not a full path."
+        },
+        {
+          "prefix": "Logic Dir:",
+          "description": "Folder name under mnt/input that contains split subfolders (e.g. data)."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

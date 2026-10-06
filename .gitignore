@@ -34,3 +34,13 @@ test_federated.py
 test
 data/scenarios/**/output/**
 !data/scenarios/**/output/.gitkeep
+
+# Generated configs (per-run; do not commit)
+data/tools/config/
+tools/sub_config_dspy/dataset_dspy/output/
+tools/sub_config_dspy/hyper_params_dspy/output/
+tools/sub_config_dspy/model_dspy/output/
+tools/sub_config_dspy/trainer_dspy/output/
+tools/config_builder/output/centralized/
+tools/config_builder/output/federated/
+tools/config_builder/output/simulation/
