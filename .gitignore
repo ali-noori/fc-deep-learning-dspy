@@ -32,8 +32,8 @@ Thumbs.db
 eval.py
 test_federated.py
 test
-data/scenarios/**/output/**
-!data/scenarios/**/output/.gitkeep
+# Docker STANDALONE mounts (input copies + output); recreated per run
+data/scenarios/
 
 # Generated configs (per-run; do not commit)
 data/tools/config/
