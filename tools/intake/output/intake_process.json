@@ -1,0 +1,12 @@
+{
+  "execution_mode_dspy": "Run this as federated learning. Two hospitals keep their own data and only share model weights.",
+  "dataset_dspy": "Hospital A is sample_data/c1 and hospital B is sample_data/c2. Inside each client, the training file is train.npz and the test file is test.npz. The fold directories are in a folder named data.",
+  "hyper_params_dspy": "Use 5 communication rounds, 10 classes, and the built-in FedAvg aggregator.",
+  "trainer_dspy": "Train with BasicTrainer, load images with ImageLoader, and use CrossEntropyLoss. 10 classes.",
+  "train_config_dspy": "Keep verbose false, train batch 32, test batch 32, 1 local epoch, learning rate 0.1, and batch_count 1.",
+  "architecture_description": "Build a network for 28x28 images.\nThe constructor takes in_features input channels and n_classes outputs.\n\nConv2d: in_features to 10, kernel 5, no padding.\nMaxPool2d(2), then ReLU.\nConv2d: 10 to 20, kernel 5, no padding.\nDropout2d.\nMaxPool2d(2), then ReLU.\nFlatten to 320.\nLinear: 320 to 50, then ReLU.\nDropout.\nLinear: 50 to n_classes.\nFinish the forward pass with log_softmax.",
+  "new_architecture": "Yes",
+  "new_architecture_name": "test2_cnn",
+  "save_new_architecture": "Yes",
+  "model_dspy": "Use model = test2_cnn and input_feature = 1 and n_classes = 10"
+}

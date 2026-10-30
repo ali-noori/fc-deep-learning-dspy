@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
 from tools.artifact_discovery import ArtifactDiscovery
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import HyperParamsPipeline
+
+
+def _intake_hyper_params_message() -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get("hyper_params_dspy", "")).strip()
+    if not message:
+        raise ValueError("Empty intake key: hyper_params_dspy")
+    return message
 
 
 _REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -35,6 +49,11 @@ def main() -> int:
         metavar="{True,False}",
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Use the hyper_params_dspy value from intake_process.json.",
+    )
     args = parser.parse_args()
 
     settings = load_settings()
@@ -46,12 +65,19 @@ def main() -> int:
         repo_root=_REPO_ROOT,
     ).discover()
 
-    print(f"Agent: {pipeline.HYPER_PARAMS_QUESTION}")
+    if not args.from_intake:
+        print(f"Agent: {pipeline.HYPER_PARAMS_QUESTION}")
     if valid_aggregators:
         print(f"Agent: Discovered aggregator plugins: {valid_aggregators}")
     try:
-        user_input = input("You: ").strip()
+        if args.from_intake:
+            user_input = _intake_hyper_params_message()
+        else:
+            user_input = input("You: ").strip()
         result = pipeline.run(user_input, valid_aggregators)
+    except json.JSONDecodeError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
     except ValueError as exc:
         print(f"Agent: {exc}", file=sys.stderr)
         return 1

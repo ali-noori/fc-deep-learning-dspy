@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import subprocess
 import sys
@@ -11,6 +12,7 @@ from typing import Literal
 
 from tools.artifact_discovery import ArtifactDiscovery
 from tools.config_builder.builder import build_config, resolve_execution_mode, write_generated_config
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
 
 # Distinguishes which step a Yes/No question belongs to: generating a new
 # custom model vs. saving that generated model as a reusable plugin file.
@@ -52,7 +54,28 @@ def _ask_model_name(existing_names_lower: set[str]) -> str:
         return name
 
 
-def _save_reusable_model() -> None:
+def _intake_value(key: str) -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get(key, "")).strip()
+    if not message:
+        raise ValueError(f"Empty intake key: {key}")
+    return message
+
+
+def _intake_yes(key: str) -> bool:
+    answer = _intake_value(key).lower()
+    if answer in ("yes", "y"):
+        return True
+    if answer in ("no", "n"):
+        return False
+    raise ValueError(f"Expected Yes or No for {key}, got {answer!r}.")
+
+
+def _save_reusable_model(model_name: str | None = None) -> None:
     repo_root = Path(__file__).resolve().parents[2]
     src = repo_root / "plugins" / "models" / "generated_architecture" / "customized_model_v2.py"
     if not src.exists():
@@ -63,17 +86,34 @@ def _save_reusable_model() -> None:
     existing = ArtifactDiscovery(models_dir, repo_root=repo_root).discover()
     existing_names_lower = {Path(filename).stem.lower() for filename in existing}
 
-    while True:
-        name = _ask_model_name(existing_names_lower)
-        dest = models_dir / f"{name}.py"
-        if dest.exists() and not _ask_yes_no(
-            f"{dest.name} already exists. Overwrite it?",
-            question_type="save_model",
-        ):
-            continue
-        shutil.copyfile(src, dest)
-        print(f"Simulation config agent: saved reusable model to {dest}")
+    if model_name is None:
+        while True:
+            name = _ask_model_name(existing_names_lower)
+            dest = models_dir / f"{name}.py"
+            if dest.exists() and not _ask_yes_no(
+                f"{dest.name} already exists. Overwrite it?",
+                question_type="save_model",
+            ):
+                continue
+            shutil.copyfile(src, dest)
+            print(f"Simulation config agent: saved reusable model to {dest}")
+            return
+
+    name = model_name[:-3] if model_name.lower().endswith(".py") else model_name
+    dest = models_dir / f"{name}.py"
+    if (
+        not name
+        or not all(c.isalnum() or c == "_" for c in name)
+        or name.lower() in existing_names_lower
+        or dest.exists()
+    ):
+        print(
+            f"Simulation config agent: cannot save model name {model_name!r}.",
+            file=sys.stderr,
+        )
         return
+    shutil.copyfile(src, dest)
+    print(f"Simulation config agent: saved reusable model to {dest}")
 
 
 def main() -> int:
@@ -84,7 +124,12 @@ def main() -> int:
         type=_parse_bool,
         default=None,
         metavar="{True,False}",
-        help="Forwarded to dataset, hyper-params, model, and trainer agents.",
+        help="Forwarded to dataset, hyper-params, model, trainer, and train-config agents.",
+    )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Forward the intake values to dataset, hyper-params, model, trainer, and train-config agents.",
     )
     args = parser.parse_args()
 
@@ -100,6 +145,8 @@ def main() -> int:
         ]
         if args.recompile is not None:
             cmd.append(f"--recompile={args.recompile}")
+        if args.from_intake:
+            cmd.append("--from-intake")
         return cmd
 
     # 1.run dataset_dspy to create dataset part of the simulation mode config file
@@ -115,16 +162,39 @@ def main() -> int:
     )
     
     # 2.5. ask user if they want to generate a new model
-    if _ask_yes_no("Do you want to generate a new model?", question_type="generate_model"):
-        model_plugin_cmd = [sys.executable, "-m", "tools.model_plugin_dspy_v2.cli"]
-        if args.recompile is not None:
-            model_plugin_cmd.append(f"--recompile={args.recompile}")
-        subprocess.run(model_plugin_cmd, check=False)
-        if _ask_yes_no(
-            "Do you want to save this model as a reusable model?",
-            question_type="save_model",
-        ):
-            _save_reusable_model()
+    try:
+        if args.from_intake:
+            generate_model = _intake_yes("new_architecture")
+        else:
+            generate_model = _ask_yes_no(
+                "Do you want to generate a new model?",
+                question_type="generate_model",
+            )
+        if generate_model:
+            model_plugin_cmd = [sys.executable, "-m", "tools.model_plugin_dspy_v2.cli"]
+            if args.recompile is not None:
+                model_plugin_cmd.append(f"--recompile={args.recompile}")
+            if args.from_intake:
+                model_plugin_cmd.append("--from-intake")
+            subprocess.run(model_plugin_cmd, check=False)
+            if args.from_intake:
+                save_model = _intake_yes("save_new_architecture")
+            else:
+                save_model = _ask_yes_no(
+                    "Do you want to save this model as a reusable model?",
+                    question_type="save_model",
+                )
+            if save_model:
+                if args.from_intake:
+                    _save_reusable_model(_intake_value("new_architecture_name"))
+                else:
+                    _save_reusable_model()
+    except json.JSONDecodeError as exc:
+        print(f"Simulation config agent: {exc}", file=sys.stderr)
+        return 1
+    except ValueError as exc:
+        print(f"Simulation config agent: {exc}", file=sys.stderr)
+        return 1
 
     # 3. run model_dspy to create model part of the simulation mode config file
     subprocess.run(
@@ -137,8 +207,14 @@ def main() -> int:
         _sub_cmd("tools.sub_config_dspy.trainer_dspy.cli"),
         check=False,
     )
+
+    # 5. run train_config_dspy to create train_config part of the simulation mode config file
+    subprocess.run(
+        _sub_cmd("tools.sub_config_dspy.train_config_dspy.cli"),
+        check=False,
+    )
     
-    # 5. run config_builder to build the final simulation mode config file
+    # 6. run config_builder to build the final simulation mode config file
     mode = resolve_execution_mode(args.execution_mode)
     config = build_config(mode)
     out_path = write_generated_config(config, mode)

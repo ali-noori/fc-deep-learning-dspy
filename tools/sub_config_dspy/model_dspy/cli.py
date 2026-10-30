@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
 from tools.artifact_discovery import ArtifactDiscovery
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import ModelPipeline
+
+
+def _intake_model_message() -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get("model_dspy", "")).strip()
+    if not message:
+        raise ValueError("Empty intake key: model_dspy")
+    return message
 
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 _MODELS_DIR = _REPO_ROOT / "plugins" / "models"
@@ -34,12 +48,18 @@ def main() -> int:
         metavar="{True,False}",
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Use the model_dspy value from intake_process.json.",
+    )
     args = parser.parse_args()
 
     settings = load_settings()
     pipeline = ModelPipeline(settings=settings, recompile=args.recompile)
 
-    print(f"Agent: {pipeline.MODEL_QUESTION}")
+    if not args.from_intake:
+        print(f"Agent: {pipeline.MODEL_QUESTION}")
     try:
         valid_models = ArtifactDiscovery(
             _MODELS_DIR,
@@ -48,8 +68,14 @@ def main() -> int:
 
         if valid_models:
             print(f"Agent: Discovered model plugins: {valid_models}")
-        user_input = input("You: ").strip()
+        if args.from_intake:
+            user_input = _intake_model_message()
+        else:
+            user_input = input("You: ").strip()
         result = pipeline.run(user_input, valid_models)
+    except json.JSONDecodeError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
     except ValueError as exc:
         print(f"Agent: {exc}", file=sys.stderr)
         return 1

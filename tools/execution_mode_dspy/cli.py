@@ -3,57 +3,54 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
+
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings, resolve_recompile
 from .pipeline import WorkflowPipeline
 
 
-def _activate_next_agent(execution_mode: str, recompile: bool) -> None:
+def _intake_execution_message() -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get("execution_mode_dspy", "")).strip()
+    if not message:
+        raise ValueError("Empty intake key: execution_mode_dspy")
+    return message
+
+
+def _activate_next_agent(execution_mode: str, recompile: bool, from_intake: bool) -> None:
     """Run the config agent for this execution mode (python -m tools.<agent>.cli)."""
     mode = execution_mode.strip().lower()
     recompile_flag = f"--recompile={recompile}"
 
     if mode == "federated":
-        subprocess.run(
-            [
-                sys.executable,
-                "-m",
-                "tools.federated_config_dspy.cli",
-                "--execution-mode",
-                mode,
-                recompile_flag,
-            ],
-            check=False,
-        )
+        module = "tools.federated_config_dspy.cli"
     elif mode == "simulation":
-        subprocess.run(
-            [
-                sys.executable,
-                "-m",
-                "tools.simulation_config_dspy.cli",
-                "--execution-mode",
-                mode,
-                recompile_flag,
-            ],
-            check=False,
-        )
+        module = "tools.simulation_config_dspy.cli"
     elif mode == "centralized":
-        subprocess.run(
-            [
-                sys.executable,
-                "-m",
-                "tools.centralized_config_dspy.cli",
-                "--execution-mode",
-                mode,
-                recompile_flag,
-            ],
-            check=False,
-        )
+        module = "tools.centralized_config_dspy.cli"
     else:
         raise ValueError(f"Unknown execution mode: {mode}")
-    
+
+    command = [
+        sys.executable,
+        "-m",
+        module,
+        "--execution-mode",
+        mode,
+        recompile_flag,
+    ]
+    if from_intake:
+        command.append("--from-intake")
+    subprocess.run(command, check=False)
+
     # run config_executor to execute the final config file
     subprocess.run(
         [sys.executable, "-m", "tools.config_executor.cli", "--execution-mode", mode],
@@ -84,6 +81,11 @@ def main() -> int:
             "var, then RECOMPILE in config.py."
         ),
     )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Use the execution_mode_dspy value from intake_process.json.",
+    )
     args = parser.parse_args()
 
     # load all the necessary information such as avaialable 
@@ -95,9 +97,12 @@ def main() -> int:
     # just create an obj -> later is going to be used to call the 'run()' function
     pipeline = WorkflowPipeline(settings=settings, recompile=recompile)
 
-    print(f"Agent: {pipeline.MODE_QUESTION}")
     try:
-        user_input = input("You: ").strip()
+        if args.from_intake:
+            user_input = _intake_execution_message()
+        else:
+            print(f"Agent: {pipeline.MODE_QUESTION}")
+            user_input = input("You: ").strip()
 
         # Call 'select_execution_mode()':
         # 1. Read the user input message
@@ -113,6 +118,9 @@ def main() -> int:
         # 2.7: create ModeSelectionResult class contains differen properties that can be used to crate the output 
             # for this agent in the next step
         result = pipeline.run(user_input)
+    except json.JSONDecodeError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
     except ValueError as exc:
         print(f"Agent: {exc}", file=sys.stderr)
         return 1
@@ -127,7 +135,7 @@ def main() -> int:
     )
 
     # based on the predicted mode, one of the federated, simulation or centrlized mode paths will be selected
-    _activate_next_agent(result["execution_mode"], recompile)
+    _activate_next_agent(result["execution_mode"], recompile, args.from_intake)
     return 0
 
 

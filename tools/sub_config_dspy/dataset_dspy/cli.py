@@ -2,11 +2,26 @@
 
 from __future__ import annotations
 
-import sys
 import argparse
+import json
+import sys
+
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import DatasetPipeline
+
+
+def _intake_dataset_message() -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get("dataset_dspy", "")).strip()
+    if not message:
+        raise ValueError("Empty intake key: dataset_dspy")
+    return message
 
 
 def _parse_bool(raw: str) -> bool:
@@ -34,6 +49,11 @@ def main() -> int:
             "agent for this mode. --recompile=False: load the saved compiled agent."
         ),
     )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Use the dataset_dspy value from intake_process.json.",
+    )
     args = parser.parse_args()
     execution_mode = (args.execution_mode or "").strip().lower()
     
@@ -50,18 +70,27 @@ def main() -> int:
     pipeline = DatasetPipeline(settings=settings, recompile=args.recompile)
 
     if execution_mode == "federated":
-        print(f"Agent: {pipeline.DATASET_QUESTION_FEDERATED}")
+        if not args.from_intake:
+            print(f"Agent: {pipeline.DATASET_QUESTION_FEDERATED}")
     elif execution_mode == "centralized":
-        print(f"Agent: {pipeline.DATASET_QUESTION_CENTRALIZED}")
+        if not args.from_intake:
+            print(f"Agent: {pipeline.DATASET_QUESTION_CENTRALIZED}")
     elif execution_mode == "simulation":
-        print(f"Agent: {pipeline.DATASET_QUESTION_SIMULATION}")
+        if not args.from_intake:
+            print(f"Agent: {pipeline.DATASET_QUESTION_SIMULATION}")
     else:
         raise ValueError(f"Unknown execution mode: {execution_mode}")
     
     
     try:
-        user_input = input("You: ").strip()
+        if args.from_intake:
+            user_input = _intake_dataset_message()
+        else:
+            user_input = input("You: ").strip()
         result = pipeline.run(user_input, execution_mode)
+    except json.JSONDecodeError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
     except ValueError as exc:
         print(f"Agent: {exc}", file=sys.stderr)
         return 1

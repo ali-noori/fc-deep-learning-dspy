@@ -3,11 +3,26 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
+from tools.intake.intake_process import INTAKE_PROCESS_PATH
+
 from .config import load_settings
 from .pipeline import ModelPluginV2Pipeline
+
+
+def _intake_architecture_message() -> str:
+    if not INTAKE_PROCESS_PATH.is_file():
+        raise ValueError(f"Intake file not found: {INTAKE_PROCESS_PATH}")
+    data = json.loads(INTAKE_PROCESS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"Intake file is not an object: {INTAKE_PROCESS_PATH}")
+    message = str(data.get("architecture_description", "")).strip()
+    if not message:
+        raise ValueError("Empty intake key: architecture_description")
+    return message
 
 
 def _parse_bool(raw: str) -> bool:
@@ -60,14 +75,28 @@ def main() -> int:
         metavar="{True,False}",
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
+    parser.add_argument(
+        "--from-intake",
+        action="store_true",
+        help="Use the architecture_description value from intake_process.json.",
+    )
     args = parser.parse_args()
 
-    print(f"Agent: {ARCHITECTURE_QUESTION}")
-
-    # Same idea as the other DSPy agents (e.g. trainer_dspy, model_dspy):
-    # read the developer's free-text answer interactively instead of a CLI flag.
-    print("You: ", end="", flush=True)
-    user_input = _read_multiline_input()
+    try:
+        if args.from_intake:
+            user_input = _intake_architecture_message()
+        else:
+            print(f"Agent: {ARCHITECTURE_QUESTION}")
+            # Same idea as the other DSPy agents (e.g. trainer_dspy, model_dspy):
+            # read the developer's free-text answer interactively instead of a CLI flag.
+            print("You: ", end="", flush=True)
+            user_input = _read_multiline_input()
+    except json.JSONDecodeError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
+    except ValueError as exc:
+        print(f"Agent: {exc}", file=sys.stderr)
+        return 1
 
     if not user_input:
         print("Agent: architecture description must be non-empty", file=sys.stderr)

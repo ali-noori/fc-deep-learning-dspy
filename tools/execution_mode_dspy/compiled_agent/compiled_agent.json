@@ -6,25 +6,25 @@
       {
         "augmented": true,
         "user_message": "I want to run the federated mode.",
-        "reasoning": "The user explicitly mentions wanting to run in federated mode.",
+        "reasoning": "The user explicitly asks for the federated mode, which involves real multi-client or distributed training across separate clients or sites.",
         "execution_mode": "federated"
       },
       {
         "augmented": true,
         "user_message": "Please use federated learning with two clients.",
-        "reasoning": "The user explicitly mentions 'federated learning with two clients', which implies a real multi-client distributed training setup across separate clients or sites.",
+        "reasoning": "The user wants to use federated learning with two clients, which means they want to train across multiple clients or sites with data kept local to each client.",
         "execution_mode": "federated"
       },
       {
         "augmented": true,
         "user_message": "Train across multiple hospitals / clients.",
-        "reasoning": "The user wants to train across multiple hospitals or clients, indicating a need for real, separate clients or sites.",
+        "reasoning": "The user wants to train across multiple hospitals or clients, which implies a real multi-client / distributed training scenario. This requires the use of federated execution mode.",
         "execution_mode": "federated"
       },
       {
         "augmented": true,
         "user_message": "I need distributed learning with real clients.",
-        "reasoning": "The user explicitly mentions the need for distributed learning with real clients.",
+        "reasoning": "The user explicitly states they need distributed learning with real clients. This implies a federated execution mode where data stays local to each client, and only model updates are shared.",
         "execution_mode": "federated"
       },
       {

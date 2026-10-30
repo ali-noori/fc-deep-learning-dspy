@@ -1,6 +1,6 @@
 # Run app with DSPy agents (PowerShell)
 
-Minimal test guide for the five config agents. For running the app **without** agents, use `Run_App.md` at the project root.
+Minimal test guide for the config agents. For running the app **without** agents, use `Run_App.md` at the project root.
 
 ---
 
@@ -13,7 +13,7 @@ cd "C:\UH\Thesis\FC\fc-deep-learning-master\fc-deep-learning-master"
 
 Keys live in `tools/keys_secrets.py` (including `COSY_API_KEY` for COSY.BIO `llama4:latest`).
 
-**Full pipeline:** start agent 1. After it picks a mode, it starts the other four agents, then builds and runs the config.
+**Full pipeline:** start agent 1. After it picks a mode, it starts the remaining sub-agents (including train_config), then builds and runs the config.
 
 **Test one agent:** run only that agent’s command below, then type the example for the mode you want.
 
@@ -38,13 +38,13 @@ Saved file: `tools/execution_mode_dspy/compiled_agent/compiled_agent.json`.
 
 If you omit `--recompile`, it falls back to `FC_DSPY_RECOMPILE`, then `RECOMPILE` in `tools/execution_mode_dspy/config.py`.
 
-Type one of:
+Type a short sentence (the agent maps it to a mode). Examples:
 
 | Mode | Example input |
 |------|----------------|
-| Federated | `federated` |
-| Simulation | `simulation` |
-| Centralized | `centralized` |
+| Federated | `Two hospitals should train on their own machines and only share model weights, not the images.` |
+| Simulation | `I am not ready for real sites yet — fake two clients on this laptop so I can debug federated averaging.` |
+| Centralized | `Skip federation. Train everything on this one machine as a normal local experiment.` |
 
 This agent then continues to dataset → hyper-params → model → trainer.  
 `--recompile=True` / `--recompile=False` is forwarded automatically to dataset, hyper-params, model, and trainer.
@@ -66,34 +66,24 @@ python -m tools.sub_config_dspy.dataset_dspy.cli --execution-mode centralized --
 Saved files under `tools/sub_config_dspy/dataset_dspy/compiled_agent/`:
 `compiled_agent_federated.json`, `compiled_agent_simulation.json`, `compiled_agent_centralized.json`.
 
+Still the **small sample folders** (not the large customized set). Phrase it like a person talking, but keep the real path names.
+
 **Federated**
 
 ```text
-data_dir1: sample_data/c1
-data_dir2: sample_data/c2
-train_dataset_file_name: train.npz
-test_dataset_file_name: test.npz
-logic_dir: data
+We have two partners. Hospital A’s files are under sample_data/c1 and hospital B’s under sample_data/c2. Inside each fold the training set is train.npz and the hold-out set is test.npz. The split folders live in a directory called data.
 ```
 
 **Simulation**
 
 ```text
-data_dir: sample_data_simulation
-client_dir1: c1
-client_dir2: c2
-train_dataset_file_name: train.npz
-test_dataset_file_name: test.npz
-logic_dir: data
+Use the local tree sample_data_simulation. Pretend there are two clients, folders c1 and c2. Same filenames as usual: train.npz for training, test.npz for evaluation, and the folds sit in data.
 ```
 
 **Centralized**
 
 ```text
-data_dir: sample_data_centralized
-train_dataset_file_name: train.npz
-test_dataset_file_name: test.npz
-logic_dir: data
+Only one machine: take the sample under sample_data_centralized. Train on train.npz, evaluate on test.npz, and look for the fold folders inside data.
 ```
 
 ---
@@ -111,9 +101,7 @@ Saved file: `tools/sub_config_dspy/hyper_params_dspy/compiled_agent/compiled_age
 Use this for federated, simulation, or centralized:
 
 ```text
-max_iter: 10
-n_class: 10
-federated_model: FedAvg
+Keep it light for a laptop demo: ten rounds (or epochs in centralized), ten digit classes, and the built-in FedAvg aggregator — not a custom .py plugin.
 ```
 
 ---
@@ -131,9 +119,7 @@ Saved file: `tools/sub_config_dspy/model_dspy/compiled_agent/compiled_agent.json
 Use this for federated, simulation, or centralized:
 
 ```text
-name: CNN
-n_class: 10
-in_features: 1
+Please use the built-in CNN, not a plugin file. It is grayscale (one input channel) and there are ten classes, like MNIST digits.
 ```
 
 ---
@@ -151,12 +137,27 @@ Saved file: `tools/sub_config_dspy/trainer_dspy/compiled_agent/compiled_agent.js
 Use this for federated, simulation, or centralized:
 
 ```text
-name: BasicTrainer
-data_loader: ImageLoader
-loss.name: CrossEntropyLoss
-n_class: 10
+Use the built-in BasicTrainer and ImageLoader, CrossEntropyLoss for a ten-class problem. No custom trainer or loader plugins.
 ```
 
 ---
 
-Success looks like `Agent: Okay!` plus `backend=...` / `model=...`. Dataset, hyper-params, model, and trainer also print an `output=` YAML path.
+## 6. `train_config_dspy`
+
+Same question in all three modes. Runs after `trainer_dspy` in the full pipeline.
+
+```powershell
+python -m tools.sub_config_dspy.train_config_dspy.cli --recompile=True
+```
+
+Saved file: `tools/sub_config_dspy/train_config_dspy/compiled_agent/compiled_agent.json`.
+
+Use this for federated, simulation, or centralized:
+
+```text
+Keep it light for a laptop: no verbose logs, train and test batch 32, one epoch, learning rate 0.1, and batch_count 1.
+```
+
+---
+
+Success looks like `Agent: Okay!` plus `backend=...` / `model=...`. Dataset, hyper-params, model, trainer, and train_config also print an `output=` YAML path.

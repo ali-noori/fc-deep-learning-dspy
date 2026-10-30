@@ -1,0 +1,248 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "user_message": "- Conv2d in_features->8 kernel=3\n- ReLU\n- Linear to n_classes\nin_feature 1\nn_classes 10",
+        "architecture_description": "- Conv2d in_features->8 kernel=3\n- ReLU\n- Linear to n_classes",
+        "model_selection": "",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "resnet18.py. three input channels. ten classes.",
+        "architecture_description": "",
+        "model_selection": "resnet18.py",
+        "in_feature": "three",
+        "n_classes": "ten"
+      },
+      {
+        "user_message": "efficientnet_b0 and number of input is 1 and number of class is ten.",
+        "architecture_description": "",
+        "model_selection": "efficientnet_b0",
+        "in_feature": "1",
+        "n_classes": "ten"
+      },
+      {
+        "user_message": "name: cnn.py\nin_features: 1\nn_classes: 10",
+        "architecture_description": "",
+        "model_selection": "cnn.py",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "in_features 1\nn_classes 10\nConv2d: in_features->10, kernel=5, no padding\nMaxPool2d(2) -> ReLU\nFlatten to 320\nLinear: 320->n_classes",
+        "architecture_description": "Conv2d: in_features->10, kernel=5, no padding\nMaxPool2d(2) -> ReLU\nFlatten to 320\nLinear: 320->n_classes",
+        "model_selection": "",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "customized_model_v2.py. one input feature. ten classes.",
+        "architecture_description": "",
+        "model_selection": "customized_model_v2.py",
+        "in_feature": "one",
+        "n_classes": "ten"
+      },
+      {
+        "user_message": "Input size 784, then Linear 784->128 ReLU, Dropout, Linear 128->n_classes. in_features 784. n_classes 5.",
+        "architecture_description": "Input size 784, then Linear 784->128 ReLU, Dropout, Linear 128->n_classes.",
+        "model_selection": "",
+        "in_feature": "784",
+        "n_classes": "5"
+      },
+      {
+        "user_message": "mlp.py. Input features 784. Output classes 2.",
+        "architecture_description": "",
+        "model_selection": "mlp.py",
+        "in_feature": "784",
+        "n_classes": "2"
+      },
+      {
+        "user_message": "- name: tabtransformer.py\n- n_classes: two\n- in_features: thirty-two",
+        "architecture_description": "",
+        "model_selection": "tabtransformer.py",
+        "in_feature": "thirty-two",
+        "n_classes": "two"
+      },
+      {
+        "user_message": "name: plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py\nn_class: 10\nin_features: 1",
+        "architecture_description": "",
+        "model_selection": "plugins/models/pre-trained_models/cnn_architectures/efficientnet_b0.py",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "name: CNN\nn_class: 10\nin_features: 1",
+        "architecture_description": "",
+        "model_selection": "CNN",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "seven classes. ft_transformer.py. sixteen input features.",
+        "architecture_description": "",
+        "model_selection": "ft_transformer.py",
+        "in_feature": "sixteen",
+        "n_classes": "seven"
+      },
+      {
+        "user_message": "tabnet.py. 32 input features. 4 classes.",
+        "architecture_description": "",
+        "model_selection": "tabnet.py",
+        "in_feature": "32",
+        "n_classes": "4"
+      },
+      {
+        "user_message": "mobilenetv3_small. in_feature 1. n_classes 10.",
+        "architecture_description": "",
+        "model_selection": "mobilenetv3_small",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "mlp.py. Input features seven hundred eighty-four. Output classes two.",
+        "architecture_description": "",
+        "model_selection": "mlp.py",
+        "in_feature": "seven hundred eighty-four",
+        "n_classes": "two"
+      },
+      {
+        "user_message": "- name: tabtransformer.py\n- n_classes: 2\n- in_features: 32",
+        "architecture_description": "",
+        "model_selection": "tabtransformer.py",
+        "in_feature": "32",
+        "n_classes": "2"
+      },
+      {
+        "user_message": "n_classes=ten; in_features=one; model plugins\\models\\c_f_test2.py",
+        "architecture_description": "",
+        "model_selection": "plugins\\models\\c_f_test2.py",
+        "in_feature": "one",
+        "n_classes": "ten"
+      },
+      {
+        "user_message": "First a Linear from in_features to 64 with ReLU, then Dropout, then Linear from 64 to n_classes. in_features twenty. n_classes three.",
+        "architecture_description": "First a Linear from in_features to 64 with ReLU, then Dropout, then Linear from 64 to n_classes.",
+        "model_selection": "",
+        "in_feature": "twenty",
+        "n_classes": "three"
+      },
+      {
+        "user_message": "number of input is one and number of class is 10. Conv2d in_features->8 kernel=3, ReLU, Flatten, Linear to n_classes.",
+        "architecture_description": "Conv2d in_features->8 kernel=3, ReLU, Flatten, Linear to n_classes.",
+        "model_selection": "",
+        "in_feature": "one",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "{\"name\": \"resnet18.py\", \"in_features\": 3, \"n_classes\": 100}",
+        "architecture_description": "",
+        "model_selection": "resnet18.py",
+        "in_feature": "3",
+        "n_classes": "100"
+      },
+      {
+        "user_message": "customized_model_v2.py. 1 input feature. 10 classes.",
+        "architecture_description": "",
+        "model_selection": "customized_model_v2.py",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "features=16; classes=4; Linear 16->32 ReLU; Dropout; Linear 32->n_classes",
+        "architecture_description": "Linear 16->32 ReLU; Dropout; Linear 32->n_classes",
+        "model_selection": "",
+        "in_feature": "16",
+        "n_classes": "4"
+      },
+      {
+        "user_message": "name: CNN\nn_class: ten\nin_features: one",
+        "architecture_description": "",
+        "model_selection": "CNN",
+        "in_feature": "one",
+        "n_classes": "ten"
+      },
+      {
+        "user_message": "resnet18.py. 3 input channels. 10 classes.",
+        "architecture_description": "",
+        "model_selection": "resnet18.py",
+        "in_feature": "3",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "Create a simple CNN like plugins/models/cnn.py for 28x28 images, in_features channels, n_classes classes. Conv2d in_features->10 kernel=5 no padding. MaxPool2d(2) ReLU. Conv2d 10->20 kernel=5 no padding. Dropout2d. MaxPool2d(2) ReLU. Flatten to 320. Linear 320->50 ReLU. Dropout. Linear 50->n_classes. Return the Linear scores only. Do not use softmax or log_softmax. Also consider that we have 1 input feature and the number of classes is 10.",
+        "architecture_description": "Create a simple CNN like plugins/models/cnn.py for 28x28 images, in_features channels, n_classes classes. Conv2d in_features->10 kernel=5 no padding. MaxPool2d(2) ReLU. Conv2d 10->20 kernel=5 no padding. Dropout2d. MaxPool2d(2) ReLU. Flatten to 320. Linear 320->50 ReLU. Dropout. Linear 50->n_classes. Return the Linear scores only. Do not use softmax or log_softmax.",
+        "model_selection": "",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "7 classes. ft_transformer.py. 16 input features.",
+        "architecture_description": "",
+        "model_selection": "ft_transformer.py",
+        "in_feature": "16",
+        "n_classes": "7"
+      },
+      {
+        "user_message": "First a Linear from in_features to 64 with ReLU, then Dropout, then Linear from 64 to n_classes. in_features 20. n_classes 3.",
+        "architecture_description": "First a Linear from in_features to 64 with ReLU, then Dropout, then Linear from 64 to n_classes.",
+        "model_selection": "",
+        "in_feature": "20",
+        "n_classes": "3"
+      },
+      {
+        "user_message": "n_classes=10; in_features=1; model plugins\\models\\c_f_test2.py",
+        "architecture_description": "",
+        "model_selection": "plugins\\models\\c_f_test2.py",
+        "in_feature": "1",
+        "n_classes": "10"
+      },
+      {
+        "user_message": "tabnet.py. thirty-two input features. four classes.",
+        "architecture_description": "",
+        "model_selection": "tabnet.py",
+        "in_feature": "thirty-two",
+        "n_classes": "four"
+      }
+    ],
+    "signature": {
+      "instructions": "Map the user's words into four fields. Copy only what they wrote.\n\nDo not investigate the message, do not assume a missing fact, and do not\ndraw a conclusion the user did not write. Do not add .py and do not turn\ntheir words into Python.\nThe user does not have to say whether they want a new model.\nPut layer wording they wrote in architecture_description.\nPut a model name they wrote in model_selection, copied as written.\nPut the input-feature value they wrote in in_feature, copied as written.\nPut the class-count value they wrote in n_classes, copied as written.\nA number may be digits or words. \"number of input is 1 and number of class is ten\" maps to 1 and ten.\n\"three input channels\" maps to three. \"seven hundred eighty-four\" stays the whole phrase.\nDo not turn a word into a digit, and do not turn a digit into a word.\nLeave a field empty when they did not write that fact.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "The user's words. Copy the model facts they wrote. Do not infer facts they did not write."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Architecture Description:",
+          "description": "Layer wording copied from the user. Empty when they did not write any."
+        },
+        {
+          "prefix": "Model Selection:",
+          "description": "Model name copied as written. Empty when they did not write one."
+        },
+        {
+          "prefix": "In Feature:",
+          "description": "Input-feature value copied as written, such as 1, one, or seven hundred eighty-four."
+        },
+        {
+          "prefix": "N Classes:",
+          "description": "Class-count value copied as written, such as 10, ten, or thirty-two."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

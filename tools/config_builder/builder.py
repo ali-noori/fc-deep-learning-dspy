@@ -72,6 +72,9 @@ def _generated_block_paths() -> dict[str, tuple[Path, ...]]:
             # compatibility with typo in request
             root / "tools" / "sub_config_dspy" / "trainer_dspy" / "outcome" / "output_trainer_dspy.yml",
         ),
+        "train_config": (
+            root / "tools" / "sub_config_dspy" / "train_config_dspy" / "output" / "output_train_config_dspy.yml",
+        ),
     }
 
 

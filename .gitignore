@@ -19,6 +19,12 @@ fc-deep-learning-env-new/
 mnt/
 data/logs/
 data/tests/
+data/tools/config/
+plugins/models/generated_architecture/*.py
+tools/config_builder/output/
+tools/sub_config_dspy/**/output/
+tools/intake/intake_dspy/output/
+tools/intake/intake_model_dspy/output/
 *.log
 *.pt
 
