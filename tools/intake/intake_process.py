@@ -57,7 +57,17 @@ def build_final_intake(
     del merged["model_selection"]
     del merged["in_feature"]
     del merged["n_classes"]
-    empty_keys = [key for key, value in merged.items() if not str(value).strip()]
+    # With an existing model ("No"), these two keys are empty by design.
+    allowed_empty = (
+        {"architecture_description", "new_architecture_name"}
+        if merged["new_architecture"] == "No"
+        else set()
+    )
+    empty_keys = [
+        key
+        for key, value in merged.items()
+        if key not in allowed_empty and not str(value).strip()
+    ]
     if empty_keys:
         raise ValueError("Empty intake key: " + ", ".join(empty_keys))
 
