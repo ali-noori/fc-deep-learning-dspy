@@ -9,7 +9,7 @@ from typing import Any
 
 # Seconds to wait for one backend before trying the next one.
 # Set to None to restore the old wait-forever behavior.
-LLM_CALL_TIMEOUT_S = 180
+LLM_CALL_TIMEOUT_S = 60
 
 from .config import (
     BACKEND_COHERE,

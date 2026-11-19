@@ -25,7 +25,7 @@ tools/config_builder/output/
 tools/sub_config_dspy/**/output/
 tools/intake/intake_dspy/output/
 tools/intake/intake_model_dspy/output/
-tools\intake\output\intake_process.json
+tools/intake/output/intake_process.json
 *.log
 *.pt
 

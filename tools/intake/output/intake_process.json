@@ -1,12 +1,12 @@
 {
-  "execution_mode_dspy": "Federated training on two clients.",
-  "dataset_dspy": "sample_data_cutomized/cross_validation_sample/c1 and sample_data_cutomized/cross_validation_sample/c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.",
-  "hyper_params_dspy": "max_iter: 5. n_class: 10. federated_model: FedAvg.",
+  "execution_mode_dspy": "Federated learning on two clients.",
+  "dataset_dspy": "sample_data_cutomized/MNIST/cross_validation_sample/c1 and sample_data_cutomized/MNIST/cross_validation_sample/c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.",
+  "hyper_params_dspy": "max_iter: 2. n_class: 10. federated_model: FedAvg.",
   "trainer_dspy": "name: BasicTrainer. data_loader: ImageLoader. loss.name: CrossEntropyLoss. n_class: 10.",
   "train_config_dspy": "verbose: false. batch_size: 32. test_batch_size: 32. epochs: 1. lr: 0.1. batch_count: 1.",
-  "architecture_description": "Create a simple CNN like plugins/models/cnn.py for 28x28 images. in_features channels, n_classes classes. Conv2d: in_features->10 kernel=5 no padding. MaxPool2d(2) ReLU. Conv2d: 10->20 kernel=5 no padding. Dropout2d. MaxPool2d(2) ReLU. Flatten to 320. Linear 320->50 ReLU. Dropout. Linear 50->n_classes. log_softmax output.",
-  "new_architecture": "Yes",
-  "new_architecture_name": "c_f_test1",
-  "save_new_architecture": "Yes",
-  "model_dspy": "Use model = c_f_test1 and input_feature = 1 and n_classes = 10"
+  "architecture_description": "",
+  "new_architecture": "No",
+  "new_architecture_name": "",
+  "save_new_architecture": "No",
+  "model_dspy": "Use model = efficientnet_b0.py and input_feature = 1 and n_classes = 10"
 }
