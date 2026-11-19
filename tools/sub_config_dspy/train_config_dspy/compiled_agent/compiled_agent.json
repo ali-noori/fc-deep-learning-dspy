@@ -1,0 +1,523 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "user_message": "- verbose: true\n- batch_size: 64\n- test_batch_size: 64\n- epochs: 2\n- lr: 0.01\n- batch_count: 2",
+        "reasoning": "Not supplied for this particular example.",
+        "verbose": "true",
+        "batch_size": "64",
+        "test_batch_size": "64",
+        "epochs": "2",
+        "lr": "0.01",
+        "batch_count": "2"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose true, batch_size 16, test_batch_size 16, epochs 5, lr 0.001, batch_count 4.",
+        "reasoning": "The user provided specific values for all required fields in a clear and concise manner. No inference or interpretation was needed.",
+        "verbose": "true",
+        "batch_size": "16",
+        "test_batch_size": "16",
+        "epochs": "5",
+        "lr": "0.001",
+        "batch_count": "4"
+      },
+      {
+        "augmented": true,
+        "user_message": "I want verbose logging, batch 128, eval batch also 128, 3 epochs, learning rate 0.1, one FedMMb batch.",
+        "reasoning": "Not supplied for this particular example.",
+        "verbose": "true",
+        "batch_size": "128",
+        "test_batch_size": "128",
+        "epochs": "3",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "Turn verbose on. Use a small laptop batch of 4 for train and test, 1 epoch, lr 0.1, batch_count 1.",
+        "reasoning": "Not supplied for this particular example.",
+        "verbose": "true",
+        "batch_size": "4",
+        "test_batch_size": "4",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "I need print progress (verbose). batch 256 train, 256 test, 4 epochs, step size 0.1, batch_count 8.",
+        "reasoning": "Not supplied for this particular example.",
+        "verbose": "true",
+        "batch_size": "256",
+        "test_batch_size": "256",
+        "epochs": "4",
+        "lr": "0.1",
+        "batch_count": "8"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose: true\nbatch_size: 32\ntest_batch_size: 32\nepochs: 2\nlr: 0.1\nbatch_count: 1",
+        "reasoning": "The user provided the train_config fields directly, so no reasoning is needed.",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose yes, train batch 64, test batch 64, epochs=3, lr=0.0001, batch_count=1",
+        "reasoning": "The user has provided a concise and clear message about the desired training configuration. The fields are explicitly stated, and there are no ambiguities or missing information.",
+        "verbose": "true",
+        "batch_size": "64",
+        "test_batch_size": "64",
+        "epochs": "3",
+        "lr": "0.0001",
+        "batch_count": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose: true\nbatch_size: 32\ntest_batch_size: 32\nepochs: 2\nlr: 0.1\nbatch_count: 1",
+        "reasoning": "The user provided the train_config fields directly, so no reasoning is needed.",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose: true\nbatch_size: 48\ntest_batch_size: 24\nepochs: 6\nlr: 0.05\nbatch_count: 3",
+        "reasoning": "The user provided specific values for all train_config fields. The values are clearly stated and do not require any inference or interpretation.",
+        "verbose": "true",
+        "batch_size": "48",
+        "test_batch_size": "24",
+        "epochs": "6",
+        "lr": "0.05",
+        "batch_count": "3"
+      },
+      {
+        "augmented": true,
+        "user_message": "verbose: true\nbatch_size: 32\ntest_batch_size: 64\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "reasoning": "Not supplied for this particular example.",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "64",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Use quiet mode, 32 for both batches, 1 epoch, learning rate 0.1, and batch_count 1 for FedMMb.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: n\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "I only care about train_config: logging off, 32/32 batches, 1 epoch, lr 0.1, batch_count 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Data is sample_data/c1 with train.npz. train_config: verbose false, batch_size 32, test_batch_size 32, epochs 1, lr 0.1, batch_count 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "- verbose: false\n- batch_size: 20\n- test_batch_size: 20\n- epochs: 8\n- lr: 0.2\n- batch_count: 1",
+        "verbose": "false",
+        "batch_size": "20",
+        "test_batch_size": "20",
+        "epochs": "8",
+        "lr": "0.2",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "FedMMb needs batch_count: 16. Also verbose: false, batch_size: 32, test_batch_size: 32, epochs: 1, lr: 0.1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "16"
+      },
+      {
+        "user_message": "pls batch_size 32, test_batch_size 32, epochs 1, lr 0.1, batch_count 1, verbose no",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: True\nbatch_size: 32\ntest_batch_size: 32\nepochs: 2\nlr: 0.1\nbatch_count: 1",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false, bs=16, test_bs=16, ep=2, learning_rate=0.1, batch_count=1",
+        "verbose": "false",
+        "batch_size": "16",
+        "test_batch_size": "16",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "train_config: verbose=false, batch_size=32, test_batch_size=32, epochs=10, lr=0.01, batch_count=2. Ignore CNN and FedAvg.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "10",
+        "lr": "0.01",
+        "batch_count": "2"
+      },
+      {
+        "user_message": "device: gpu can stay default later. verbose: false\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: on\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Copy these names exactly:\nverbose: false\nbatch_size: 40\ntest_batch_size: 40\nepochs: 1\nlr: 0.1\nbatch_count: 2\nModel name CNN and ImageLoader are not train_config fields.",
+        "verbose": "false",
+        "batch_size": "40",
+        "test_batch_size": "40",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "2"
+      },
+      {
+        "user_message": "verbose: \"false\"\nbatch_size: \"32\"\ntest_batch_size: \"32\"\nepochs: \"1\"\nlr: \"0.1\"\nbatch_count: \"1\"",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Use the same size 48 for train and test batches. verbose false, 1 epoch, lr 0.1, batch_count 1.",
+        "verbose": "false",
+        "batch_size": "48",
+        "test_batch_size": "48",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "max_iter: 5 and n_classes: 10 and FedAvg — ignore those. For train_config: verbose: false, batch_size: 32, test_batch_size: 32, epochs: 1, lr: 0.1, batch_count: 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: 0\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Trainer is BasicTrainer with CrossEntropyLoss. train_config is verbose: true, batch_size: 32, test_batch_size: 32, epochs: 2, lr: 0.1, batch_count: 1.",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "{\"verbose\": false, \"batch_size\": 32, \"test_batch_size\": 32, \"epochs\": 1, \"lr\": 0.1, \"batch_count\": 1}",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Keep logging off, train batch 32, test batch 32, one epoch, learning rate 0.1, batch_count 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "I'd like a laptop-friendly train_config: verbose false, batch_size 32, test_batch_size 32, one local epoch (not max_iter), lr 0.1, batch_count 1. Optimizer SGD is already set in trainer.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose=false batch_size=64 test_batch_size=64 epochs=2 lr=0.01 batch_count=1",
+        "verbose": "false",
+        "batch_size": "64",
+        "test_batch_size": "64",
+        "epochs": "2",
+        "lr": "0.01",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbos: false, bacth_size: 32, test_batch_size: 32, epoochs: 1, lrr: 0.1, batch_count: 1 (meant verbose, batch_size, epochs, lr)",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: False\nbatch: 32\ntest batch: 64\nepochs: 1\nlearning rate: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "64",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Quiet training (no verbose). Mini-batch 8 for train and test. Two local epochs. lr=0.05. batch_count=1.",
+        "verbose": "false",
+        "batch_size": "8",
+        "test_batch_size": "8",
+        "epochs": "2",
+        "lr": "0.05",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false\nbatch_size: 96\ntest_batch_size: 96\nepochs: 4\nlr: 0.001\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "96",
+        "test_batch_size": "96",
+        "epochs": "4",
+        "lr": "0.001",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false\nbatch_size: 8\ntest_batch_size: 8\nepochs: 1\nlr: 0.01\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "8",
+        "test_batch_size": "8",
+        "epochs": "1",
+        "lr": "0.01",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "No logs. Training batch 32, evaluation batch 16, one epoch only, lr=0.1, batch_count=1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "16",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false\nbatch_size: 512\ntest_batch_size: 512\nepochs: 1\nlr: 0.0005\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "512",
+        "test_batch_size": "512",
+        "epochs": "1",
+        "lr": "0.0005",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 1e-3\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.001",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "batch_count: 2\nepochs: 1\nlr: 0.05\nverbose: false\nbatch_size: 32\ntest_batch_size: 32",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.05",
+        "batch_count": "2"
+      },
+      {
+        "user_message": "verbose: off\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Do not confuse with communication rounds. Local epochs: 3. verbose: false, batch_size: 32, test_batch_size: 32, lr: 0.1, batch_count: 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "3",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: 1\nbatch_size: 16\ntest_batch_size: 16\nepochs: 2\nlr: 0.1\nbatch_count: 1",
+        "verbose": "true",
+        "batch_size": "16",
+        "test_batch_size": "16",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: y\nbatch_size: 32\ntest_batch_size: 32\nepochs: 2\nlr: 0.1\nbatch_count: 1",
+        "verbose": "true",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "train_config:\n  verbose: false\n  batch_size: 32\n  test_batch_size: 32\n  epochs: 1\n  lr: 0.1\n  batch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Please do not print training logs. eval_batch 8, train batch 32, epochs 1, learning rate 0.1, batch_count 1.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "8",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "Keep it light: verbose false, batch_size 32, test_batch_size 32, epochs 1, lr 0.1, batch_count 1. Also I'll pick CNN later.",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "epochs 2 ; batch_size 64 ; test_batch_size 32 ; lr 0.001 ; batch_count 1 ; verbose false",
+        "verbose": "false",
+        "batch_size": "64",
+        "test_batch_size": "32",
+        "epochs": "2",
+        "lr": "0.001",
+        "batch_count": "1"
+      },
+      {
+        "user_message": "verbose: false\nbatch_size: 32\ntest_batch_size: 32\nepochs: 1\nlr: 0.1\nbatch_count: 1",
+        "verbose": "false",
+        "batch_size": "32",
+        "test_batch_size": "32",
+        "epochs": "1",
+        "lr": "0.1",
+        "batch_count": "1"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract train_config fields from the developer's answer.\n\nOutputs:\n- verbose: true/false (logging during training)\n- batch_size: positive integer training batch size\n- test_batch_size: positive integer test batch size\n- epochs: positive integer local epochs\n- lr: positive float learning rate\n- batch_count: positive integer (used by FedMMb)\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (dataset paths, model architecture, FedAvg,\n  trainer name), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- Synonyms: verbose / logging / print progress → verbose;\n  batch / train batch / mini-batch → batch_size;\n  test batch / eval batch → test_batch_size;\n  epoch / local epochs → epochs;\n  learning rate / step size → lr;\n  batch_count / mini-batch count / FedMMb batches → batch_count.\n- verbose: true/yes/on → true; false/no/off/quiet → false.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about train_config; may be short, long, messy, incomplete, or misspelled, and may not use exact field names"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verbose:",
+          "description": "Boolean as true or false: whether to print training logs."
+        },
+        {
+          "prefix": "Batch Size:",
+          "description": "Positive integer: training batch size (e.g. 32)."
+        },
+        {
+          "prefix": "Test Batch Size:",
+          "description": "Positive integer: test/eval batch size (e.g. 32)."
+        },
+        {
+          "prefix": "Epochs:",
+          "description": "Positive integer: local training epochs (e.g. 1)."
+        },
+        {
+          "prefix": "Lr:",
+          "description": "Positive float: learning rate (e.g. 0.1)."
+        },
+        {
+          "prefix": "Batch Count:",
+          "description": "Positive integer: batch_count for FedMMb (e.g. 1)."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}
