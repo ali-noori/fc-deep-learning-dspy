@@ -283,7 +283,8 @@ def to_numpy(lst, dtype='float32', skip_obj_dtype=False):
 def average_weights(params):
     n_clients = len(params)
     n_splits = len(params[0])
-    global_weights = [np.array(params[0][0][0], dtype='object') * 0] * n_splits
+    # One separate accumulator per fold ("[x] * n" would share one array between all folds).
+    global_weights = [np.array(params[0][k][0], dtype='object') * 0 for k in range(n_splits)]
     total_n_samples = [0] * n_splits
     for client_models in params:
         for model_counter, (weights, n_samples) in enumerate(client_models):
