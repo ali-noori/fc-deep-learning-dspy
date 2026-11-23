@@ -151,6 +151,26 @@ class Trainer(abc.ABC):
         self.model.train()
         return np.array(prediction, dtype='int'), np.array(y_true, dtype='int')
 
+    def recalibrate_batchnorm(self, dl, max_batches=50):
+        """ Re-estimate the BatchNorm running statistics for the current weights (no learning).
+
+        Only the weights are averaged in federated learning, so the BatchNorm running statistics
+        do not match the aggregated weights. Without this, predict() (eval mode) uses stale statistics.
+        """
+        bns = [m for m in self.model.modules() if isinstance(m, torch.nn.modules.batchnorm._BatchNorm)]
+        momenta = [m.momentum for m in bns]
+        for m in bns:
+            m.reset_running_stats()
+            m.momentum = None  # cumulative average over the batches below
+        self.model.train()
+        with torch.no_grad():
+            for i, batch in enumerate(dl):
+                if i >= max_batches:
+                    break
+                self.model(batch[0].to(device=self.device))
+        for m, momentum in zip(bns, momenta):
+            m.momentum = momentum
+
     @abc.abstractmethod
     def train_on_batch(self, data, targets):
         """ train the network on entire data in one pass

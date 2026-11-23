@@ -154,6 +154,9 @@ class ClientModels:
             return self.model.predict(test_loader)
         return [], []
 
+    def recalibrate_batchnorm(self, train_loader):
+        self.model.recalibrate_batchnorm(train_loader)
+
     def get_optimizer_params(self):
         return self.model.get_optimizer_params()
 

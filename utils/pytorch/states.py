@@ -503,7 +503,8 @@ class WriteResults(AppState, ABC):
         ## Loaded global weight for fold 0 is used for c1 -> fold 0 and c2 -> fold 0
         ## Loaded global weight for fold 1 is used for c1 -> fold 1 and c2 -> fold 1
         # Ali Noori *********************************************************************************
-        self.write_local_test_results(client_model, test_loaders, pred_files, target_files, self.load('weights'))
+        self.write_local_test_results(client_model, test_loaders, pred_files, target_files, self.load('weights'),
+                                      self.load('train_loaders'))
         
         # Ali Noori *********************************************************************************
         # For a given fold (e.g. fold 0), the global weights are aggregated once and broadcast, 
@@ -520,11 +521,17 @@ class WriteResults(AppState, ABC):
             pd.DataFrame(y_pred, columns=['y_pred']).to_csv(pred_file, index=None)
             pd.DataFrame(y_true, columns=['y_true']).to_csv(target_file, index=None)
 
-    def write_local_test_results(self, client_model, test_loaders, pred_files, target_files, weights):
-        for counter, (dl, w, pred_file, target_file) in enumerate(zip(test_loaders, weights, pred_files, target_files)):
+    def write_local_test_results(self, client_model, test_loaders, pred_files, target_files, weights,
+                                 train_loaders=None):
+        for counter, (dl, w, pred_file, target_file, train_dl) in enumerate(
+                zip(test_loaders, weights, pred_files, target_files, train_loaders or [None] * len(test_loaders))):
             if dl is not None:
                 self.log(f"Writing the results for of local test-set #{counter}")
                 client_model.set_weights(w)
+                # BatchNorm statistics are not aggregated; refresh them for the aggregated weights before predicting.
+                # (Callers that pass no train_loaders, e.g. centralized mode, keep the old behaviour.)
+                if train_dl is not None:
+                    client_model.recalibrate_batchnorm(train_dl)
                 y_pred, y_true = client_model.predict(dl)
                 pd.DataFrame(y_pred, columns=['y_pred']).to_csv(pred_file, index=None)
                 pd.DataFrame(y_true, columns=['y_true']).to_csv(target_file, index=None)
