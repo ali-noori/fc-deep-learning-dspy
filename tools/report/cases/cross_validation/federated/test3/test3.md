@@ -7,7 +7,7 @@ Run the agentic layer to build a config and train it with FeatureCloud. Two ways
 | Dataset | `data/sample_data_cutomized/MNIST/cross_validation_sample` (clients `c1`, `c2`; folds `data/0`, `data/1`) |
 | Execution mode | federated |
 | Model | ResNet18 — `plugins/models/pre-trained_models/cnn_architectures/resnet18.py` |
-| Rounds / classes / aggregator | `max_iter` 2, 10 classes, `FedAvg` |
+| Rounds / classes / aggregator | `max_iter` 1, 10 classes, `FedAvg` |
 | Trainer / loader / loss | `BasicTrainer`, `ImageLoader`, `CrossEntropyLoss` |
 | Train config | verbose false, batch 32, test batch 32, epochs 1, lr 0.1, batch_count 1 |
 | Model input | `in_features` 1 (grayscale; the plugin converts it to 3 channels) |
@@ -34,7 +34,7 @@ Paths given to the agents are relative to the `data/` folder, so they do **not**
 
 4. All saved agents already exist in the repo, including `tools/sub_config_dspy/train_config_dspy/compiled_agent/compiled_agent.json`. Both modes load them with `--recompile=False`, so no compile step is needed.
 
-ResNet18 ImageNet weights are downloaded by torchvision inside each client container on the first run, so the containers need internet access. Images are resized to 224×224, so training is slow on CPU. Use `max_iter` 1 for a quick smoke run.
+ResNet18 ImageNet weights are downloaded by torchvision inside each client container on the first run, so the containers need internet access. Images are resized to 224×224, so training is slow on CPU. `max_iter` is 1 (a single communication round), so this is already a quick smoke run.
 
 ## Mode 1 — GUI
 
@@ -47,7 +47,7 @@ python -m tools.intake.intake_dspy.cli --recompile=False
 ```text
 Federated learning on two clients: sample_data_cutomized/MNIST/cross_validation_sample/c1 and sample_data_cutomized/MNIST/cross_validation_sample/c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.
 
-max_iter: 2. n_class: 10. federated_model: FedAvg.
+max_iter: 1. n_class: 10. federated_model: FedAvg.
 
 name: BasicTrainer. data_loader: ImageLoader. loss.name: CrossEntropyLoss. n_class: 10.
 
@@ -97,7 +97,7 @@ Each agent asks one question. Paste the answer after `You:`.
 | --- | --- | --- |
 | 1 | `execution_mode_dspy` | `federated` |
 | 2 | `dataset_dspy` | `I use two clients: sample_data_cutomized/MNIST/cross_validation_sample/c1 and sample_data_cutomized/MNIST/cross_validation_sample/c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.` |
-| 3 | `hyper_params_dspy` | `max_iter: 2 n_class: 10 federated_model: FedAvg` |
+| 3 | `hyper_params_dspy` | `max_iter: 1 n_class: 10 federated_model: FedAvg` |
 | 4 | `Do you want to generate a new model? (Yes/No)` | `No` |
 | 5 | `model_dspy` | `name: resnet18.py n_class: 10 in_features: 1` |
 | 6 | `trainer_dspy` | `name: BasicTrainer data_loader: ImageLoader loss.name: CrossEntropyLoss n_class: 10` |
@@ -112,7 +112,7 @@ Every agent must print `Agent: Okay!`. If one prints an error, stop and start ag
 Before answering the question, open `tools/config_builder/output/federated/federated_config.yml`. It must contain:
 
 ```yaml
-fed_hyper_params: {max_iter: 2, n_classes: 10, federated_model: FedAvg}
+fed_hyper_params: {max_iter: 1, n_classes: 10, federated_model: FedAvg}
 trainer: {name: BasicTrainer, data_loader: ImageLoader, loss: {name: CrossEntropyLoss}}
 train_config: {verbose: false, batch_size: 32, test_batch_size: 32, epochs: 1, lr: 0.1, batch_count: 1}
 model: {name: plugins/models/pre-trained_models/cnn_architectures/resnet18.py, n_classes: 10, in_features: 1}

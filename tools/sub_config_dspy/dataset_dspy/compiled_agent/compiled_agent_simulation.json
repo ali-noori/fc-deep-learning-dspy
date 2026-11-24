@@ -1,0 +1,289 @@
+{
+  "extract.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "user_message": "D:\\UH\\Thesis\\FC\\fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data_simulation with fake clients c1,c2 ; train_dataset_file_name train.npz ; test_dataset_file_name test.npz ; logic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "root ...\\data\\sample_data_simulation ; clients c1,c2 ; train.npz ; test.npz ; logic data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "root sample_data_simulation, clients c1,c2, train.npz test.npz, logic data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir: sample_data_simulation\nclient_dirs: c1,c2\ntrain_dataset_file_name: train.npy\ntest_dataset_file_name: test.npy\nlogic_dir: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir=sample_data_simulation; client_dirs=c1,c2,c3; train=train.npy; test=test.npy; logic_dir=data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2,c3",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have one sim data directory data\\sample_data_simulation and clients c1,c2. fle names train.npz amd test.npz. logic directorz named data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "IMPORTANT: both files are npz — train.npz and test.npz (not npy). sim root sample_data_simulation, clients c1,c2, logic directorz data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Data directory: sample_data_simulation\nClient folders:\n  c1\n  c2\nFilenames: train.npz and test.npz inside each fold. logic_dir = data.",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls sim mode. data_dir sample_data_simulation. cleints: c1 c2. trian.npz test.npz. lgic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sim root: D:\\UH\\Thesis\\FC\\data\\sample_data_simulation\nclients: client_a, client_b\ntrain: train.npz\ntest: test.npz\nlogic: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "client_a,client_b",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sample_data_simulation + c1/c2 + train.npz + test.npz + data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sim folder data/sample_data_simulation, clients c1 c2, files train.npy and test.npy, logic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "My MNIST simulation data uses logic dir `data`, My data directory is sample_data_simulation, train.npz / test.npz per fold, clients at c1 and c2.",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "dry-run FL locally. parent dir ./sample_data_simulation. pretend clients named c1 and c2. train file /exports/train.npz, test file /exports/test.npz. logic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir: C:/FC/project/data/sample_data_simulation\nclient_dir1: C:/FC/project/data/sample_data_simulation/c1\nclient_dir2: C:/FC/project/data/sample_data_simulation/c2\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "parent fc-deep-learning-master/data/sample_data_simulation, clients c1 and c2, train=train.npz, test=test.npz, logic_dir=data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "i need simual... simulation. folder sample_data_simulation. clients c1 and c2. train.np... train.npz and test.npz. logic da... data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "pls sim root sample_data_simulation, clients c1 c2. trian.npz and test.npz. lgic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I use one directory: sample_data_simulation. I use two clients: c1 and c2. Train file is train.npz, test file is test.npz. The split folder under mnt/input is data.",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I want to run this in simualtion and use sample_data_simulation with fake clients c1 and c2, same train.npz/test.npz, logic_dir data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Not real remote clients — simulate two parties as subfolders c1 and c2 inside sample_data_simulation. Use train.npz for training splits and test.npz for testing. Keep logic_dir = data.",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "repo path .../data/sample_data_simulation with clients c1 and c2. train.npz / test.npz. logic data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Before real federated clients, emulate them under sample_data_simulation with folders c1, c2, c3. Each fold uses X_train.npz and X_test.npz. logic_dir is data. Model can wait.",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2,c3",
+        "train_dataset_file_name": "X_train.npz",
+        "test_dataset_file_name": "X_test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "sample_data_simulation + c1,c2: train.npz for train, test.npy for test (test.npy misspelled; should be test.npz). logic=data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "- data_dir: sample_data_simulation\n- cleint_dir1: c1\n- cleint_dir2: c2\n- train_dataset_file_name: train.npy\n- test_dataset_file_name: test.npy\n- logic_dir: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npy",
+        "test_dataset_file_name": "test.npy",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir: sample_data_simulation\nclient_dir1: c1\nclient_dir2: c2\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "Three-party client setup:\ndata_dir: sample_data_simulation\nclient_dir1: c1\nclient_dir2: c2\nclient_dir3: c3\ntrain_dataset_file_name: train.npz\ntest_dataset_file_name: test.npz\nlogic_dir: data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2,c3",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "local fake multi-client: parent folder datasets/sim_root, subclients alpha and beta, files train.csv / test.csv, logic_dir data",
+        "data_dir": "datasets/sim_root",
+        "client_dirs": "alpha,beta",
+        "train_dataset_file_name": "train.csv",
+        "test_dataset_file_name": "test.csv",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "I have simulation data directory fc-deep-learning-master\\fc-deep-learning-master\\data\\sample_data_simulation with clients c1 and c2. The fle named for train and test are train.npz amd test.npz and the logic directorz named data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.npz",
+        "test_dataset_file_name": "test.npz",
+        "logic_dir": "data"
+      },
+      {
+        "user_message": "data_dir sample_data_simulation\nclient_dir1=c1 client_dir2=c2\ntrain_dataset_file_name=train.pt\ntest_dataset_file_name=test.pt\nlogic_dir=data",
+        "data_dir": "sample_data_simulation",
+        "client_dirs": "c1,c2",
+        "train_dataset_file_name": "train.pt",
+        "test_dataset_file_name": "test.pt",
+        "logic_dir": "data"
+      }
+    ],
+    "signature": {
+      "instructions": "Extract simulation dataset layout fields from the developer's answer.\n\nSimulation means one parent data_dir plus local fake client subfolders (not real remote clients).\n\nDecision rules:\n- Ignore typos, informal wording, and incomplete phrasing; infer the intended values.\n- If the user mentions unrelated extras (model, loss, etc.), ignore them.\n- Do not invent missing required fields; only extract what is stated or clearly implied.\n- data_dir is the parent simulation root relative to the FeatureCloud mounted data/ directory.\n  Absolute .../data/<rest> → output <rest>\n  (e.g. .../data/sample_data_simulation → sample_data_simulation).\n  Already relative → keep it. Strip leading ./. No drive letters or full host paths.\n- client_dirs are local fake client folder names under that root (e.g. c1,c2). If the user\n  gives full paths, output only the client folder names (basenames), comma-separated.\n- train/test values must be file names only (basename), never directories and never prefixed with data/.\n  Keep the exact basename stem the user stated. For the common pair train.npz/test.npz: if the user\n  writes train.npz but mistypes the other as test.npy (or the reverse), correct the mistyped one to .npz.\n  Only keep .npy when the user clearly intends numpy files (e.g. both train.npy and test.npy).\n- logic_dir is the folder name under mnt/input (often \"data\"), not a host path and not part of train/test.",
+      "fields": [
+        {
+          "prefix": "User Message:",
+          "description": "Developer natural-language answer about simulation dataset layout; may be short, long, messy, incomplete, or misspelled, and may not use exact field names; may include long project paths containing \\data\\..."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Data Dir:",
+          "description": "Parent simulation directory relative to the FeatureCloud data/ mount (e.g. sample_data_simulation), not an absolute host path"
+        },
+        {
+          "prefix": "Client Dirs:",
+          "description": "Comma-separated local fake client folder names under data_dir (e.g. c1,c2), usually basenames rather than full host paths"
+        },
+        {
+          "prefix": "Train Dataset File Name:",
+          "description": "Train file name only (e.g. train.npz). Correct common .npy typos to .npz when the user meant the standard npz pair; not a full path."
+        },
+        {
+          "prefix": "Test Dataset File Name:",
+          "description": "Test file name only (e.g. test.npz). If user wrote test.npy but train is train.npz as a misspelling of the usual pair, output test.npz; not a full path."
+        },
+        {
+          "prefix": "Logic Dir:",
+          "description": "Folder name under mnt/input that contains split subfolders (e.g. data)."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.3.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}
