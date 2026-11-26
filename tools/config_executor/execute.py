@@ -14,7 +14,7 @@ import yaml
 
 MODES = ("federated", "centralized", "simulation")
 
-_DEFAULT_APP_IMAGE = "featurecloud.ai/fc_deep_networks1"
+_DEFAULT_APP_IMAGE = "featurecloud.ai/fc_deep_v1"
 _DEFAULT_CONTROLLER_HOST = "http://localhost:8000"
 
 # Staged under repo data/; FeatureCloud controller mounts host data/ as /data.

@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from tools.artifact_discovery import ArtifactDiscovery
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import HyperParamsPipeline
@@ -50,7 +50,7 @@ def main() -> int:
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the hyper_params_dspy value from intake_process.json.",
     )
@@ -65,12 +65,12 @@ def main() -> int:
         repo_root=_REPO_ROOT,
     ).discover()
 
-    if not args.from_intake:
+    if not args.from_gui:
         print(f"Agent: {pipeline.HYPER_PARAMS_QUESTION}")
     if valid_aggregators:
         print(f"Agent: Discovered aggregator plugins: {valid_aggregators}")
     try:
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_hyper_params_message()
         else:
             user_input = input("You: ").strip()

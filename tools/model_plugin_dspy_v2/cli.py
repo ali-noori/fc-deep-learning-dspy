@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import ModelPluginV2Pipeline
@@ -76,14 +76,14 @@ def main() -> int:
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the architecture_description value from intake_process.json.",
     )
     args = parser.parse_args()
 
     try:
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_architecture_message()
         else:
             print(f"Agent: {ARCHITECTURE_QUESTION}")

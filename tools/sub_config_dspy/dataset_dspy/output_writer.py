@@ -60,7 +60,7 @@ class DatasetOutputWriter:
             "execution_mode": execution_mode,
             "data_dir": config.data_dir,
             "simulation": {
-                "clients_dir": ", ".join(config.client_dirs),
+                "clients_dir": ",".join(config.client_dirs),
             },
             "local_dataset": {
                 "train": config.train_dataset_file_name,

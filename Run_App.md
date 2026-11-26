@@ -251,19 +251,19 @@ All three assume the same image and controller; only paths and config differ.
 **Federated:**
 
 ```powershell
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data/c1,sample_data/c2" --generic-dir "sample_data/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data/c1,sample_data/c2" --generic-dir "sample_data/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 **Simulation:**
 
 ```powershell
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data_simulation" --generic-dir "sample_data_simulation/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data_simulation" --generic-dir "sample_data_simulation/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 **Centralized:**
 
 ```powershell
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data_centralized" --generic-dir "sample_data_centralized/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data_centralized" --generic-dir "sample_data_centralized/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 ---
@@ -285,7 +285,7 @@ cd "C:\FC\fc-deep-learning-master\fc-deep-learning-master"
 **3. Build Docker image**
 
 ```powershell
-featurecloud app build . featurecloud.ai/fc_deep_networks1
+featurecloud app build . featurecloud.ai/fc_deep_v1
 ```
 
 **4. Start controller** (skip if already running)
@@ -320,7 +320,7 @@ data/sample_data/
 
 ```powershell
 cd "C:\FC\fc-deep-learning-master\fc-deep-learning-master\data"
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data/c1,sample_data/c2" --generic-dir "sample_data/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data/c1,sample_data/c2" --generic-dir "sample_data/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 **What to expect in logs:** `Local Update`, `Global Aggregation`, communication rounds across containers.
@@ -351,7 +351,7 @@ data/sample_data_simulation/
 
 ```powershell
 cd "C:\FC\fc-deep-learning-master\fc-deep-learning-master\data"
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data_simulation" --generic-dir "sample_data_simulation/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data_simulation" --generic-dir "sample_data_simulation/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 **What to expect in logs:** `Simulation mode`, `Communication round`, `Client #1` / `Client #2` (no cross-container `Local Update` / `Global Aggregation`).
@@ -378,7 +378,7 @@ data/sample_data_centralized/
 
 ```powershell
 cd "C:\FC\fc-deep-learning-master\fc-deep-learning-master\data"
-featurecloud test start --app-image featurecloud.ai/fc_deep_networks1 --client-dirs "sample_data_centralized" --generic-dir "sample_data_centralized/mnist/generic" --controller-host "http://localhost:8000"
+featurecloud test start --app-image featurecloud.ai/fc_deep_v1 --client-dirs "sample_data_centralized" --generic-dir "sample_data_centralized/mnist/generic" --controller-host "http://localhost:8000"
 ```
 
 **What to expect in logs:** `Centralized mode`, `Training model #0`, `Training model #1`, then result writing. No communication rounds and no separate client containers.

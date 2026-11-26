@@ -6,7 +6,7 @@ import argparse
 import json
 import sys
 
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import DatasetPipeline
@@ -50,7 +50,7 @@ def main() -> int:
         ),
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the dataset_dspy value from intake_process.json.",
     )
@@ -70,20 +70,20 @@ def main() -> int:
     pipeline = DatasetPipeline(settings=settings, recompile=args.recompile)
 
     if execution_mode == "federated":
-        if not args.from_intake:
+        if not args.from_gui:
             print(f"Agent: {pipeline.DATASET_QUESTION_FEDERATED}")
     elif execution_mode == "centralized":
-        if not args.from_intake:
+        if not args.from_gui:
             print(f"Agent: {pipeline.DATASET_QUESTION_CENTRALIZED}")
     elif execution_mode == "simulation":
-        if not args.from_intake:
+        if not args.from_gui:
             print(f"Agent: {pipeline.DATASET_QUESTION_SIMULATION}")
     else:
         raise ValueError(f"Unknown execution mode: {execution_mode}")
     
     
     try:
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_dataset_message()
         else:
             user_input = input("You: ").strip()

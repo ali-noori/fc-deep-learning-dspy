@@ -23,9 +23,10 @@ data/tools/config/
 plugins/models/generated_architecture/*.py
 tools/config_builder/output/
 tools/sub_config_dspy/**/output/
-tools/intake/intake_dspy/output/
-tools/intake/intake_model_dspy/output/
-tools/intake/output/intake_process.json
+tools/prompt_extraction/experiment_splitter_dspy/output/
+tools/prompt_extraction/model_extractor_dspy/output/
+tools/prompt_extraction/output/intake_process.json
+data/site_info.json
 *.log
 *.pt
 

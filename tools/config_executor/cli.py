@@ -18,7 +18,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--app-image",
-        default="featurecloud.ai/fc_deep_networks1",
+        default="featurecloud.ai/fc_deep_v1",
         help="FeatureCloud app image.",
     )
     parser.add_argument(

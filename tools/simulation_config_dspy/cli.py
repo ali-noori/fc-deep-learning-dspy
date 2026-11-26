@@ -12,7 +12,7 @@ from typing import Literal
 
 from tools.artifact_discovery import ArtifactDiscovery
 from tools.config_builder.builder import build_config, resolve_execution_mode, write_generated_config
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 # Distinguishes which step a Yes/No question belongs to: generating a new
 # custom model vs. saving that generated model as a reusable plugin file.
@@ -127,7 +127,7 @@ def main() -> int:
         help="Forwarded to dataset, hyper-params, model, trainer, and train-config agents.",
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Forward the intake values to dataset, hyper-params, model, trainer, and train-config agents.",
     )
@@ -145,8 +145,8 @@ def main() -> int:
         ]
         if args.recompile is not None:
             cmd.append(f"--recompile={args.recompile}")
-        if args.from_intake:
-            cmd.append("--from-intake")
+        if args.from_gui:
+            cmd.append("--from-gui")
         return cmd
 
     # 1.run dataset_dspy to create dataset part of the simulation mode config file
@@ -163,7 +163,7 @@ def main() -> int:
     
     # 2.5. ask user if they want to generate a new model
     try:
-        if args.from_intake:
+        if args.from_gui:
             generate_model = _intake_yes("new_architecture")
         else:
             generate_model = _ask_yes_no(
@@ -174,10 +174,10 @@ def main() -> int:
             model_plugin_cmd = [sys.executable, "-m", "tools.model_plugin_dspy_v2.cli"]
             if args.recompile is not None:
                 model_plugin_cmd.append(f"--recompile={args.recompile}")
-            if args.from_intake:
-                model_plugin_cmd.append("--from-intake")
+            if args.from_gui:
+                model_plugin_cmd.append("--from-gui")
             subprocess.run(model_plugin_cmd, check=False)
-            if args.from_intake:
+            if args.from_gui:
                 save_model = _intake_yes("save_new_architecture")
             else:
                 save_model = _ask_yes_no(
@@ -185,7 +185,7 @@ def main() -> int:
                     question_type="save_model",
                 )
             if save_model:
-                if args.from_intake:
+                if args.from_gui:
                     _save_reusable_model(_intake_value("new_architecture_name"))
                 else:
                     _save_reusable_model()

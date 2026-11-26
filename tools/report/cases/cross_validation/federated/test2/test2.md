@@ -1,45 +1,25 @@
 # Test 2 — Federated cross-validation, MobileNetV3-Small
 
-Run the agentic layer to build a config and train it with FeatureCloud. Two ways to start: **Mode 1 (GUI)** or **Mode 2 (step-by-step agents)**. Both give the same config.
+Run the agentic layer to build a config and train it with FeatureCloud in **federated mode**. Two ways to start: **Mode 1 (GUI)** or **Mode 2 (step-by-step agents)**. Both give the same config.
+
+Federated runs **two** FeatureCloud containers, one per client (`c1`, `c2`). They exchange model weights every round and the coordinator averages them per fold (FedAvg).
 
 | Setting | Value |
 | --- | --- |
-| Dataset | `data/sample_data_cutomized/MNIST/cross_validation_sample` (clients `c1`, `c2`; folds `data/0`, `data/1`) |
-| Execution mode | federated |
+| Dataset | `data/sample_data_cutomized/MNIST/cross_validation_sample` (clients `c1`, `c2`; each has the folds `data/0` and `data/1`) |
+| Execution mode | federated (two containers, one per client) |
 | Model | MobileNetV3-Small — `plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py` |
-| Rounds / classes / aggregator | `max_iter` 1, 10 classes, `FedAvg` |
+| Rounds / classes / aggregator | `max_iter` 1 (communication rounds), 10 classes, `FedAvg` |
 | Trainer / loader / loss | `BasicTrainer`, `ImageLoader`, `CrossEntropyLoss` |
 | Train config | verbose false, batch 32, test batch 32, epochs 1, lr 0.1, batch_count 1 |
 | Model input | `in_features` 1 (grayscale; the plugin converts it to 3 channels) |
 
 Paths given to the agents are relative to the `data/` folder, so they do **not** start with `data/`.
 
-## Before you start (once)
-
-1. Open PowerShell:
-
-   ```powershell
-   & "C:\UH\Thesis\FC\fc-deep-learning-env-zenbook\Scripts\Activate.ps1"
-   cd "C:\UH\Thesis\FC\fc-deep-learning-master\fc-deep-learning-master"
-   ```
-
-2. Start Docker Desktop, then build the app image and start the controller (see `Run_App.md`; skip what is already done):
-
-   ```powershell
-   featurecloud app build . featurecloud.ai/fc_deep_networks1
-   featurecloud controller start --port=8000
-   ```
-
-3. API keys must be in `tools/keys_secrets.py`.
-
-4. All saved agents already exist in the repo, including `tools/sub_config_dspy/train_config_dspy/compiled_agent/compiled_agent.json`. Both modes load them with `--recompile=False`, so no compile step is needed.
-
-MobileNetV3-Small ImageNet weights are downloaded by torchvision inside each client container on the first run, so the containers need internet access. Images are resized to 224×224, so training is slow on CPU. `max_iter` is 1 (a single communication round), so this is already a quick smoke run.
-
 ## Mode 1 — GUI
 
 ```powershell
-python -m tools.intake.intake_dspy.cli --recompile=False
+python -m tools.prompt_extraction.experiment_splitter_dspy.cli --recompile=False
 ```
 
 **Window 1 — "Please enter you prompt".** Paste, then click **Next**:
@@ -64,26 +44,7 @@ Leave both radio buttons on **No** and the name field empty. Click **Start**.
 
 No more input is needed until the final `Are you sure you want to run this command? (yes/no)`. Go to **Check and run**.
 
-### Mode 1 on a server without a screen (temporary workaround)
-
-The two windows need a screen, so run them on your laptop and run the rest on the server.
-
-1. **Laptop:** do the Mode 1 steps above (command, Window 1, Window 2). When the windows are done, the terminal prints `Agent: wrote ...intake_process.json`. The file now exists, so stop with `Ctrl+C` (or type `no` at the final question).
-2. **Laptop:** copy the file to the same place in the repo on the server:
-
-   ```powershell
-   scp tools\intake\output\intake_process.json <user>@<server>:<path-to-repo>/tools/intake/output/
-   ```
-
-3. **Server:** activate the venv, go to the repo folder, and run:
-
-   ```bash
-   python -m tools.execution_mode_dspy.cli --from-intake --recompile=False
-   ```
-
-   This reads the file and runs the same agents as Mode 1, with no questions. It ends with the `yes/no` question. Go to **Check and run**.
-
-The server does not need `tkinter`. It does need the repo, the dataset folders, the saved agents (they are tracked in git, so run `git pull` there), `tools/keys_secrets.py`, Docker and the controller.
+On a server without a screen the windows cannot open there. Use Mode 2, or run the windows on your laptop as described in `tools/report/setup.md`, section B.4.
 
 ## Mode 2 — Step-by-step agents
 
@@ -118,9 +79,24 @@ train_config: {verbose: false, batch_size: 32, test_batch_size: 32, epochs: 1, l
 model: {name: plugins/models/pre-trained_models/cnn_architectures/mobilenetv3_small.py, n_classes: 10, in_features: 1}
 ```
 
-(`local_dataset` has `train.npz` / `test.npz`; `logic` has `mode: directory`, `dir: data`.)
+(`local_dataset` has `train.npz` / `test.npz`; `logic` has `mode: directory`, `dir: data`; there is **no** `simulation` key and **no** `centralized` key.)
 
-Type `yes` to run FeatureCloud. When the run finishes, the executor prints accuracy per client and fold; run `python tools/report/report_accuracy.py` to print it again. Type `no` to stop after the config exists.
+The executor has already copied the config to `data/tools/config/config.yml` when it asks the question, and that staged copy is the one FeatureCloud uses. Check there that the model line shows only `mobilenetv3_small.py` (the executor removed the `plugins/...` path) and that `mobilenetv3_small.py` is in the same folder.
+
+Then type `yes` to run FeatureCloud. The printed command must contain `--app-image featurecloud.ai/fc_deep_v1`, `--client-dirs sample_data_cutomized/MNIST/cross_validation_sample/c1,sample_data_cutomized/MNIST/cross_validation_sample/c2` (two paths, comma-separated) and `--generic-dir tools/config`. Type `no` to stop after the config exists.
+
+### What to expect
+
+- Two client containers. The log shows the states `Local Update` and `Global Aggregation` and the communication round counter.
+- FedAvg runs per fold: fold 0 of `c1` + fold 0 of `c2` give the new global model for fold 0; the same for fold 1. Fold 0 and fold 1 are never mixed.
+- When the run finishes, the executor prints the accuracy per client and fold. Run `python tools/report/report_accuracy.py` to print it again. Expect **two zips** (`client_0`, `client_1`) and **four rows** (`data/0` and `data/1` for each client), each with `n=1500` test images. Result layout (one zip per client):
+
+```text
+output/
+  config.yml
+  data/0/  y_pred.csv  y_test.csv  model.pt
+  data/1/  y_pred.csv  y_test.csv  model.pt
+```
 
 If Windows blocks FeatureCloud, see `tools/report/troubleshoot.md`.
 

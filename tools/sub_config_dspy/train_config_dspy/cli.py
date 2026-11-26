@@ -6,7 +6,7 @@ import argparse
 import json
 import sys
 
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import TrainConfigPipeline
@@ -44,7 +44,7 @@ def main() -> int:
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the train_config_dspy value from intake_process.json.",
     )
@@ -53,10 +53,10 @@ def main() -> int:
     settings = load_settings()
     pipeline = TrainConfigPipeline(settings=settings, recompile=args.recompile)
 
-    if not args.from_intake:
+    if not args.from_gui:
         print(f"Agent: {pipeline.TRAIN_CONFIG_QUESTION}")
     try:
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_train_config_message()
         else:
             user_input = input("You: ").strip()

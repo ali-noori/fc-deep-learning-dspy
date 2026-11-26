@@ -7,7 +7,7 @@ import json
 import subprocess
 import sys
 
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings, resolve_recompile
 from .pipeline import WorkflowPipeline
@@ -25,7 +25,7 @@ def _intake_execution_message() -> str:
     return message
 
 
-def _activate_next_agent(execution_mode: str, recompile: bool, from_intake: bool) -> None:
+def _activate_next_agent(execution_mode: str, recompile: bool, from_gui: bool) -> None:
     """Run the config agent for this execution mode (python -m tools.<agent>.cli)."""
     mode = execution_mode.strip().lower()
     recompile_flag = f"--recompile={recompile}"
@@ -47,8 +47,8 @@ def _activate_next_agent(execution_mode: str, recompile: bool, from_intake: bool
         mode,
         recompile_flag,
     ]
-    if from_intake:
-        command.append("--from-intake")
+    if from_gui:
+        command.append("--from-gui")
     subprocess.run(command, check=False)
 
     # run config_executor to execute the final config file
@@ -82,7 +82,7 @@ def main() -> int:
         ),
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the execution_mode_dspy value from intake_process.json.",
     )
@@ -98,7 +98,7 @@ def main() -> int:
     pipeline = WorkflowPipeline(settings=settings, recompile=recompile)
 
     try:
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_execution_message()
         else:
             print(f"Agent: {pipeline.MODE_QUESTION}")
@@ -135,7 +135,7 @@ def main() -> int:
     )
 
     # based on the predicted mode, one of the federated, simulation or centrlized mode paths will be selected
-    _activate_next_agent(result["execution_mode"], recompile, args.from_intake)
+    _activate_next_agent(result["execution_mode"], recompile, args.from_gui)
     return 0
 
 

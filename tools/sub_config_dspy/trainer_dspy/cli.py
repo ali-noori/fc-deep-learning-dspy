@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from tools.artifact_discovery import ArtifactDiscovery
-from tools.intake.intake_process import INTAKE_PROCESS_PATH
+from tools.prompt_extraction.intake_process import INTAKE_PROCESS_PATH
 
 from .config import load_settings
 from .pipeline import TrainerPipeline
@@ -57,7 +57,7 @@ def main() -> int:
         help="--recompile=True: compile and save. --recompile=False: load saved agent.",
     )
     parser.add_argument(
-        "--from-intake",
+        "--from-gui",
         action="store_true",
         help="Use the trainer_dspy value from intake_process.json.",
     )
@@ -66,7 +66,7 @@ def main() -> int:
     settings = load_settings()
     pipeline = TrainerPipeline(settings=settings, recompile=args.recompile)
 
-    if not args.from_intake:
+    if not args.from_gui:
         print(f"Agent: {pipeline.TRAINER_QUESTION}")
     try:
         
@@ -92,7 +92,7 @@ def main() -> int:
         if valid_losses:
             print(f"Agent: Discovered loss plugins: {valid_losses}")
 
-        if args.from_intake:
+        if args.from_gui:
             user_input = _intake_trainer_message()
         else:
             user_input = input("You: ").strip()

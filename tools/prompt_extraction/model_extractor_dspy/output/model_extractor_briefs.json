@@ -1,6 +1,0 @@
-{
-  "architecture_description": "",
-  "model_selection": "efficientnet_b0.py",
-  "in_feature": "1",
-  "n_classes": "10"
-}
