@@ -6,3 +6,4 @@ test_federated.py
 eval.py
 mnt/*
 data/*
+tools/server_secrets.py

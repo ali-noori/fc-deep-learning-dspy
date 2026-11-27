@@ -1,6 +1,7 @@
 # Secrets
 tools/local_secrets.py
 tools/keys_secrets.py
+tools/server_secrets.py
 .env
 .env.*
 
