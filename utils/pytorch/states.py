@@ -571,7 +571,7 @@ class Centralized(LocalUpdate, GlobalAggregation, WriteResults, ABC):
         self.write_central_test_results(client_model, central_test_loader, central_pred_file, central_target_file,
                                         trained_models)
         self.write_local_test_results(client_model, test_loaders, self.load('output_files')['pred'],
-                                      self.load('output_files')['target'], trained_models)
+                                      self.load('output_files')['target'], trained_models, train_loaders)
         self.write_dnn_models(client_model, self.load('output_files')['model'], trained_models)
         self.update(message="Finished!")
 
@@ -697,7 +697,8 @@ class Simulation(Initialization, LocalUpdate, GlobalAggregation, WriteResults, A
                                 self.data_loaders[client]['test_loaders'],
                                 pred_files,
                                 target_files,
-                                weights)
+                                weights,
+                                self.data_loaders[client]['train_loaders'])
 
     def load_clients_data(self, data_cv_folds, dl, client_model=None):
         self.data_loaders = []
