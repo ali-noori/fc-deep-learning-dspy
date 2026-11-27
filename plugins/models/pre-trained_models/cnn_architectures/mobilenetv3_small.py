@@ -16,19 +16,37 @@ class Model(nn.Module) with __init__(self, n_classes, in_features) and forward(s
   pretrained backbone as a fixed feature extractor.
 """
 
+from pathlib import Path
+
+import torch
 import torch.nn as nn
 import torchvision.models as models
+
+_WEIGHTS_FILE = "mobilenetv3_small-047dcff4.pth"
+
+
+def _empty_mobilenet_v3_small():
+    try:
+        return models.mobilenet_v3_small(weights=None)
+    except TypeError:
+        return models.mobilenet_v3_small(pretrained=False)
+
+
+def _load_local_imagenet(backbone):
+    path = Path(__file__).resolve().parent / _WEIGHTS_FILE
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Local MobileNetV3-Small weights not found: {path}"
+        )
+    backbone.load_state_dict(torch.load(path, map_location="cpu"))
 
 
 class Model(nn.Module):
     def __init__(self, n_classes, in_features):
         super(Model, self).__init__()
 
-        try:
-            weights = models.MobileNet_V3_Small_Weights.IMAGENET1K_V1
-            self.backbone = models.mobilenet_v3_small(weights=weights)
-        except Exception:
-            self.backbone = models.mobilenet_v3_small(pretrained=True)
+        self.backbone = _empty_mobilenet_v3_small()
+        _load_local_imagenet(self.backbone)
 
         for param in self.backbone.parameters():
             param.requires_grad = False

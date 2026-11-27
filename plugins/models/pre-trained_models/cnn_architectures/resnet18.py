@@ -15,19 +15,37 @@ class Model(nn.Module) with __init__(self, n_classes, in_features) and forward(s
   pretrained backbone as a fixed feature extractor.
 """
 
+from pathlib import Path
+
+import torch
 import torch.nn as nn
 import torchvision.models as models
+
+_WEIGHTS_FILE = "resnet18-f37072fd.pth"
+
+
+def _empty_resnet18():
+    try:
+        return models.resnet18(weights=None)
+    except TypeError:
+        return models.resnet18(pretrained=False)
+
+
+def _load_local_imagenet(backbone):
+    path = Path(__file__).resolve().parent / _WEIGHTS_FILE
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"Local ResNet18 weights not found: {path}"
+        )
+    backbone.load_state_dict(torch.load(path, map_location="cpu"))
 
 
 class Model(nn.Module):
     def __init__(self, n_classes, in_features):
         super(Model, self).__init__()
 
-        try:
-            weights = models.ResNet18_Weights.IMAGENET1K_V1
-            self.backbone = models.resnet18(weights=weights)
-        except Exception:
-            self.backbone = models.resnet18(pretrained=True)
+        self.backbone = _empty_resnet18()
+        _load_local_imagenet(self.backbone)
 
         for param in self.backbone.parameters():
             param.requires_grad = False
